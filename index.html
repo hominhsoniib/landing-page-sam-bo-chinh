@@ -5,18 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sâm Bố Chính – Thảo Dược Quý Giúp Bồi Bổ Cơ Thể</title>
     
-    <!-- SEO & Performance -->
     <meta name="description" content="Sâm Bố Chính - Giải pháp bồi bổ cơ thể, tăng sức đề kháng. 100% tự nhiên, đạt chuẩn sạch. Phù hợp cho người suy nhược, lớn tuổi.">
     
-    <!-- Fonts: Poppins (Heading) & Roboto (Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     
-    <!-- Icons (FontAwesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Tailwind CSS (Figma Design System Config) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -85,10 +81,7 @@
         .animate-pulse-cro { animation: pulse-ring 2s infinite; }
     </style>
 </head>
-<body class="antialiased pb-[80px] lg:pb-0"> <!-- Padding bottom cho mobile sticky CTA -->
-
-    <!-- ================= HEADER TỐI GIẢN ================= -->
-    <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+<body class="antialiased pb-[80px] lg:pb-0"> <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
         <div class="container mx-auto px-4 lg:px-120 py-3 flex justify-between items-center max-w-[1440px]">
             <div class="text-2xl font-heading font-bold text-primary flex items-center gap-2">
                 <i class="fa-solid fa-leaf text-secondary"></i> SÂM BỐ CHÍNH
@@ -97,11 +90,9 @@
         </div>
     </header>
 
-    <!-- ================= 1. HERO SECTION (Above The Fold) ================= -->
     <section class="relative bg-white pt-24 pb-16 lg:pt-32 lg:pb-24 lg:min-h-[700px] flex items-center overflow-hidden border-b border-gray-100">
         <div class="container mx-auto px-4 lg:px-120 max-w-[1440px]">
             <div class="flex flex-col lg:flex-row items-center gap-12">
-                <!-- TEXT BÊN TRÁI (60%) -->
                 <div class="w-full lg:w-[60%] space-y-6 z-10 text-center lg:text-left">
                     <div class="inline-flex items-center gap-2 bg-lightgreen text-primary px-4 py-1.5 rounded-full font-bold text-sm">
                         <i class="fa-solid fa-check-circle"></i> 100% Tự nhiên - Trồng theo tiêu chuẩn sạch
@@ -120,12 +111,11 @@
                     </div>
                 </div>
                 
-                <!-- HÌNH ẢNH BÊN PHẢI (40%) -->
                 <div class="w-full lg:w-[40%] relative mt-8 lg:mt-0">
                     <div class="absolute inset-0 bg-secondary rounded-full opacity-20 blur-3xl transform scale-125 -z-10"></div>
+                    
                     <img src="vuon-sam-bo-chinh.jpg" alt="Sâm Bố Chính Savina Tây Ninh" class="w-full h-[400px] lg:h-[500px] object-cover rounded-2xl shadow-card">
                     
-                    <!-- Badge Trust Overlay -->
                     <div class="absolute bottom-6 -left-4 lg:-left-10 bg-white p-4 rounded-xl shadow-card flex items-center gap-3">
                         <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center text-dark text-lg">
                             <i class="fa-solid fa-shield-halved"></i>
@@ -140,14 +130,14 @@
         </div>
     </section>
 
-    <!-- ================= 2. GIỚI THIỆU SẢN PHẨM (ZIGZAG LAYOUT) ================= -->
     <section class="py-20 bg-bg">
         <div class="container mx-auto px-4 lg:px-120 max-w-[1440px] space-y-16">
             
-            <!-- Frame 1: Image Trái - Text Phải -->
             <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
                 <div class="w-full lg:w-1/2">
+                    
                     <img src="san-pham-sam-bo-chinh.jpg" alt="Sâm Bố Chính Savina Tây Ninh" class="w-full h-[350px] object-cover rounded-2xl shadow-card">
+                    
                 </div>
                 <div class="w-full lg:w-1/2 space-y-4">
                     <h2 class="text-[32px] font-heading font-bold text-dark">Sâm Bố Chính là gì?</h2>
@@ -158,7 +148,6 @@
                 </div>
             </div>
 
-            <!-- Frame 2: Text Trái - Image Phải (Zigzag) -->
             <div class="flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-16">
                 <div class="w-full lg:w-1/2 space-y-4 bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
                     <h2 class="text-[32px] font-heading font-bold text-dark">Điểm khác biệt nổi bật</h2>
@@ -178,13 +167,14 @@
                     </ul>
                 </div>
                 <div class="w-full lg:w-1/2">
+                    
                     <img src="cu-sam-bo-chinh.jpg" alt="Sâm Bố Chính Savina" class="w-full h-[350px] object-cover rounded-2xl shadow-card">
+                    
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ================= 3. CÔNG DỤNG (GRID 2x3 LAYOUT) ================= -->
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4 lg:px-120 max-w-[1440px]">
             <div class="text-center mb-12">
@@ -192,9 +182,7 @@
                 <p class="text-gray-600">Giải pháp tự nhiên – an toàn – hiệu quả lâu dài</p>
             </div>
 
-            <!-- Auto Layout + Grid 6 Items -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Item 1 -->
                 <div class="bg-bg p-6 rounded-xl hover:bg-lightgreen transition duration-300 group border border-gray-100">
                     <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center text-primary text-2xl mb-4 shadow-sm group-hover:scale-110 transition">
                         <i class="fa-solid fa-shield-virus"></i>
@@ -202,7 +190,6 @@
                     <h3 class="text-[20px] font-heading font-bold text-dark mb-2">Tăng sức đề kháng</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">Giảm mệt mỏi, bảo vệ cơ thể khỏi bệnh vặt.</p>
                 </div>
-                <!-- Item 2 -->
                 <div class="bg-bg p-6 rounded-xl hover:bg-lightgreen transition duration-300 group border border-gray-100">
                     <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center text-primary text-2xl mb-4 shadow-sm group-hover:scale-110 transition">
                         <i class="fa-solid fa-bed"></i>
@@ -210,7 +197,6 @@
                     <h3 class="text-[20px] font-heading font-bold text-dark mb-2">Ngủ ngon, ăn tốt</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">Hỗ trợ tiêu hóa, mang lại giấc ngủ sâu tự nhiên.</p>
                 </div>
-                <!-- Item 3 -->
                 <div class="bg-bg p-6 rounded-xl hover:bg-lightgreen transition duration-300 group border border-gray-100">
                     <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center text-primary text-2xl mb-4 shadow-sm group-hover:scale-110 transition">
                         <i class="fa-solid fa-heart-pulse"></i>
@@ -218,7 +204,6 @@
                     <h3 class="text-[20px] font-heading font-bold text-dark mb-2">Bồi bổ cơ thể</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">Đặc biệt hiệu quả cho người suy nhược, sau bệnh.</p>
                 </div>
-                <!-- Item 4 -->
                 <div class="bg-bg p-6 rounded-xl hover:bg-lightgreen transition duration-300 group border border-gray-100">
                     <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center text-primary text-2xl mb-4 shadow-sm group-hover:scale-110 transition">
                         <i class="fa-solid fa-fire-flame-curved"></i>
@@ -226,7 +211,6 @@
                     <h3 class="text-[20px] font-heading font-bold text-dark mb-2">Tăng cường sinh lý</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">Hỗ trợ cải thiện sinh lý nam nữ một cách tự nhiên.</p>
                 </div>
-                <!-- Item 5 -->
                 <div class="bg-bg p-6 rounded-xl hover:bg-lightgreen transition duration-300 group border border-gray-100">
                     <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center text-primary text-2xl mb-4 shadow-sm group-hover:scale-110 transition">
                         <i class="fa-solid fa-person-walking-with-cane"></i>
@@ -234,7 +218,6 @@
                     <h3 class="text-[20px] font-heading font-bold text-dark mb-2">Tốt cho người cao tuổi</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">Giúp xương khớp chắc khỏe, tinh thần minh mẫn.</p>
                 </div>
-                <!-- Item 6 -->
                 <div class="bg-bg p-6 rounded-xl hover:bg-lightgreen transition duration-300 group border border-gray-100">
                     <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center text-primary text-2xl mb-4 shadow-sm group-hover:scale-110 transition">
                         <i class="fa-solid fa-brain"></i>
@@ -246,10 +229,8 @@
         </div>
     </section>
 
-    <!-- ================= 4. CHỨNG NHẬN / NIỀM TIN ================= -->
     <section class="py-16 bg-bg border-y border-gray-200">
         <div class="container mx-auto px-4 lg:px-120 max-w-[1440px]">
-            <!-- Auto Layout Ngang (Logos) -->
             <div class="flex flex-wrap justify-center items-center gap-8 md:gap-20 mb-12">
                 <div class="flex items-center gap-2 text-xl font-heading font-bold text-gray-400 grayscale hover:grayscale-0 hover:text-primary transition duration-300 cursor-pointer">
                     <i class="fa-solid fa-certificate text-4xl"></i> CHUẨN ISO
@@ -262,9 +243,10 @@
                 </div>
             </div>
 
-            <!-- Ảnh lớn (Vườn sâm) -->
             <div class="relative rounded-2xl overflow-hidden shadow-card h-[300px] lg:h-[450px]">
+                
                 <img src="https://images.unsplash.com/photo-1593714604561-1b2c453531fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1440&q=80" alt="" class="w-full h-full object-cover">
+                
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8 text-white">
                     <h3 class="text-[24px] font-heading font-bold">Quy trình trồng & thu hoạch đạt chuẩn sạch</h3>
                     <p class="text-sm mt-2 opacity-90">Cam kết nói KHÔNG với hóa chất độc hại</p>
@@ -273,7 +255,6 @@
         </div>
     </section>
 
-    <!-- ================= 5. REVIEW KHÁCH HÀNG (SLIDER) ================= -->
     <section class="py-20 bg-white">
         <div class="container mx-auto pl-4 pr-0 lg:px-120 max-w-[1440px]">
             <div class="mb-10 text-center lg:text-left pr-4">
@@ -281,13 +262,13 @@
                 <p class="text-gray-600 mt-2">Hơn 5.000+ khách hàng đã tin dùng sản phẩm</p>
             </div>
 
-            <!-- Horizontal Scroll Slider -->
             <div class="flex overflow-x-auto hide-scrollbar gap-6 pb-8 snap-x pr-4">
                 
-                <!-- Card Review Component 1 -->
                 <div class="min-w-[320px] max-w-[350px] bg-bg p-6 rounded-2xl snap-center border border-gray-100">
                     <div class="flex items-center gap-4 mb-4">
+                        
                         <img src="https://i.pravatar.cc/150?img=68" alt="" class="w-12 h-12 rounded-full object-cover">
+                        
                         <div>
                             <h4 class="font-bold text-dark text-sm">Chú Hoàng Lân</h4>
                             <div class="text-secondary text-xs mt-1">
@@ -298,10 +279,11 @@
                     <p class="text-gray-600 text-sm leading-relaxed italic">"Dùng 2 tuần thấy ăn ngon, ngủ sâu hơn rõ rệt. Người già như tôi giờ không còn đau mỏi mỗi khi thức dậy nữa."</p>
                 </div>
 
-                <!-- Card Review Component 2 -->
                 <div class="min-w-[320px] max-w-[350px] bg-bg p-6 rounded-2xl snap-center border border-gray-100">
                     <div class="flex items-center gap-4 mb-4">
+                        
                         <img src="https://i.pravatar.cc/150?img=32" alt="" class="w-12 h-12 rounded-full object-cover">
+                        
                         <div>
                             <h4 class="font-bold text-dark text-sm">Chị Mai Trâm</h4>
                             <div class="text-secondary text-xs mt-1">
@@ -312,10 +294,11 @@
                     <p class="text-gray-600 text-sm leading-relaxed italic">"Mua cho ba mẹ dùng, thấy sức khỏe cải thiện tốt lắm. Da dẻ hồng hào, ba tôi khen trà sâm uống rất thơm và mát."</p>
                 </div>
 
-                <!-- Card Review Component 3 -->
                 <div class="min-w-[320px] max-w-[350px] bg-bg p-6 rounded-2xl snap-center border border-gray-100">
                     <div class="flex items-center gap-4 mb-4">
+                        
                         <img src="https://i.pravatar.cc/150?img=11" alt="" class="w-12 h-12 rounded-full object-cover">
+                        
                         <div>
                             <h4 class="font-bold text-dark text-sm">Anh Quốc Đạt</h4>
                             <div class="text-secondary text-xs mt-1">
@@ -329,7 +312,6 @@
         </div>
     </section>
 
-    <!-- ================= 6. SẢN PHẨM & GIÁ (CARD GRID) ================= -->
     <section id="san-pham" class="py-24 bg-bg">
         <div class="container mx-auto px-4 lg:px-120 max-w-[1440px]">
             <div class="text-center mb-16">
@@ -342,9 +324,10 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center mt-8">
                 
-                <!-- Product Card 1: Sâm Tươi -->
                 <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm flex flex-col h-full">
+                    
                     <img src="https://images.unsplash.com/photo-1556228578-8d89cb350125?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="" class="w-full h-[200px] object-cover rounded-xl mb-4">
+                    
                     <h3 class="text-[20px] font-heading font-bold text-dark">Sâm Tươi Nguyên Củ</h3>
                     <p class="text-sm text-gray-500 mt-2 mb-6 flex-grow">Dùng để ngâm rượu, ngâm mật ong hoặc hầm canh bổ dưỡng.</p>
                     <div class="border-t border-gray-100 pt-4 mb-6">
@@ -353,12 +336,13 @@
                     <a href="#dat-hang" class="w-full py-3 border border-primary text-primary font-bold text-center rounded-lg hover:bg-primary hover:text-white transition">Chọn Mua</a>
                 </div>
 
-                <!-- Product Card 2: BEST SELLER (Scale 1.1x / 110%) -->
                 <div class="bg-white rounded-2xl p-6 border-2 border-secondary shadow-card relative transform lg:scale-110 z-10 flex flex-col h-full">
                     <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-secondary text-dark font-bold px-4 py-1.5 rounded-full text-sm shadow-md whitespace-nowrap">
                         ⭐ BEST SELLER - MUA 2 TẶNG 1
                     </div>
+                    
                     <img src="https://images.unsplash.com/photo-1608681283620-3ac2f347df2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="" class="w-full h-[200px] object-cover rounded-xl mb-4 mt-2">
+                    
                     <h3 class="text-[20px] font-heading font-bold text-dark">Sâm Khô Cao Cấp</h3>
                     <p class="text-sm text-gray-500 mt-2 mb-6 flex-grow">Thái lát sấy lạnh, tiện lợi pha trà hoặc ngâm nhanh. Giữ nguyên 100% dược tính.</p>
                     <div class="border-t border-gray-100 pt-4 mb-6">
@@ -368,9 +352,10 @@
                     <a href="#dat-hang" class="btn-primary w-full shadow-md animate-pulse-cro text-center block">MUA NGAY - SỐ LƯỢNG CÓ HẠN</a>
                 </div>
 
-                <!-- Product Card 3: Trà Sâm -->
                 <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm flex flex-col h-full">
+                    
                     <img src="https://images.unsplash.com/photo-1576092762791-dd9e2220c477?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="" class="w-full h-[200px] object-cover rounded-xl mb-4">
+                    
                     <h3 class="text-[20px] font-heading font-bold text-dark">Trà Sâm Tiện Lợi</h3>
                     <p class="text-sm text-gray-500 mt-2 mb-6 flex-grow">Dạng túi lọc dễ sử dụng, uống thay nước hàng ngày thanh lọc cơ thể.</p>
                     <div class="border-t border-gray-100 pt-4 mb-6">
@@ -383,7 +368,6 @@
         </div>
     </section>
 
-    <!-- ================= 7. CAM KẾT (LAYOUT NGANG) ================= -->
     <section class="bg-lightgreen py-8 border-y border-green-200">
         <div class="container mx-auto px-4 lg:px-120 max-w-[1440px]">
             <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12 text-center md:text-left">
@@ -405,11 +389,9 @@
         </div>
     </section>
 
-    <!-- ================= 8. CTA CHỐT ĐƠN & FORM ================= -->
     <section id="dat-hang" class="py-24 bg-primary px-4 lg:px-120 relative overflow-hidden">
         <div class="container mx-auto max-w-[1440px] relative z-10 flex flex-col lg:flex-row items-center gap-12">
             
-            <!-- Text lớn (Trắng) -->
             <div class="w-full lg:w-1/2 text-white text-center lg:text-left">
                 <h2 class="text-3xl lg:text-[40px] font-heading font-bold leading-tight mb-6">Đừng bỏ lỡ cơ hội chăm sóc sức khỏe cho bản thân & gia đình!</h2>
                 <p class="text-green-100 text-lg mb-8">Điền form bên cạnh để nhận tư vấn miễn phí. Bạn hoàn toàn yên tâm khi sử dụng sản phẩm của chúng tôi.</p>
@@ -422,7 +404,6 @@
                 </div>
             </div>
             
-            <!-- Form Đặt Hàng -->
             <div class="w-full lg:w-1/2 max-w-md mx-auto">
                 <div class="bg-white p-8 rounded-2xl shadow-2xl relative">
                     <div class="absolute -top-3 -right-3 bg-red-500 text-white w-12 h-12 flex items-center justify-center rounded-full font-bold shadow-lg transform rotate-12">
@@ -430,7 +411,6 @@
                     </div>
                     <h3 class="text-[24px] font-heading font-bold text-dark text-center mb-6">ĐĂNG KÝ MUA HÀNG</h3>
                     
-                    <!-- Form đã được gắn ID và Name chuẩn -->
                     <form id="orderForm" name="submit-to-google-sheet" class="space-y-4">
                         <div>
                             <input type="text" name="hoTen" id="hoTen" placeholder="Họ và tên *" required class="w-full px-4 py-3 bg-bg border border-gray-200 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition text-sm">
@@ -447,12 +427,10 @@
                             </select>
                         </div>
                         
-                        <!-- Đổi type="button" thành type="submit" -->
                         <button type="submit" id="submitBtn" class="btn-primary w-full text-lg mt-2 animate-pulse-cro">
                             ĐẶT HÀNG NGAY
                         </button>
                         
-                        <!-- Thẻ div để hiển thị thông báo thành công/thất bại -->
                         <div id="formMessage" class="text-center mt-3 text-sm hidden"></div>
                     </form>
                     
@@ -462,12 +440,10 @@
         </div>
     </section>
 
-    <!-- ================= 9. FAQ (ACCORDION) ================= -->
     <section class="py-20 bg-bg">
         <div class="container mx-auto px-4 lg:px-120 max-w-[800px]">
             <h2 class="text-[32px] font-heading font-bold text-center text-dark mb-10">Câu Hỏi Thường Gặp</h2>
             
-            <!-- Component Toggle -->
             <div class="space-y-4">
                 <div class="bg-white rounded-xl shadow-sm border border-gray-100">
                     <button class="faq-btn w-full px-6 py-4 text-left font-bold text-dark flex justify-between items-center focus:outline-none">
@@ -502,7 +478,6 @@
         </div>
     </section>
 
-    <!-- ================= 10. FOOTER ================= -->
     <footer class="bg-dark pt-16 pb-8 border-t-4 border-primary">
         <div class="container mx-auto px-4 lg:px-120 max-w-[1440px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div class="lg:col-span-2 text-white">
@@ -534,7 +509,6 @@
         </div>
     </footer>
 
-    <!-- ================= MOBILE UI: STICKY BOTTOM BUTTON ================= -->
     <div class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 p-3 z-50 lg:hidden flex gap-3 shadow-[0_-10px_20px_rgba(0,0,0,0.05)]">
         <a href="tel:0900XXXXXX" class="flex-1 bg-lightgreen text-primary font-bold py-3 rounded-lg flex items-center justify-center gap-2 border border-primary/20">
             <i class="fa-solid fa-phone"></i> Gọi ngay
@@ -544,7 +518,6 @@
         </a>
     </div>
 
-    <!-- Script xử lý Accordion FAQ & Gửi Form Google Sheets -->
     <script>
         // 1. Script cho phần FAQ
         document.querySelectorAll('.faq-btn').forEach(button => {
