@@ -618,8 +618,11 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
 
     <!-- Video Selector Tabs -->
     <div class="mt-8 flex flex-wrap justify-center items-center gap-2 sm:gap-3 reveal" id="videoTabs">
-      <button data-vkey="drive1" class="vtab-btn active-vtab inline-flex items-center gap-1.5 rounded-xl2 bg-green700 text-white font-display font-semibold text-xs sm:text-sm px-4 py-2.5 shadow-soft transition cursor-pointer">
-        <span>🎬</span> Clip Giới Thiệu BDF
+      <button data-vkey="v2" class="vtab-btn active-vtab inline-flex items-center gap-1.5 rounded-xl2 bg-green700 text-white font-display font-semibold text-xs sm:text-sm px-4 py-2.5 shadow-soft transition cursor-pointer">
+        <span>🎬</span> Clip Giới Thiệu BDF (v2)
+      </button>
+      <button data-vkey="drive1" class="vtab-btn inline-flex items-center gap-1.5 rounded-xl2 bg-surface2 text-textsoft hover:text-green900 font-display font-semibold text-xs sm:text-sm px-4 py-2.5 transition cursor-pointer">
+        <span>☁️</span> Clip Drive HD
       </button>
       <button data-vkey="yt1" class="vtab-btn inline-flex items-center gap-1.5 rounded-xl2 bg-surface2 text-textsoft hover:text-green900 font-display font-semibold text-xs sm:text-sm px-4 py-2.5 transition cursor-pointer">
         <span>▶</span> Phim Tư Liệu BDF (Tập 1)
@@ -644,7 +647,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
     <!-- Responsive Video Container -->
     <div class="mt-6 reveal">
       <div id="videoContainer" class="relative rounded-2xl overflow-hidden ring-1 ring-borderc shadow-soft bg-black aspect-video max-w-4xl mx-auto">
-        <iframe id="mainYoutubePlayer" src="https://drive.google.com/file/d/1lQ98cuk9g9F1Z-tGCG-XCeadLIdcQqw9/preview" title="Video Giới Thiệu Bà Đen Farm" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <video id="mainVideoPlayer" controls autoplay preload="metadata" poster="images/ghep-vuon-sam.png" class="w-full h-full object-contain"><source src="videos/clips-gioi-thieu-bdf-v2.mp4" type="video/mp4" />Trình duyệt của bạn không hỗ trợ phát video HTML5.</video>
       </div>
       <div class="mt-4 text-center text-xs text-textfaint flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
         <span>📹 Độ phân giải: Full HD 1080p</span>
@@ -1534,7 +1537,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
         btn.className = 'vtab-btn active-vtab inline-flex items-center gap-1.5 rounded-xl2 bg-green700 text-white font-display font-semibold text-xs sm:text-sm px-4 py-2.5 shadow-soft transition cursor-pointer';
 
         var key = btn.getAttribute('data-vkey');
-        var url = vids[key] || vids['drive1'] || vids['yt1'];
+        var url = vids[key] || vids['v2'] || vids['drive1'] || vids['yt1'];
 
         if (url.includes('youtube.com') || url.includes('youtu.be') || url.includes('drive.google.com')) {
           var embedUrl = url;

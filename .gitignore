@@ -3,6 +3,7 @@ videos/sam-bo-chinh-tay-ninh-full.mp4
 CLIPs BDF/
 *.mp4
 !videos/sam-bo-chinh-tay-ninh-30s.mp4
+!videos/clips-gioi-thieu-bdf-v2.mp4
 
 # Temp & OS files
 .DS_Store

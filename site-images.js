@@ -149,6 +149,9 @@ window.SITE_IMAGES = {
  * ============================================================
  */
 window.SITE_VIDEOS = {
+  // Video Clip Giới Thiệu BDF v2 (MP4 trực tiếp HD)
+  "v2": "videos/clips-gioi-thieu-bdf-v2.mp4",
+
   // Video Google Drive Giới Thiệu Bà Đen Farm
   "drive1": "https://drive.google.com/file/d/1lQ98cuk9g9F1Z-tGCG-XCeadLIdcQqw9/preview",
 
