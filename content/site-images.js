@@ -155,6 +155,9 @@ window.SITE_IMAGES = {
  * ============================================================
  */
 window.SITE_VIDEOS = {
+  // Video Google Drive Giới Thiệu Bà Đen Farm
+  "drive1": "https://drive.google.com/file/d/1lQ98cuk9g9F1Z-tGCG-XCeadLIdcQqw9/preview",
+
   // 5 Video YouTube tư liệu chính thức từ Bà Đen Farm (Trích xuất từ Clip.docx)
   "yt1": "https://www.youtube.com/embed/wtxXklOBhgE",
   "yt2": "https://www.youtube.com/embed/-vmvlboyWPQ",
