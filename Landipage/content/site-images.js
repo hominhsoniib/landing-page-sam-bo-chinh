@@ -28,6 +28,10 @@ window.SITE_IMAGES = {
     src: "images/VUON SAM BC.jpg",
     alt: "Vườn Sâm Bố Chính phủ xanh ngát tại Bà Đen Farm"
   },
+  "gioi-thieu-infographic": {
+    src: "images/gioi-thieu-infographic.jpg",
+    alt: "Infographic Giới thiệu Công ty CP Bà Đen Farm — Sâm Việt cho sức khỏe Việt"
+  },
 
   // 3. Ảnh Nhà hàng Ẩm thực Sâm Bà Đen (#am-thuc)
   "am-thuc-visual": {
