@@ -35,6 +35,12 @@ window.SITE_IMAGES = {
     alt: "Không gian trưng bày & trải nghiệm Ẩm thực Sâm Bà Đen chân núi Bà Đen"
   },
 
+  // 3.5. Infographic 6 Lợi ích sức khỏe (#loi-ich)
+  "loi-ich-infographic": {
+    src: "images/loi-ich-sbc.png",
+    alt: "6 Lợi ích sức khỏe vượt trội của Sâm Bố Chính Bà Đen Farm"
+  },
+
   // 4. Ảnh Hoạt động trải nghiệm nông trại (#trai-nghiem)
   "trai-nghiem-nong-trai": {
     src: "images/HS hái hoa sâm 2.jpg",
