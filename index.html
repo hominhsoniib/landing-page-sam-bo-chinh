@@ -134,7 +134,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
       <span class="grid place-items-center w-9 h-9 rounded-xl2 bg-green700 text-white font-display font-bold">B</span>
       <span class="font-display font-bold text-green900 leading-tight">Bà Đen Farm<span class="block text-[10px] font-medium text-textsoft tracking-wide">SÂM BỐ CHÍNH · TÂY NINH</span></span>
     </a>
-    <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-textsoft">
+    <nav class="hidden md:flex items-center gap-5 lg:gap-6 text-sm font-medium text-textsoft">
       <a href="#su-menh" class="hover:text-green700">Sứ mệnh</a>
       <a href="#tam-nhin" class="hover:text-green700">Tầm nhìn</a>
       <a href="#gioi-thieu" class="hover:text-green700">Giới thiệu</a>
@@ -145,11 +145,60 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
       <a href="#san-pham" class="hover:text-green700">Sản phẩm</a>
       <a href="#vung-trong" class="hover:text-green700">Vùng trồng</a>
       <a href="#dai-ly" class="hover:text-green700">Đại lý</a>
+
+      <!-- MENU ĐỐI TÁC DROPDOWN -->
+      <div class="relative group cursor-pointer py-1">
+        <button class="inline-flex items-center gap-1 hover:text-green700 focus:outline-none font-medium">
+          <span>Đối tác</span>
+          <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div class="absolute left-0 top-full pt-1.5 hidden group-hover:block z-50 min-w-[220px]">
+          <div class="bg-surface rounded-xl2 shadow-soft border border-borderc p-1.5">
+            <a href="https://landing-page-sam-bo-chinh.vercel.app/#tam-nhin" class="flex items-center gap-2.5 px-3 py-2 text-xs font-semibold text-green900 hover:bg-green100 rounded-lg transition">
+              <span class="text-base">🏢</span>
+              <span>Cty CP Bà Đen Farm</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
       <a href="#faq" class="hover:text-green700">FAQ</a>
     </nav>
-    <a href="#lien-he" class="inline-flex items-center gap-2 rounded-xl2 bg-gold600 text-green900 font-display font-semibold text-sm px-4 py-2 shadow-soft hover:brightness-105">
-      Đặt hàng / Tư vấn
-    </a>
+    <div class="flex items-center gap-2">
+      <a href="#lien-he" class="inline-flex items-center gap-2 rounded-xl2 bg-gold600 text-green900 font-display font-semibold text-sm px-4 py-2 shadow-soft hover:brightness-105">
+        Đặt hàng / Tư vấn
+      </a>
+      <!-- Button Mobile Menu Toggle -->
+      <button id="mobileMenuBtn" class="md:hidden p-2 text-textsoft hover:text-green700 focus:outline-none" aria-label="Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <div id="mobileMenu" class="hidden md:hidden bg-surface border-b border-borderc px-4 pt-2 pb-4 space-y-2 text-sm font-medium text-textsoft">
+    <a href="#su-menh" class="block py-1.5 hover:text-green700">Sứ mệnh</a>
+    <a href="#tam-nhin" class="block py-1.5 hover:text-green700">Tầm nhìn</a>
+    <a href="#gioi-thieu" class="block py-1.5 hover:text-green700">Giới thiệu</a>
+    <a href="#video-gioi-thieu" class="block py-1.5 hover:text-green700">Video BDF</a>
+    <a href="#am-thuc" class="block py-1.5 hover:text-green700">Ẩm thực Sâm</a>
+    <a href="#loi-ich" class="block py-1.5 hover:text-green700">Lợi ích</a>
+    <a href="#truy-xuat" class="block py-1.5 hover:text-green700">Truy xuất QR</a>
+    <a href="#san-pham" class="block py-1.5 hover:text-green700">Sản phẩm</a>
+    <a href="#vung-trong" class="block py-1.5 hover:text-green700">Vùng trồng</a>
+    <a href="#dai-ly" class="block py-1.5 hover:text-green700">Đại lý</a>
+    <details class="group py-1">
+      <summary class="flex justify-between items-center cursor-pointer font-semibold text-green900 py-1">
+        <span>🤝 Đối tác</span>
+        <span class="text-xs transition-transform group-open:rotate-180">▼</span>
+      </summary>
+      <div class="pl-4 pt-1 space-y-1">
+        <a href="https://landing-page-sam-bo-chinh.vercel.app/#tam-nhin" class="block py-1 text-xs font-medium text-green700 hover:underline">
+          🏢 Cty CP Bà Đen Farm
+        </a>
+      </div>
+    </details>
+    <a href="#faq" class="block py-1.5 hover:text-green700">FAQ</a>
   </div>
 </header>
 
@@ -1392,6 +1441,22 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
         grid.innerHTML = html + (cta ? cta.outerHTML : '');
       })
       .catch(function(){ /* giữ placeholder tĩnh */ });
+  })();
+
+  // Toggle mobile menu
+  (function(){
+    var btn = document.getElementById('mobileMenuBtn');
+    var menu = document.getElementById('mobileMenu');
+    if (btn && menu) {
+      btn.addEventListener('click', function(){
+        menu.classList.toggle('hidden');
+      });
+      menu.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          menu.classList.add('hidden');
+        });
+      });
+    }
   })();
 </script>
 </body>
