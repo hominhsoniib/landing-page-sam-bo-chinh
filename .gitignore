@@ -1,0 +1,12 @@
+# Large video files exceeding GitHub 100MB limit
+videos/sam-bo-chinh-tay-ninh-full.mp4
+CLIPs BDF/
+*.mp4
+!videos/sam-bo-chinh-tay-ninh-30s.mp4
+
+# Temp & OS files
+.DS_Store
+Thumbs.db
+*.log
+node_modules/
+scratch/
