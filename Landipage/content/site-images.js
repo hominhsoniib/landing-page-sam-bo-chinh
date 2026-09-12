@@ -47,6 +47,12 @@ window.SITE_IMAGES = {
     alt: "Sứ mệnh Bà Đen Farm - Vì sức khỏe cộng đồng, lan tỏa giá trị dược liệu Việt"
   },
 
+  // 3.7. Infographic Tầm nhìn Bà Đen Farm (#tam-nhin)
+  "tam-nhin-infographic": {
+    src: "images/tam-nhin.png",
+    alt: "Tầm nhìn Bà Đen Farm - Phục vụ cộng đồng trên khắp cả nước & Lan tỏa giá trị Sâm Việt"
+  },
+
   // 4. Ảnh Hoạt động trải nghiệm nông trại (#trai-nghiem)
   "trai-nghiem-nong-trai": {
     src: "images/HS hái hoa sâm 2.jpg",
