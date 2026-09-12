@@ -32,6 +32,14 @@ window.SITE_IMAGES = {
     src: "images/gioi-thieu-infographic.jpg",
     alt: "Infographic Giới thiệu Công ty CP Bà Đen Farm — Sâm Việt cho sức khỏe Việt"
   },
+  "giay-chung-nhan-haccp": {
+    src: "images/giay-chung-nhan-haccp.jpg",
+    alt: "Giấy chứng nhận Hệ thống Quản lý An toàn Thực phẩm HACCP TCVN 5603:2023"
+  },
+  "giay-chung-nhan-sp-tieu-bieu": {
+    src: "images/giay-chung-nhan-sp-tieu-bieu.jpg",
+    alt: "Giấy chứng nhận Sản phẩm Công nghiệp Nông thôn Tiêu biểu cấp Khu vực — Trà túi lọc Sâm Bố Chính"
+  },
 
   // 3. Ảnh Nhà hàng Ẩm thực Sâm Bà Đen (#am-thuc)
   "am-thuc-visual": {
