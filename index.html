@@ -105,6 +105,7 @@
   details>summary::-webkit-details-marker{ display:none; }
   details[open] .faq-ic{ transform:rotate(45deg); }
   a{ text-decoration:none; }
+  section img:not(header img):not(footer img) { cursor: zoom-in; }
   @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior:auto; }
     .reveal{ opacity:1 !important; transform:none !important; transition:none !important; }
@@ -1226,10 +1227,77 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   </div>
 </div>
 
+<!-- Modal Fullscreen Lightbox Xem Ảnh Chi Tiết (Full Màn Hình) -->
+<div id="imageLightboxModal" class="fixed inset-0 z-[110] hidden items-center justify-center p-3 sm:p-6 bg-black/90 backdrop-blur-md transition-all duration-300 opacity-0" onclick="if(event.target===this || event.target.id==='imageLightboxModal') closeImageLightbox()">
+  <div class="relative max-w-6xl w-full max-h-[95vh] flex flex-col items-center justify-center my-auto">
+    <button onclick="closeImageLightbox()" aria-label="Đóng xem ảnh" class="absolute -top-12 right-0 sm:right-2 grid place-items-center w-10 h-10 rounded-full bg-white/20 text-white hover:bg-red600 text-xl font-bold transition cursor-pointer z-10 shadow-lg">✕</button>
+    <div class="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-gold600/40 bg-black/60 p-1.5 flex items-center justify-center">
+      <img id="lightboxImg" src="" alt="" class="max-h-[85vh] max-w-full w-auto h-auto object-contain rounded-xl shadow-2xl transition duration-300" />
+    </div>
+    <p id="lightboxCaption" class="mt-3 text-center text-xs sm:text-sm text-white/90 font-display font-semibold max-w-3xl px-5 py-2 rounded-full bg-black/70 backdrop-blur-md border border-white/10 shadow-lg"></p>
+  </div>
+</div>
+
 <!-- Cấu hình ảnh trang chủ — sửa ảnh ở đây, KHÔNG cần sửa file này -->
 <script src="content/site-images.js"></script>
 
 <script>
+  // Global Image Lightbox (Phóng to mọi hình ảnh khi click full màn hình)
+  (function(){
+    var modal = document.getElementById('imageLightboxModal');
+    var imgEl = document.getElementById('lightboxImg');
+    var capEl = document.getElementById('lightboxCaption');
+
+    window.openImageLightbox = function(src, alt) {
+      if (!modal || !imgEl || !src) return;
+      imgEl.src = src;
+      imgEl.alt = alt || '';
+      if (capEl) {
+        if (alt && alt.trim() && !alt.startsWith('http')) {
+          capEl.textContent = alt;
+          capEl.classList.remove('hidden');
+        } else {
+          capEl.textContent = 'Công ty CP Bà Đen Farm — Sâm Bố Chính Tây Ninh';
+          capEl.classList.remove('hidden');
+        }
+      }
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      setTimeout(function(){
+        modal.classList.remove('opacity-0');
+        modal.classList.add('opacity-100');
+      }, 10);
+    };
+
+    window.closeImageLightbox = function() {
+      if (!modal) return;
+      modal.classList.remove('opacity-100');
+      modal.classList.add('opacity-0');
+      setTimeout(function(){
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }, 200);
+    };
+
+    document.addEventListener('click', function(e) {
+      var target = e.target;
+      if (target && target.tagName === 'IMG') {
+        if (target.closest('header') || target.closest('footer') || target.hasAttribute('onclick') || target.classList.contains('no-lightbox')) {
+          return;
+        }
+        var src = target.src;
+        var alt = target.alt || target.title || '';
+        if (src) {
+          openImageLightbox(src, alt);
+        }
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeImageLightbox();
+    });
+  })();
+
   // Certificate Modal Logic
   function openCertModal(type) {
     var modal = document.getElementById('certModal');

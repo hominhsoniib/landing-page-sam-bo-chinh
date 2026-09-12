@@ -105,6 +105,7 @@
   details>summary::-webkit-details-marker{ display:none; }
   details[open] .faq-ic{ transform:rotate(45deg); }
   a{ text-decoration:none; }
+  section img:not(header img):not(footer img) { cursor: zoom-in; }
   @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior:auto; }
     .reveal{ opacity:1 !important; transform:none !important; transition:none !important; }
@@ -134,22 +135,73 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
       <span class="grid place-items-center w-9 h-9 rounded-xl2 bg-green700 text-white font-display font-bold">B</span>
       <span class="font-display font-bold text-green900 leading-tight">Bà Đen Farm<span class="block text-[10px] font-medium text-textsoft tracking-wide">SÂM BỐ CHÍNH · TÂY NINH</span></span>
     </a>
-    <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-textsoft">
-      <a href="#gioi-thieu" class="hover:text-green700">Giới thiệu</a>
+    <nav class="hidden md:flex items-center gap-5 lg:gap-6 text-sm font-medium text-textsoft">
       <a href="#su-menh" class="hover:text-green700">Sứ mệnh</a>
       <a href="#tam-nhin" class="hover:text-green700">Tầm nhìn</a>
+      <a href="#gioi-thieu" class="hover:text-green700">Giới thiệu</a>
       <a href="#video-gioi-thieu" class="hover:text-green700">Video BDF</a>
+      <a href="#chung-nhan" class="hover:text-green700">Chứng nhận</a>
       <a href="#am-thuc" class="hover:text-green700">Ẩm thực Sâm</a>
       <a href="#loi-ich" class="hover:text-green700">Lợi ích</a>
       <a href="#truy-xuat" class="hover:text-green700">Truy xuất QR</a>
       <a href="#san-pham" class="hover:text-green700">Sản phẩm</a>
       <a href="#vung-trong" class="hover:text-green700">Vùng trồng</a>
       <a href="#dai-ly" class="hover:text-green700">Đại lý</a>
+
+      <!-- MENU ĐỐI TÁC DROPDOWN -->
+      <div class="relative group cursor-pointer py-1">
+        <button class="inline-flex items-center gap-1 hover:text-green700 focus:outline-none font-medium">
+          <span>Đối tác</span>
+          <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div class="absolute left-0 top-full pt-1.5 hidden group-hover:block z-50 min-w-[220px]">
+          <div class="bg-surface rounded-xl2 shadow-soft border border-borderc p-1.5">
+            <a href="https://landing-page-sam-bo-chinh.vercel.app/#tam-nhin" class="flex items-center gap-2.5 px-3 py-2 text-xs font-semibold text-green900 hover:bg-green100 rounded-lg transition">
+              <span class="text-base">🏢</span>
+              <span>Cty CP Bà Đen Farm</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
       <a href="#faq" class="hover:text-green700">FAQ</a>
     </nav>
-    <a href="#lien-he" class="inline-flex items-center gap-2 rounded-xl2 bg-gold600 text-green900 font-display font-semibold text-sm px-4 py-2 shadow-soft hover:brightness-105">
-      Đặt hàng / Tư vấn
-    </a>
+    <div class="flex items-center gap-2">
+      <a href="#lien-he" class="inline-flex items-center gap-2 rounded-xl2 bg-gold600 text-green900 font-display font-semibold text-sm px-4 py-2 shadow-soft hover:brightness-105">
+        Đặt hàng / Tư vấn
+      </a>
+      <!-- Button Mobile Menu Toggle -->
+      <button id="mobileMenuBtn" class="md:hidden p-2 text-textsoft hover:text-green700 focus:outline-none" aria-label="Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <div id="mobileMenu" class="hidden md:hidden bg-surface border-b border-borderc px-4 pt-2 pb-4 space-y-2 text-sm font-medium text-textsoft">
+    <a href="#su-menh" class="block py-1.5 hover:text-green700">Sứ mệnh</a>
+    <a href="#tam-nhin" class="block py-1.5 hover:text-green700">Tầm nhìn</a>
+    <a href="#gioi-thieu" class="block py-1.5 hover:text-green700">Giới thiệu</a>
+    <a href="#video-gioi-thieu" class="block py-1.5 hover:text-green700">Video BDF</a>
+    <a href="#chung-nhan" class="block py-1.5 hover:text-green700">Chứng nhận HACCP</a>
+    <a href="#am-thuc" class="block py-1.5 hover:text-green700">Ẩm thực Sâm</a>
+    <a href="#loi-ich" class="block py-1.5 hover:text-green700">Lợi ích</a>
+    <a href="#truy-xuat" class="block py-1.5 hover:text-green700">Truy xuất QR</a>
+    <a href="#san-pham" class="block py-1.5 hover:text-green700">Sản phẩm</a>
+    <a href="#vung-trong" class="block py-1.5 hover:text-green700">Vùng trồng</a>
+    <a href="#dai-ly" class="block py-1.5 hover:text-green700">Đại lý</a>
+    <details class="group py-1">
+      <summary class="flex justify-between items-center cursor-pointer font-semibold text-green900 py-1">
+        <span>🤝 Đối tác</span>
+        <span class="text-xs transition-transform group-open:rotate-180">▼</span>
+      </summary>
+      <div class="pl-4 pt-1 space-y-1">
+        <a href="https://landing-page-sam-bo-chinh.vercel.app/#tam-nhin" class="block py-1 text-xs font-medium text-green700 hover:underline">
+          🏢 Cty CP Bà Đen Farm
+        </a>
+      </div>
+    </details>
+    <a href="#faq" class="block py-1.5 hover:text-green700">FAQ</a>
   </div>
 </header>
 
@@ -201,42 +253,16 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
 
 <!-- ===================== TRUST BAR ===================== -->
 <section aria-label="Tiêu chuẩn & chứng nhận" class="bg-surface border-y border-borderc">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-    <div class="reveal"><div class="font-display font-bold text-gold600 text-lg">OCOP 3 SAO</div><div class="text-xs text-textsoft">Chứng nhận tỉnh Tây Ninh (2022)</div></div>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 grid grid-cols-2 sm:grid-cols-5 gap-4 text-center">
+    <div class="reveal"><div class="font-display font-bold text-gold600 text-lg">OCOP 3 SAO</div><div class="text-xs text-textsoft">Chứng nhận tỉnh Tây Ninh</div></div>
+    <div class="reveal"><div class="font-display font-bold text-green700 text-lg">HACCP TCVN 5603</div><div class="text-xs text-textsoft">GlobalCert An toàn Thực phẩm</div></div>
     <div class="reveal"><div class="font-display font-bold text-green700 text-lg">SP TIÊU BIỂU</div><div class="text-xs text-textsoft">CN Nông thôn cấp Khu Vực</div></div>
     <div class="reveal"><div class="font-display font-bold text-green700 text-lg">VietGAP / Organic</div><div class="text-xs text-textsoft">Quy trình canh tác chuẩn hóa</div></div>
-    <div class="reveal"><div class="font-display font-bold text-green700 text-lg">QR TRUY XUẤT</div><div class="text-xs text-textsoft">Minh bạch 100% từng củ sâm</div></div>
+    <div class="reveal col-span-2 sm:col-span-1"><div class="font-display font-bold text-green700 text-lg">QR TRUY XUẤT</div><div class="text-xs text-textsoft">Minh bạch 100% từng củ sâm</div></div>
   </div>
 </section>
 
-<!-- ===================== GIỚI THIỆU ===================== -->
-<section id="gioi-thieu" class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
-  <div class="grid lg:grid-cols-2 gap-12 items-center">
-    <div class="reveal">
-      <span class="text-gold600 font-display font-semibold text-sm tracking-wide uppercase">VỀ BÀ ĐEN FARM & SÂM BỐ CHÍNH</span>
-      <h2 class="mt-2 text-2xl sm:text-3xl font-bold text-green900">Hành trình khôi phục vị thuốc quý Tiến Vua trên đất Tây Ninh</h2>
-      <p class="mt-4 text-textsoft">
-        <b class="text-green700">Sâm Bố Chính (Sâm Tiến Vua)</b> được phát hiện hơn 300 năm trước tại Quảng Bình, từng được chọn dâng Vua chúa Triều Nguyễn. Từ lâu, cây Sâm Bố Chính đã được vinh danh là vị thuốc quý đặc biệt trong cuốn sách kinh điển <b class="text-green700">“Những cây thuốc vị thuốc Việt Nam” của GS. Đỗ Tất Lợi</b>.
-      </p>
-      <p class="mt-3 text-textsoft">
-        Chứa hợp chất quý giá <b class="text-green700">Saponin triterpenoid</b> cùng nhiều Vitamin và Axit Amin thiết yếu, Sâm Bố Chính giúp tăng lực, chống suy nhược và bồi bổ sức khỏe toàn diện. Công ty CP Bà Đen Farm đã nghiên cứu nuôi trồng thành công loại sâm quý này tại Tây Ninh, kết hợp công nghệ QR minh bạch từ gốc.
-      </p>
-      <div class="mt-7 grid grid-cols-3 gap-4">
-        <div class="rounded-xl2 bg-gold100 p-4 text-center"><div class="font-display font-extrabold text-gold600 text-2xl">OCOP 3★</div><div class="text-xs text-textsoft mt-1">Chứng nhận Tây Ninh</div></div>
-        <div class="rounded-xl2 bg-green100 p-4 text-center"><div class="font-display font-extrabold text-green700 text-2xl">GS. Đỗ Tất Lợi</div><div class="text-xs text-textsoft mt-1">Vị thuốc quý kinh điển</div></div>
-        <div class="rounded-xl2 bg-green100 p-4 text-center"><div class="font-display font-extrabold text-green700 text-2xl">100%</div><div class="text-xs text-textsoft mt-1">Truy xuất QR nguồn gốc</div></div>
-      </div>
-    </div>
-    <div class="reveal">
-      <div class="rounded-2xl overflow-hidden ring-1 ring-borderc shadow-soft aspect-[4/3]">
-        <!-- Ảnh lấy từ content/site-images.js (key: gioi-thieu-visual) -->
-        <img data-img-key="gioi-thieu-visual" src="images/VUON SAM BC.jpg" alt="Vườn Sâm Bố Chính phủ xanh tại Bà Đen Farm" class="w-full h-full object-cover" />
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== SỨ MỆNH & TẦM NHÌN ===================== -->
+<!-- ===================== SỨ MỆNH ===================== -->
 <section id="su-menh" class="bg-surface border-y border-borderc py-16 sm:py-20">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     <div class="text-center max-w-3xl mx-auto reveal">
@@ -244,7 +270,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
         🌿 TỰ HÀO NHÂN SÂM VIỆT NAM — SỨC MẠNH VIỆT
       </span>
       <h2 class="text-2xl sm:text-3xl font-extrabold text-green900">
-        Sứ Mệnh & Tầm Nhìn Phát Triển Bà Đen Farm
+        Sứ Mệnh Phát Triển Bà Đen Farm
       </h2>
       <p class="mt-3 text-base sm:text-lg text-green700 font-medium italic leading-relaxed">
         “Vì sức khỏe cộng đồng, lan tỏa giá trị dược liệu Việt và xây dựng nền nông nghiệp bền vững từ Sâm Bố Chính tại Tây Ninh.”
@@ -320,73 +346,256 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
         <div class="mt-4 pt-3 border-t border-borderc/50 text-[11px] font-semibold text-gold600">🌏 Vươn tầm thế giới</div>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- ===================== TẦM NHÌN BÀ ĐEN FARM ===================== -->
-    <div id="tam-nhin" class="mt-16 pt-12 border-t border-borderc/60">
-      <div class="text-center max-w-3xl mx-auto reveal">
-        <span class="inline-flex items-center gap-2 rounded-full bg-gold100 text-gold600 px-3.5 py-1 text-xs font-bold uppercase tracking-wider mb-2">
-          🎯 TẦM NHÌN CHIẾN LƯỢC BÀ ĐEN FARM
-        </span>
-        <h3 class="text-2xl sm:text-3xl font-extrabold text-green900">
-          Khát Vọng Phục Vụ Cộng Đồng & Nâng Tầm Sâm Việt
-        </h3>
-        <p class="mt-3 text-base sm:text-lg text-green700 font-medium italic leading-relaxed">
-          “Trong 2–3 năm tới, Bà Đen Farm khát vọng trở thành thương hiệu Sâm Bố Chính Việt Nam uy tín, mang những sản phẩm chất lượng đến phục vụ cộng đồng trên khắp cả nước; từng bước xây dựng hệ sinh thái bền vững, góp phần nâng cao giá trị Sâm Việt và cuộc sống khỏe mạnh hơn cho người Việt.”
+<!-- ===================== TẦM NHÌN ===================== -->
+<section id="tam-nhin" class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+  <div class="text-center max-w-3xl mx-auto reveal">
+    <span class="inline-flex items-center gap-2 rounded-full bg-gold100 text-gold600 px-3.5 py-1 text-xs font-bold uppercase tracking-wider mb-2">
+      🎯 TẦM NHÌN CHIẾN LƯỢC BÀ ĐEN FARM
+    </span>
+    <h2 class="text-2xl sm:text-3xl font-extrabold text-green900">
+      Khát Vọng Phục Vụ Cộng Đồng & Nâng Tầm Sâm Việt
+    </h2>
+    <p class="mt-3 text-base sm:text-lg text-green700 font-medium italic leading-relaxed">
+      “Trong 2–3 năm tới, Bà Đen Farm khát vọng trở thành thương hiệu Sâm Bố Chính Việt Nam uy tín, mang những sản phẩm chất lượng đến phục vụ cộng đồng trên khắp cả nước; từng bước xây dựng hệ sinh thái bền vững, góp phần nâng cao giá trị Sâm Việt và cuộc sống khỏe mạnh hơn cho người Việt.”
+    </p>
+  </div>
+
+  <!-- Banner Infographic Tầm Nhìn -->
+  <div class="mt-10 reveal">
+    <div class="relative rounded-2xl overflow-hidden ring-1 ring-borderc shadow-soft bg-surface">
+      <img data-img-key="tam-nhin-infographic" src="images/tam-nhin.png" alt="Tầm nhìn Bà Đen Farm - Phục vụ cộng đồng trên khắp cả nước & Lan tỏa giá trị Sâm Việt" class="w-full h-auto object-cover rounded-2xl shadow-md hover:scale-[1.01] transition duration-500" />
+    </div>
+  </div>
+
+  <!-- 3 Giai Đoạn Lộ Trình Tầm Nhìn -->
+  <div class="mt-12 grid md:grid-cols-3 gap-6">
+    <div class="reveal rounded-xl2 bg-bgivory border border-borderc p-6 hover:shadow-soft transition flex flex-col justify-between">
+      <div>
+        <div class="flex items-center gap-2.5 mb-3">
+          <span class="grid place-items-center w-8 h-8 rounded-full bg-green700 text-white font-display font-bold text-sm">1</span>
+          <span class="text-xs font-bold uppercase text-green700 tracking-wider">HÔM NAY · XÂY NỀN TẢNG</span>
+        </div>
+        <h4 class="font-display font-bold text-green900 text-base">Phát triển vùng trồng & hoàn thiện sản phẩm</h4>
+        <p class="mt-2 text-xs sm:text-sm text-textsoft leading-relaxed">Tập trung phát triển vùng trồng Sâm Bố Chính công nghệ cao tại Tây Ninh, nghiên cứu chuyên sâu, sản xuất và hoàn thiện các dòng sản phẩm chất lượng trắc tuyệt.</p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-borderc/50 text-xs font-semibold text-green700 flex items-center justify-between">
+        <span>🌿 Vùng trồng Tây Ninh</span>
+        <span class="text-gold600">Truy xuất 100%</span>
+      </div>
+    </div>
+
+    <div class="reveal rounded-xl2 bg-bgivory border border-borderc p-6 hover:shadow-soft transition flex flex-col justify-between">
+      <div>
+        <div class="flex items-center gap-2.5 mb-3">
+          <span class="grid place-items-center w-8 h-8 rounded-full bg-gold600 text-green900 font-display font-bold text-sm">2</span>
+          <span class="text-xs font-bold uppercase text-gold600 tracking-wider">2–3 NĂM TỚI · PHỦ SÓNG TOÀN QUỐC</span>
+        </div>
+        <h4 class="font-display font-bold text-green900 text-base">Phục vụ cộng đồng trên khắp cả nước</h4>
+        <p class="mt-2 text-xs sm:text-sm text-textsoft leading-relaxed">Mở rộng hệ thống phân phối, đưa sản phẩm Bà Đen Farm đến cộng đồng ở khắp các tỉnh, thành Việt Nam, để ngày càng nhiều người Việt biết đến và sử dụng sản phẩm Sâm Việt.</p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-borderc/50 text-xs font-semibold text-gold600 flex items-center justify-between">
+        <span>🚚 Phân phối toàn quốc</span>
+        <span class="text-green700">63 Tỉnh Thành</span>
+      </div>
+    </div>
+
+    <div class="reveal rounded-xl2 bg-bgivory border border-borderc p-6 hover:shadow-soft transition flex flex-col justify-between">
+      <div>
+        <div class="flex items-center gap-2.5 mb-3">
+          <span class="grid place-items-center w-8 h-8 rounded-full bg-green700 text-white font-display font-bold text-sm">3</span>
+          <span class="text-xs font-bold uppercase text-green700 tracking-wider">KHÁT VỌNG DÀI HẠN · VƯƠN XA</span>
+        </div>
+        <h4 class="font-display font-bold text-green900 text-base">Lan tỏa giá trị Sâm Việt ra thế giới</h4>
+        <p class="mt-2 text-xs sm:text-sm text-textsoft leading-relaxed">Từ vùng đất Tây Ninh, từng bước nâng tầm giá trị Sâm Bố Chính, xây dựng thương hiệu Việt uy tín, vươn tầm quốc tế và tạo ra giá trị bền vững cho cộng đồng.</p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-borderc/50 text-xs font-semibold text-green700 flex items-center justify-between">
+        <span>🌏 Vươn tầm quốc tế</span>
+        <span class="text-gold600">Thương hiệu Việt</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GIỚI THIỆU ===================== -->
+<section id="gioi-thieu" class="bg-surface border-y border-borderc py-16 sm:py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="reveal">
+        <span class="text-gold600 font-display font-semibold text-sm tracking-wide uppercase">VỀ BÀ ĐEN FARM & SÂM BỐ CHÍNH</span>
+        <h2 class="mt-2 text-2xl sm:text-3xl font-bold text-green900">Hành trình khôi phục vị thuốc quý Tiến Vua trên đất Tây Ninh</h2>
+        <p class="mt-4 text-textsoft">
+          <b class="text-green700">Sâm Bố Chính (Sâm Tiến Vua)</b> được phát hiện hơn 300 năm trước tại Châu Bố Chính (Quảng Bình), từng được chọn dâng Vua chúa Triều Nguyễn. Danh y & GS. Đỗ Tất Lợi đã trân trọng ghi nhận vị thuốc quý này trong cuốn sách kinh điển <b class="text-green700">“Những cây thuốc vị thuốc Việt Nam”</b>.
         </p>
-      </div>
-
-      <!-- Banner Infographic Tầm Nhìn -->
-      <div class="mt-10 reveal">
-        <div class="relative rounded-2xl overflow-hidden ring-1 ring-borderc shadow-soft bg-surface">
-          <img data-img-key="tam-nhin-infographic" src="images/tam-nhin.png" alt="Tầm nhìn Bà Đen Farm - Phục vụ cộng đồng trên khắp cả nước & Lan tỏa giá trị Sâm Việt" class="w-full h-auto object-cover rounded-2xl shadow-md hover:scale-[1.01] transition duration-500" />
+        <p class="mt-3 text-textsoft">
+          Chứa hoạt chất quý giá <b class="text-green700">Saponin triterpenoid</b> cùng nhiều Vitamin và Axit Amin thiết yếu, Sâm Bố Chính giúp tăng lực, chống suy nhược và bồi bổ sức khỏe toàn diện. Công ty CP Bà Đen Farm đã nghiên cứu nuôi trồng thành công loại sâm quý này tại Tây Ninh, kết hợp công nghệ QR minh bạch từ gốc.
+        </p>
+        <div class="mt-7 grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div class="rounded-xl2 bg-gold100 p-3 text-center"><div class="font-display font-extrabold text-gold600 text-xl">OCOP 3★</div><div class="text-xs text-textsoft mt-1">Chứng nhận Tây Ninh</div></div>
+          <div class="rounded-xl2 bg-green100 p-3 text-center"><div class="font-display font-extrabold text-green700 text-xl">HACCP</div><div class="text-xs text-textsoft mt-1">TCVN 5603:2023</div></div>
+          <div class="rounded-xl2 bg-green100 p-3 text-center"><div class="font-display font-extrabold text-green700 text-xl">Đỗ Tất Lợi</div><div class="text-xs text-textsoft mt-1">Vị thuốc quý</div></div>
+          <div class="rounded-xl2 bg-green100 p-3 text-center"><div class="font-display font-extrabold text-green700 text-xl">100% QR</div><div class="text-xs text-textsoft mt-1">Truy xuất nguồn gốc</div></div>
         </div>
       </div>
+      <div class="reveal">
+        <div class="rounded-2xl overflow-hidden ring-1 ring-borderc shadow-soft aspect-[4/3]">
+          <!-- Ảnh lấy từ content/site-images.js (key: gioi-thieu-visual) -->
+          <img data-img-key="gioi-thieu-visual" src="images/VUON SAM BC.jpg" alt="Vườn Sâm Bố Chính phủ xanh tại Bà Đen Farm" class="w-full h-full object-cover" />
+        </div>
+      </div>
+    </div>
 
-      <!-- 3 Giai Đoạn Lộ Trình Tầm Nhìn -->
-      <div class="mt-12 grid md:grid-cols-3 gap-6">
-        <div class="reveal rounded-xl2 bg-bgivory border border-borderc p-6 hover:shadow-soft transition flex flex-col justify-between">
-          <div>
-            <div class="flex items-center gap-2.5 mb-3">
-              <span class="grid place-items-center w-8 h-8 rounded-full bg-green700 text-white font-display font-bold text-sm">1</span>
-              <span class="text-xs font-bold uppercase text-green700 tracking-wider">HÔM NAY · XÂY NỀN TẢNG</span>
-            </div>
-            <h4 class="font-display font-bold text-green900 text-base">Phát triển vùng trồng & hoàn thiện sản phẩm</h4>
-            <p class="mt-2 text-xs sm:text-sm text-textsoft leading-relaxed">Tập trung phát triển vùng trồng Sâm Bố Chính công nghệ cao tại Tây Ninh, nghiên cứu chuyên sâu, sản xuất và hoàn thiện các dòng sản phẩm chất lượng trắc tuyệt.</p>
+    <!-- Banner Infographic Giới Thiệu -->
+    <div class="mt-12 reveal">
+      <div class="relative rounded-2xl overflow-hidden ring-1 ring-borderc shadow-soft bg-surface">
+        <img data-img-key="gioi-thieu-infographic" src="images/gioi-thieu-infographic.jpg" alt="Infographic Giới thiệu Công ty CP Bà Đen Farm - Sâm Việt cho sức khỏe Việt" class="w-full h-auto object-cover rounded-2xl shadow-md hover:scale-[1.01] transition duration-500" />
+      </div>
+    </div>
+
+    <!-- 5 Trụ Cột Giới Thiệu Chi Tiết từ Infographic -->
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      <div class="reveal rounded-xl2 bg-bgivory border border-borderc p-5 hover:shadow-soft transition flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <span class="grid place-items-center w-7 h-7 rounded-full bg-green700 text-white font-display font-bold text-xs">1</span>
+            <span class="text-xs font-bold uppercase text-green700 tracking-wide">Giá Trị Lịch Sử</span>
           </div>
-          <div class="mt-4 pt-3 border-t border-borderc/50 text-xs font-semibold text-green700 flex items-center justify-between">
-            <span>🌿 Vùng trồng Tây Ninh</span>
-            <span class="text-gold600">Truy xuất 100%</span>
+          <h3 class="font-display font-bold text-green900 text-sm">Hơn 300 năm sâm Tiến Vua</h3>
+          <p class="mt-2 text-xs text-textsoft leading-relaxed">Phát hiện tại Châu Bố Chính (Quảng Bình), từng được dâng Vua. Ghi nhận trong sách GS. Đỗ Tất Lợi.</p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-borderc/50 text-[11px] font-semibold text-gold600">📜 Sâm Tiến Vua 300 năm</div>
+      </div>
+
+      <div class="reveal rounded-xl2 bg-bgivory border border-borderc p-5 hover:shadow-soft transition flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <span class="grid place-items-center w-7 h-7 rounded-full bg-green700 text-white font-display font-bold text-xs">2</span>
+            <span class="text-xs font-bold uppercase text-green700 tracking-wide">Giá Trị Dược Liệu</span>
+          </div>
+          <h3 class="font-display font-bold text-green900 text-sm">Chứa Saponin Triterpenoid</h3>
+          <p class="mt-2 text-xs text-textsoft leading-relaxed">Giúp tăng lực, chống suy nhược, giàu Vitamin & Axit Amin tốt cho sức khỏe toàn diện.</p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-borderc/50 text-[11px] font-semibold text-green700">🌱 Tăng lực & Kháng suy nhược</div>
+      </div>
+
+      <div class="reveal rounded-xl2 bg-bgivory border border-borderc p-5 hover:shadow-soft transition flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <span class="grid place-items-center w-7 h-7 rounded-full bg-green700 text-white font-display font-bold text-xs">3</span>
+            <span class="text-xs font-bold uppercase text-green700 tracking-wide">Hành Trình BDF</span>
+          </div>
+          <h3 class="font-display font-bold text-green900 text-sm">Làm chủ công nghệ trồng sâm</h3>
+          <p class="mt-2 text-xs text-textsoft leading-relaxed">Phục hồi nguồn gen, trồng thử nghiệm tại Tây Ninh, kiên trì làm chủ kỹ thuật canh tác khép kín.</p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-borderc/50 text-[11px] font-semibold text-gold600">🔬 Khôi phục nguồn gen</div>
+      </div>
+
+      <div class="reveal rounded-xl2 bg-bgivory border border-borderc p-5 hover:shadow-soft transition flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <span class="grid place-items-center w-7 h-7 rounded-full bg-green700 text-white font-display font-bold text-xs">4</span>
+            <span class="text-xs font-bold uppercase text-green700 tracking-wide">Vị Thế Hiện Tại</span>
+          </div>
+          <h3 class="font-display font-bold text-green900 text-sm">Tiên phong NN Công nghệ cao</h3>
+          <p class="mt-2 text-xs text-textsoft leading-relaxed">Đơn vị tiên phong nông nghiệp công nghệ cao tại Tây Ninh, cung cấp sản phẩm an toàn cho cộng đồng.</p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-borderc/60 text-[11px] font-semibold text-green700">🏆 Tiên phong Tây Ninh</div>
+      </div>
+
+      <div class="reveal rounded-xl2 bg-bgivory border border-borderc p-5 hover:shadow-soft transition flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <span class="grid place-items-center w-7 h-7 rounded-full bg-green700 text-white font-display font-bold text-xs">5</span>
+            <span class="text-xs font-bold uppercase text-green700 tracking-wide">Tầm Nhìn Xuất Khẩu</span>
+          </div>
+          <h3 class="font-display font-bold text-green900 text-sm">Vươn ra thị trường quốc tế</h3>
+          <p class="mt-2 text-xs text-textsoft leading-relaxed">Phủ sóng toàn quốc và xuất khẩu sang Nhật Bản, Hàn Quốc, Mỹ, Châu Âu... Nâng tầm Sâm Việt.</p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-borderc/50 text-[11px] font-semibold text-gold600">🌏 Xuất khẩu Quốc tế</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHỨNG NHẬN CHẤT LƯỢNG & AN TOÀN THỰC PHẨM ===================== -->
+<section id="chung-nhan" class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+  <div class="text-center max-w-3xl mx-auto reveal">
+    <span class="inline-flex items-center gap-2 rounded-full bg-gold100 text-gold600 px-3.5 py-1 text-xs font-bold uppercase tracking-wider mb-2">
+      🛡️ CAM KẾT CHẤT LƯỢNG KHẮT KHE & UY TÍN
+    </span>
+    <h2 class="text-2xl sm:text-3xl font-extrabold text-green900">
+      Giấy Chứng Nhận An Toàn HACCP & SP Nông Thôn Tiêu Biểu
+    </h2>
+    <p class="mt-3 text-textsoft text-sm sm:text-base leading-relaxed">
+      Sản phẩm sâm của Công ty CP Bà Đen Farm được sản xuất trên dây chuyền đạt chuẩn An toàn Thực phẩm Quốc tế HACCP TCVN 5603:2023 do GlobalCert cấp chứng nhận, vinh danh Sản phẩm Công nghiệp Nông thôn Tiêu biểu cấp Khu vực năm 2022 và chứng nhận OCOP 3 sao tỉnh Tây Ninh.
+    </p>
+  </div>
+
+  <div class="mt-12 grid md:grid-cols-2 gap-8 items-stretch">
+    <!-- Card 1: Chứng nhận HACCP -->
+    <div class="reveal flex flex-col justify-between rounded-2xl bg-surface border border-borderc p-6 shadow-soft hover:shadow-xl transition duration-300">
+      <div>
+        <div class="relative group rounded-xl overflow-hidden shadow-md ring-1 ring-gold600/30 bg-neutral-900 aspect-[3/4] cursor-pointer mb-5" onclick="openCertModal('haccp')">
+          <img src="images/giay-chung-nhan-haccp.jpg" data-img-key="giay-chung-nhan-haccp" alt="Giấy chứng nhận An toàn Thực phẩm HACCP - Bà Đen Farm" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" />
+          <div class="absolute bottom-3 left-3 right-3 bg-green900/90 backdrop-blur-md text-white rounded-lg p-2.5 text-center shadow-lg transition group-hover:bg-gold600 group-hover:text-green900">
+            <span class="text-xs font-display font-bold uppercase flex items-center justify-center gap-1.5">
+              🔍 Phóng lớn Bằng HACCP
+            </span>
           </div>
         </div>
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+          <span class="inline-flex items-center gap-1 rounded-lg bg-green100 text-green700 text-xs font-extrabold px-2.5 py-1 uppercase tracking-wide">
+            🏆 Standard HACCP
+          </span>
+          <span class="text-xs text-gold600 font-bold">Số: GL 0658/2025-FSMS</span>
+        </div>
+        <h3 class="text-lg font-bold text-green900">Hệ Thống Quản Lý An Toàn Thực Phẩm HACCP</h3>
+        <p class="mt-1 text-xs text-textsoft font-semibold">TCVN 5603:2023 (HACCP General Principles of Food Hygiene)</p>
+      </div>
 
-        <div class="reveal rounded-xl2 bg-bgivory border border-borderc p-6 hover:shadow-soft transition flex flex-col justify-between">
-          <div>
-            <div class="flex items-center gap-2.5 mb-3">
-              <span class="grid place-items-center w-8 h-8 rounded-full bg-gold600 text-green900 font-display font-bold text-sm">2</span>
-              <span class="text-xs font-bold uppercase text-gold600 tracking-wider">2–3 NĂM TỚI · PHỦ SÓNG TOÀN QUỐC</span>
-            </div>
-            <h4 class="font-display font-bold text-green900 text-base">Phục vụ cộng đồng trên khắp cả nước</h4>
-            <p class="mt-2 text-xs sm:text-sm text-textsoft leading-relaxed">Mở rộng hệ thống phân phối, đưa sản phẩm Bà Đen Farm đến cộng đồng ở khắp các tỉnh, thành Việt Nam, để ngày càng nhiều người Việt biết đến và sử dụng sản phẩm Sâm Việt.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-borderc/50 text-xs font-semibold text-gold600 flex items-center justify-between">
-            <span>🚚 Phân phối toàn quốc</span>
-            <span class="text-green700">63 Tỉnh Thành</span>
+      <div class="mt-4 pt-4 border-t border-borderc grid grid-cols-2 gap-2 text-xs text-textsoft">
+        <div class="p-2.5 rounded-lg bg-bgivory border border-borderc/60">
+          <b class="text-green900 block mb-0.5">📜 Cấp bởi:</b>
+          <span>GlobalCert (VICAS 037)</span>
+        </div>
+        <div class="p-2.5 rounded-lg bg-bgivory border border-borderc/60">
+          <b class="text-green900 block mb-0.5">📅 Hiệu lực:</b>
+          <span>08/05/2025 – 07/05/2028</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: Chứng nhận SP Công Nghiệp Nông Thôn Tiêu Biểu -->
+    <div class="reveal flex flex-col justify-between rounded-2xl bg-surface border border-borderc p-6 shadow-soft hover:shadow-xl transition duration-300">
+      <div>
+        <div class="relative group rounded-xl overflow-hidden shadow-md ring-1 ring-gold600/30 bg-neutral-900 aspect-[3/4] cursor-pointer mb-5" onclick="openCertModal('sp-tieu-bieu')">
+          <img src="images/giay-chung-nhan-sp-tieu-bieu.jpg" data-img-key="giay-chung-nhan-sp-tieu-bieu" alt="Giấy chứng nhận Sản phẩm công nghiệp nông thôn tiêu biểu cấp khu vực - Trà túi lọc Sâm Bố Chính" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" />
+          <div class="absolute bottom-3 left-3 right-3 bg-green900/90 backdrop-blur-md text-white rounded-lg p-2.5 text-center shadow-lg transition group-hover:bg-gold600 group-hover:text-green900">
+            <span class="text-xs font-display font-bold uppercase flex items-center justify-center gap-1.5">
+              🔍 Phóng lớn Bằng Tiêu Biểu
+            </span>
           </div>
         </div>
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+          <span class="inline-flex items-center gap-1 rounded-lg bg-gold100 text-gold600 text-xs font-extrabold px-2.5 py-1 uppercase tracking-wide">
+            ⭐ SP Nông Thôn Tiêu Biểu 2022
+          </span>
+          <span class="text-xs text-textfaint font-semibold">QĐ số: 83/QĐ-CTĐP</span>
+        </div>
+        <h3 class="text-lg font-bold text-green900">Sản Phẩm CN Nông Thôn Tiêu Biểu Cấp Khu Vực</h3>
+        <p class="mt-1 text-xs text-textsoft font-semibold">Trà túi lọc Sâm Bố Chính — Cụm Nông Thôn Tiêu Biểu</p>
+      </div>
 
-        <div class="reveal rounded-xl2 bg-bgivory border border-borderc p-6 hover:shadow-soft transition flex flex-col justify-between">
-          <div>
-            <div class="flex items-center gap-2.5 mb-3">
-              <span class="grid place-items-center w-8 h-8 rounded-full bg-green700 text-white font-display font-bold text-sm">3</span>
-              <span class="text-xs font-bold uppercase text-green700 tracking-wider">KHÁT VỌNG DÀI HẠN · VƯƠN XA</span>
-            </div>
-            <h4 class="font-display font-bold text-green900 text-base">Lan tỏa giá trị Sâm Việt ra thế giới</h4>
-            <p class="mt-2 text-xs sm:text-sm text-textsoft leading-relaxed">Từ vùng đất Tây Ninh, từng bước nâng tầm giá trị Sâm Bố Chính, xây dựng thương hiệu Việt uy tín, vươn tầm quốc tế và tạo ra giá trị bền vững cho cộng đồng.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-borderc/50 text-xs font-semibold text-green700 flex items-center justify-between">
-            <span>🌏 Vươn tầm quốc tế</span>
-            <span class="text-gold600">Thương hiệu Việt</span>
-          </div>
+      <div class="mt-4 pt-4 border-t border-borderc grid grid-cols-2 gap-2 text-xs text-textsoft">
+        <div class="p-2.5 rounded-lg bg-bgivory border border-borderc/60">
+          <b class="text-green900 block mb-0.5">🏛️ Cấp bởi:</b>
+          <span>Cục Công Thương Địa Phương</span>
+        </div>
+        <div class="p-2.5 rounded-lg bg-bgivory border border-borderc/60">
+          <b class="text-green900 block mb-0.5">📅 Giá trị đến:</b>
+          <span>31/12/2025</span>
         </div>
       </div>
     </div>
@@ -410,7 +619,13 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
 
     <!-- Video Selector Tabs -->
     <div class="mt-8 flex flex-wrap justify-center items-center gap-2 sm:gap-3 reveal" id="videoTabs">
-      <button data-vkey="yt1" class="vtab-btn active-vtab inline-flex items-center gap-1.5 rounded-xl2 bg-green700 text-white font-display font-semibold text-xs sm:text-sm px-4 py-2.5 shadow-soft transition cursor-pointer">
+      <button data-vkey="v2" class="vtab-btn active-vtab inline-flex items-center gap-1.5 rounded-xl2 bg-green700 text-white font-display font-semibold text-xs sm:text-sm px-4 py-2.5 shadow-soft transition cursor-pointer">
+        <span>🎬</span> Clip Giới Thiệu BDF (v2)
+      </button>
+      <button data-vkey="drive1" class="vtab-btn inline-flex items-center gap-1.5 rounded-xl2 bg-surface2 text-textsoft hover:text-green900 font-display font-semibold text-xs sm:text-sm px-4 py-2.5 transition cursor-pointer">
+        <span>☁️</span> Clip Drive HD
+      </button>
+      <button data-vkey="yt1" class="vtab-btn inline-flex items-center gap-1.5 rounded-xl2 bg-surface2 text-textsoft hover:text-green900 font-display font-semibold text-xs sm:text-sm px-4 py-2.5 transition cursor-pointer">
         <span>▶</span> Phim Tư Liệu BDF (Tập 1)
       </button>
       <button data-vkey="yt2" class="vtab-btn inline-flex items-center gap-1.5 rounded-xl2 bg-surface2 text-textsoft hover:text-green900 font-display font-semibold text-xs sm:text-sm px-4 py-2.5 transition cursor-pointer">
@@ -433,7 +648,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
     <!-- Responsive Video Container -->
     <div class="mt-6 reveal">
       <div id="videoContainer" class="relative rounded-2xl overflow-hidden ring-1 ring-borderc shadow-soft bg-black aspect-video max-w-4xl mx-auto">
-        <iframe id="mainYoutubePlayer" src="https://www.youtube.com/embed/wtxXklOBhgE?rel=0" title="Video Giới Thiệu Bà Đen Farm" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <video id="mainVideoPlayer" controls autoplay preload="metadata" poster="images/ghep-vuon-sam.png" class="w-full h-full object-contain"><source src="videos/clips-gioi-thieu-bdf-v2.mp4" type="video/mp4" />Trình duyệt của bạn không hỗ trợ phát video HTML5.</video>
       </div>
       <div class="mt-4 text-center text-xs text-textfaint flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
         <span>📹 Độ phân giải: Full HD 1080p</span>
@@ -993,6 +1208,15 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   <button id="toTop" aria-label="Lên đầu trang" class="hidden grid place-items-center w-12 h-12 rounded-full bg-gold600 text-green900 shadow-soft hover:scale-105 transition">↑</button>
 </div>
 
+<!-- Modal Xem Ảnh Giấy Chứng Nhận Full HD -->
+<div id="certModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/85 backdrop-blur-md transition-all duration-300" onclick="if(event.target===this) closeCertModal()">
+  <div class="relative max-w-3xl w-full max-h-[95vh] flex flex-col items-center justify-center my-auto">
+    <button onclick="closeCertModal()" class="absolute -top-12 right-0 grid place-items-center w-10 h-10 rounded-full bg-white/20 text-white hover:bg-red600 text-xl font-bold transition cursor-pointer">✕</button>
+    <img id="certModalImg" src="images/giay-chung-nhan-haccp.jpg" alt="Giấy chứng nhận Bà Đen Farm" class="max-h-[85vh] w-auto object-contain rounded-xl shadow-2xl border-2 border-gold600/50" />
+    <p id="certModalCaption" class="mt-3 text-center text-xs text-white/80 font-display font-semibold">Giấy Chứng Nhận An Toàn Thực Phẩm HACCP TCVN 5603:2023 — Cty CP Bà Đen Farm</p>
+  </div>
+</div>
+
 <!-- Modal Chi Tiết Dược Tính & Brochure Sản Phẩm -->
 <div id="productModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-all duration-300">
   <div class="bg-surface rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-borderc shadow-2xl p-6 sm:p-8 relative my-auto">
@@ -1003,10 +1227,112 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   </div>
 </div>
 
+<!-- Modal Fullscreen Lightbox Xem Ảnh Chi Tiết (Full Màn Hình) -->
+<div id="imageLightboxModal" class="fixed inset-0 z-[110] hidden items-center justify-center p-3 sm:p-6 bg-black/90 backdrop-blur-md transition-all duration-300 opacity-0" onclick="if(event.target===this || event.target.id==='imageLightboxModal') closeImageLightbox()">
+  <div class="relative max-w-6xl w-full max-h-[95vh] flex flex-col items-center justify-center my-auto">
+    <button onclick="closeImageLightbox()" aria-label="Đóng xem ảnh" class="absolute -top-12 right-0 sm:right-2 grid place-items-center w-10 h-10 rounded-full bg-white/20 text-white hover:bg-red600 text-xl font-bold transition cursor-pointer z-10 shadow-lg">✕</button>
+    <div class="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-gold600/40 bg-black/60 p-1.5 flex items-center justify-center">
+      <img id="lightboxImg" src="" alt="" class="max-h-[85vh] max-w-full w-auto h-auto object-contain rounded-xl shadow-2xl transition duration-300" />
+    </div>
+    <p id="lightboxCaption" class="mt-3 text-center text-xs sm:text-sm text-white/90 font-display font-semibold max-w-3xl px-5 py-2 rounded-full bg-black/70 backdrop-blur-md border border-white/10 shadow-lg"></p>
+  </div>
+</div>
+
 <!-- Cấu hình ảnh trang chủ — sửa ảnh ở đây, KHÔNG cần sửa file này -->
 <script src="content/site-images.js"></script>
 
 <script>
+  // Global Image Lightbox (Phóng to mọi hình ảnh khi click full màn hình)
+  (function(){
+    var modal = document.getElementById('imageLightboxModal');
+    var imgEl = document.getElementById('lightboxImg');
+    var capEl = document.getElementById('lightboxCaption');
+
+    window.openImageLightbox = function(src, alt) {
+      if (!modal || !imgEl || !src) return;
+      imgEl.src = src;
+      imgEl.alt = alt || '';
+      if (capEl) {
+        if (alt && alt.trim() && !alt.startsWith('http')) {
+          capEl.textContent = alt;
+          capEl.classList.remove('hidden');
+        } else {
+          capEl.textContent = 'Công ty CP Bà Đen Farm — Sâm Bố Chính Tây Ninh';
+          capEl.classList.remove('hidden');
+        }
+      }
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      setTimeout(function(){
+        modal.classList.remove('opacity-0');
+        modal.classList.add('opacity-100');
+      }, 10);
+    };
+
+    window.closeImageLightbox = function() {
+      if (!modal) return;
+      modal.classList.remove('opacity-100');
+      modal.classList.add('opacity-0');
+      setTimeout(function(){
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }, 200);
+    };
+
+    document.addEventListener('click', function(e) {
+      var target = e.target;
+      if (target && target.tagName === 'IMG') {
+        if (target.closest('header') || target.closest('footer') || target.hasAttribute('onclick') || target.classList.contains('no-lightbox')) {
+          return;
+        }
+        var src = target.src;
+        var alt = target.alt || target.title || '';
+        if (src) {
+          openImageLightbox(src, alt);
+        }
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeImageLightbox();
+    });
+  })();
+
+  // Certificate Modal Logic
+  function openCertModal(type) {
+    var modal = document.getElementById('certModal');
+    var img = document.getElementById('certModalImg');
+    var caption = document.getElementById('certModalCaption');
+
+    var CERTS = {
+      'sp-tieu-bieu': {
+        src: (window.SITE_IMAGES && window.SITE_IMAGES['giay-chung-nhan-sp-tieu-bieu'] && window.SITE_IMAGES['giay-chung-nhan-sp-tieu-bieu'].src) || 'images/giay-chung-nhan-sp-tieu-bieu.jpg',
+        alt: 'Giấy chứng nhận Sản phẩm công nghiệp nông thôn tiêu biểu cấp khu vực - Trà túi lọc Sâm Bố Chính',
+        caption: 'Giấy Chứng Nhận Sản Phẩm Công Nghiệp Nông Thôn Tiêu Biểu Cấp Khu Vực — Trà túi lọc Sâm Bố Chính (Cục Công Thương Địa Phương)'
+      },
+      'haccp': {
+        src: (window.SITE_IMAGES && window.SITE_IMAGES['giay-chung-nhan-haccp'] && window.SITE_IMAGES['giay-chung-nhan-haccp'].src) || 'images/giay-chung-nhan-haccp.jpg',
+        alt: 'Giấy chứng nhận An toàn Thực phẩm HACCP - Bà Đen Farm',
+        caption: 'Giấy Chứng Nhận An Toàn Thực Phẩm HACCP TCVN 5603:2023 — Cty CP Bà Đen Farm'
+      }
+    };
+
+    var certData = CERTS[type] || CERTS['haccp'];
+    if (img) {
+      img.src = certData.src;
+      img.alt = certData.alt;
+    }
+    if (caption) {
+      caption.textContent = certData.caption;
+    }
+
+    if (modal) { modal.classList.remove('hidden'); modal.classList.add('flex'); }
+  }
+  function closeCertModal() {
+    var modal = document.getElementById('certModal');
+    if (modal) { modal.classList.add('hidden'); modal.classList.remove('flex'); }
+  }
+
   // Product Brochure Modal Logic
   var BROCHURE_PRODUCTS = {
     "tra-tui-loc": {
@@ -1262,6 +1588,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
     if (!tabs.length || !container) return;
 
     var vids = window.SITE_VIDEOS || {
+      "drive1": "https://drive.google.com/file/d/1lQ98cuk9g9F1Z-tGCG-XCeadLIdcQqw9/preview",
       "yt1": "https://www.youtube.com/embed/wtxXklOBhgE",
       "yt2": "https://www.youtube.com/embed/-vmvlboyWPQ",
       "yt3": "https://www.youtube.com/embed/pp4PH2AByZk",
@@ -1278,10 +1605,16 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
         btn.className = 'vtab-btn active-vtab inline-flex items-center gap-1.5 rounded-xl2 bg-green700 text-white font-display font-semibold text-xs sm:text-sm px-4 py-2.5 shadow-soft transition cursor-pointer';
 
         var key = btn.getAttribute('data-vkey');
-        var url = vids[key] || vids['yt1'];
+        var url = vids[key] || vids['v2'] || vids['drive1'] || vids['yt1'];
 
-        if (url.includes('youtube.com') || url.includes('youtu.be')) {
-          container.innerHTML = '<iframe id="mainYoutubePlayer" src="' + url + '?autoplay=1&rel=0" title="Video Giới Thiệu Bà Đen Farm" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+        if (url.includes('youtube.com') || url.includes('youtu.be') || url.includes('drive.google.com')) {
+          var embedUrl = url;
+          if (url.includes('drive.google.com') && !url.includes('/preview')) {
+            embedUrl = url.replace(/\/view.*$/, '/preview');
+          } else if (url.includes('youtube.com') && !url.includes('autoplay=')) {
+            embedUrl = url + '?autoplay=1&rel=0';
+          }
+          container.innerHTML = '<iframe id="mainYoutubePlayer" src="' + embedUrl + '" title="Video Giới Thiệu Bà Đen Farm" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
         } else {
           container.innerHTML = '<video id="mainVideoPlayer" controls autoplay preload="metadata" poster="images/ghep-vuon-sam.png" class="w-full h-full object-contain"><source src="' + url + '" type="video/mp4" />Trình duyệt của bạn không hỗ trợ phát video HTML5.</video>';
         }
@@ -1392,6 +1725,22 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
         grid.innerHTML = html + (cta ? cta.outerHTML : '');
       })
       .catch(function(){ /* giữ placeholder tĩnh */ });
+  })();
+
+  // Toggle mobile menu
+  (function(){
+    var btn = document.getElementById('mobileMenuBtn');
+    var menu = document.getElementById('mobileMenu');
+    if (btn && menu) {
+      btn.addEventListener('click', function(){
+        menu.classList.toggle('hidden');
+      });
+      menu.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          menu.classList.add('hidden');
+        });
+      });
+    }
   })();
 </script>
 </body>
