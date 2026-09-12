@@ -41,6 +41,12 @@ window.SITE_IMAGES = {
     alt: "6 Lợi ích sức khỏe vượt trội của Sâm Bố Chính Bà Đen Farm"
   },
 
+  // 3.6. Infographic Sứ mệnh Bà Đen Farm (#su-menh)
+  "su-menh-infographic": {
+    src: "images/su-menh.png",
+    alt: "Sứ mệnh Bà Đen Farm - Vì sức khỏe cộng đồng, lan tỏa giá trị dược liệu Việt"
+  },
+
   // 4. Ảnh Hoạt động trải nghiệm nông trại (#trai-nghiem)
   "trai-nghiem-nong-trai": {
     src: "images/HS hái hoa sâm 2.jpg",
