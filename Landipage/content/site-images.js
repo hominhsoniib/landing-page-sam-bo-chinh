@@ -137,11 +137,15 @@ window.SITE_IMAGES = {
  * ============================================================
  */
 window.SITE_VIDEOS = {
-  // 1. TVC Quảng cáo 30s
-  "30s": "videos/sam-bo-chinh-tay-ninh-30s.mp4",
+  // 5 Video YouTube tư liệu chính thức từ Bà Đen Farm (Trích xuất từ Clip.docx)
+  "yt1": "https://www.youtube.com/embed/wtxXklOBhgE",
+  "yt2": "https://www.youtube.com/embed/-vmvlboyWPQ",
+  "yt3": "https://www.youtube.com/embed/pp4PH2AByZk",
+  "yt4": "https://www.youtube.com/embed/t7tI6t-nH5E",
+  "yt5": "https://www.youtube.com/embed/qD9Hduf7tP4",
 
-  // 2. Phim tư liệu giới thiệu chi tiết BDF (Full HD)
-  "full": "videos/sam-bo-chinh-tay-ninh-full.mp4"
+  // Local TVC MP4
+  "30s": "videos/sam-bo-chinh-tay-ninh-30s.mp4"
 };
 
 /**

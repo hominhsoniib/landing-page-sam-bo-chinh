@@ -245,27 +245,36 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
         Khám Phá Hành Trình Sâm Bố Chính Tây Ninh
       </h2>
       <p class="mt-3 text-textsoft text-sm sm:text-base leading-relaxed">
-        Nơi hội tụ tinh hoa đất trời và tâm huyết nghiên cứu nuôi trồng vị thuốc quý Tiến Vua hơn 300 năm lịch sử tại chân núi Bà Đen.
+        Thước phim tư liệu truyền hình & TVC giới thiệu quy trình nuôi trồng, chế biến vị thuốc quý Tiến Vua hơn 300 năm lịch sử tại chân núi Bà Đen.
       </p>
     </div>
 
     <!-- Video Selector Tabs -->
-    <div class="mt-8 flex flex-wrap justify-center items-center gap-3 reveal">
-      <button id="btnVideo30s" class="active-video-tab inline-flex items-center gap-2 rounded-xl2 bg-green700 text-white font-display font-semibold text-sm px-5 py-2.5 shadow-soft transition cursor-pointer">
-        <span>▶</span> TVC Quảng Cáo 30s
+    <div class="mt-8 flex flex-wrap justify-center items-center gap-2 sm:gap-3 reveal" id="videoTabs">
+      <button data-vkey="yt1" class="vtab-btn active-vtab inline-flex items-center gap-1.5 rounded-xl2 bg-green700 text-white font-display font-semibold text-xs sm:text-sm px-4 py-2.5 shadow-soft transition cursor-pointer">
+        <span>▶</span> Phim Tư Liệu BDF (Tập 1)
       </button>
-      <button id="btnVideoFull" class="inline-flex items-center gap-2 rounded-xl2 bg-surface2 text-textsoft hover:text-green900 font-display font-semibold text-sm px-5 py-2.5 transition cursor-pointer">
-        <span>🎬</span> Phim Tư Liệu Chi Tiết (Full HD)
+      <button data-vkey="yt2" class="vtab-btn inline-flex items-center gap-1.5 rounded-xl2 bg-surface2 text-textsoft hover:text-green900 font-display font-semibold text-xs sm:text-sm px-4 py-2.5 transition cursor-pointer">
+        <span>🎬</span> Vùng Trồng Sâm (Tập 2)
+      </button>
+      <button data-vkey="yt3" class="vtab-btn inline-flex items-center gap-1.5 rounded-xl2 bg-surface2 text-textsoft hover:text-green900 font-display font-semibold text-xs sm:text-sm px-4 py-2.5 transition cursor-pointer">
+        <span>🌿</span> Trải Nghiệm & SP (Tập 3)
+      </button>
+      <button data-vkey="yt4" class="vtab-btn inline-flex items-center gap-1.5 rounded-xl2 bg-surface2 text-textsoft hover:text-green900 font-display font-semibold text-xs sm:text-sm px-4 py-2.5 transition cursor-pointer">
+        <span>📺</span> Phim Tư Liệu (Tập 4)
+      </button>
+      <button data-vkey="yt5" class="vtab-btn inline-flex items-center gap-1.5 rounded-xl2 bg-surface2 text-textsoft hover:text-green900 font-display font-semibold text-xs sm:text-sm px-4 py-2.5 transition cursor-pointer">
+        <span>✨</span> Truyền Thông BDF (Tập 5)
+      </button>
+      <button data-vkey="30s" class="vtab-btn inline-flex items-center gap-1.5 rounded-xl2 bg-surface2 text-textsoft hover:text-green900 font-display font-semibold text-xs sm:text-sm px-4 py-2.5 transition cursor-pointer">
+        <span>⚡</span> TVC 30s
       </button>
     </div>
 
     <!-- Responsive Video Container -->
     <div class="mt-6 reveal">
-      <div class="relative rounded-2xl overflow-hidden ring-1 ring-borderc shadow-soft bg-black aspect-video max-w-4xl mx-auto">
-        <video id="mainVideoPlayer" controls preload="metadata" poster="images/ghep-vuon-sam.png" class="w-full h-full object-contain">
-          <source id="videoSource" src="videos/sam-bo-chinh-tay-ninh-30s.mp4" type="video/mp4" />
-          Trình duyệt của bạn không hỗ trợ phát video HTML5.
-        </video>
+      <div id="videoContainer" class="relative rounded-2xl overflow-hidden ring-1 ring-borderc shadow-soft bg-black aspect-video max-w-4xl mx-auto">
+        <iframe id="mainYoutubePlayer" src="https://www.youtube.com/embed/wtxXklOBhgE?rel=0" title="Video Giới Thiệu Bà Đen Farm" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
       <div class="mt-4 text-center text-xs text-textfaint flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
         <span>📹 Độ phân giải: Full HD 1080p</span>
@@ -822,36 +831,37 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
     }
   })();
 
-  // Video switcher (TVC 30s vs Phim Tư Liệu Full)
+  // Video Gallery Switcher (Supporting YouTube Embeds & MP4 Video)
   (function(){
-    var btn30s = document.getElementById('btnVideo30s');
-    var btnFull = document.getElementById('btnVideoFull');
-    var player = document.getElementById('mainVideoPlayer');
-    var source = document.getElementById('videoSource');
-    if (!btn30s || !btnFull || !player || !source) return;
+    var tabs = document.querySelectorAll('#videoTabs .vtab-btn');
+    var container = document.getElementById('videoContainer');
+    if (!tabs.length || !container) return;
 
     var vids = window.SITE_VIDEOS || {
-      '30s': 'videos/sam-bo-chinh-tay-ninh-30s.mp4',
-      'full': 'videos/sam-bo-chinh-tay-ninh-full.mp4'
+      "yt1": "https://www.youtube.com/embed/wtxXklOBhgE",
+      "yt2": "https://www.youtube.com/embed/-vmvlboyWPQ",
+      "yt3": "https://www.youtube.com/embed/pp4PH2AByZk",
+      "yt4": "https://www.youtube.com/embed/t7tI6t-nH5E",
+      "yt5": "https://www.youtube.com/embed/qD9Hduf7tP4",
+      "30s": "videos/sam-bo-chinh-tay-ninh-30s.mp4"
     };
 
-    function setActive(activeBtn, inactiveBtn) {
-      activeBtn.className = 'active-video-tab inline-flex items-center gap-2 rounded-xl2 bg-green700 text-white font-display font-semibold text-sm px-5 py-2.5 shadow-soft transition cursor-pointer';
-      inactiveBtn.className = 'inline-flex items-center gap-2 rounded-xl2 bg-surface2 text-textsoft hover:text-green900 font-display font-semibold text-sm px-5 py-2.5 transition cursor-pointer';
-    }
+    tabs.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        tabs.forEach(function(t){
+          t.className = 'vtab-btn inline-flex items-center gap-1.5 rounded-xl2 bg-surface2 text-textsoft hover:text-green900 font-display font-semibold text-xs sm:text-sm px-4 py-2.5 transition cursor-pointer';
+        });
+        btn.className = 'vtab-btn active-vtab inline-flex items-center gap-1.5 rounded-xl2 bg-green700 text-white font-display font-semibold text-xs sm:text-sm px-4 py-2.5 shadow-soft transition cursor-pointer';
 
-    btn30s.addEventListener('click', function(){
-      setActive(btn30s, btnFull);
-      source.src = vids['30s'] || 'videos/sam-bo-chinh-tay-ninh-30s.mp4';
-      player.load();
-      player.play().catch(function(){});
-    });
+        var key = btn.getAttribute('data-vkey');
+        var url = vids[key] || vids['yt1'];
 
-    btnFull.addEventListener('click', function(){
-      setActive(btnFull, btn30s);
-      source.src = vids['full'] || 'videos/sam-bo-chinh-tay-ninh-full.mp4';
-      player.load();
-      player.play().catch(function(){});
+        if (url.includes('youtube.com') || url.includes('youtu.be')) {
+          container.innerHTML = '<iframe id="mainYoutubePlayer" src="' + url + '?autoplay=1&rel=0" title="Video Giới Thiệu Bà Đen Farm" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+        } else {
+          container.innerHTML = '<video id="mainVideoPlayer" controls autoplay preload="metadata" poster="images/ghep-vuon-sam.png" class="w-full h-full object-contain"><source src="' + url + '" type="video/mp4" />Trình duyệt của bạn không hỗ trợ phát video HTML5.</video>';
+        }
+      });
     });
   })();
 
