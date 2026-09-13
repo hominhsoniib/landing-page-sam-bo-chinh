@@ -40,6 +40,10 @@ window.SITE_IMAGES = {
     src: "images/giay-chung-nhan-sp-tieu-bieu.jpg",
     alt: "Giấy chứng nhận Sản phẩm Công nghiệp Nông thôn Tiêu biểu cấp Khu vực — Trà túi lọc Sâm Bố Chính"
   },
+  "tam-nhin-infographic": {
+    src: "images/tam-nhin.png",
+    alt: "Infographic Tầm nhìn Bà Đen Farm - Phục vụ cộng đồng trên khắp cả nước & Lan tỏa giá trị Sâm Việt"
+  },
 
   // 3. Ảnh Nhà hàng Ẩm thực Sâm Bà Đen (#am-thuc)
   "am-thuc-visual": {
@@ -90,8 +94,8 @@ window.SITE_IMAGES = {
   },
 
   "sp-set-lau-sam": {
-    src: "images/ghep-sp.png",
-    alt: "Set lẩu sâm khô & Bộ sản phẩm dinh dưỡng Sâm Bố Chính"
+    src: "images/set-lau-sam.png",
+    alt: "Set Lẩu Sâm Khô - Thanh Ngọt Tự Nhiên, Bồi Bổ Sức Khỏe - Sâm Bố Chính Bà Đen Farm"
   },
 
   // 6. Ảnh Vùng trồng sâm (#vung-trong)

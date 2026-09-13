@@ -29,6 +29,11 @@ window.SITE_IMAGES = {
     alt: "Vườn Sâm Bố Chính phủ xanh ngát tại Bà Đen Farm"
   },
 
+  "tam-nhin-infographic": {
+    src: "images/tam-nhin.png",
+    alt: "Infographic Tầm nhìn Bà Đen Farm - Phục vụ cộng đồng trên khắp cả nước & Lan tỏa giá trị Sâm Việt"
+  },
+
   // 3. Ảnh Nhà hàng Ẩm thực Sâm Bà Đen (#am-thuc)
   "am-thuc-visual": {
     src: "images/2-trung-bay-sp.jpg",
@@ -78,8 +83,8 @@ window.SITE_IMAGES = {
   },
 
   "sp-set-lau-sam": {
-    src: "images/ghep-sp.png",
-    alt: "Set lẩu sâm khô & Bộ sản phẩm dinh dưỡng Sâm Bố Chính"
+    src: "images/set-lau-sam.png",
+    alt: "Set Lẩu Sâm Khô - Thanh Ngọt Tự Nhiên, Bồi Bổ Sức Khỏe - Sâm Bố Chính Bà Đen Farm"
   },
 
   // 6. Ảnh Vùng trồng sâm (#vung-trong)

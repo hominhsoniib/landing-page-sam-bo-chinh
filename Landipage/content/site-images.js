@@ -100,8 +100,8 @@ window.SITE_IMAGES = {
   },
 
   "sp-set-lau-sam": {
-    src: "images/ghep-sp.png",
-    alt: "Set lẩu sâm khô & Bộ sản phẩm dinh dưỡng Sâm Bố Chính"
+    src: "images/set-lau-sam.png",
+    alt: "Set Lẩu Sâm Khô - Thanh Ngọt Tự Nhiên, Bồi Bổ Sức Khỏe - Sâm Bố Chính Bà Đen Farm"
   },
 
   // 6. Ảnh Vùng trồng sâm (#vung-trong)
