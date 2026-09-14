@@ -205,121 +205,184 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
       </span>
     </a>
 
-    <!-- Desktop Navigation Menu -->
-    <nav class="hidden lg:flex items-center gap-4 xl:gap-5 text-xs font-semibold text-textsoft">
-      <a href="#su-menh" class="hover:text-green700 transition">Sứ mệnh</a>
-      <a href="#tam-nhin" class="hover:text-green700 transition">Tầm nhìn</a>
-      <a href="#gioi-thieu" class="hover:text-green700 transition">Giới thiệu</a>
-      <a href="#san-pham" class="hover:text-green700 transition">Sản phẩm</a>
-      <a href="#vung-trong" class="hover:text-green700 transition">Vùng trồng</a>
-      <a href="#video-gioi-thieu" class="hover:text-green700 transition">Video BDF</a>
-      <a href="#chung-nhan" class="hover:text-green700 transition">Chứng nhận</a>
-      <a href="#am-thuc" class="hover:text-green700 transition">Ẩm thực Sâm</a>
-      <a href="#loi-ich" class="hover:text-green700 transition">Lợi ích</a>
-      <a href="#truy-xuat" class="hover:text-green700 transition">Truy xuất QR</a>
-      <a href="#dai-ly" class="hover:text-green700 transition">Đại lý</a>
-      <a href="#faq" class="hover:text-green700 transition">FAQ</a>
-
-      <!-- MEGA MENU DROPDOWN (Xòe 11 nhóm danh mục cây menu) -->
-      <div class="relative group cursor-pointer py-1">
-        <a href="#cay-menu" class="inline-flex items-center gap-1.5 font-bold text-green900 bg-green100/90 hover:bg-green700 hover:text-white px-3 py-1.5 rounded-full transition-all border border-green700/20 shadow-xs">
-          <span>🌳 Sơ Đồ Web</span>
-          <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+    <!-- Desktop Navigation Menu (Tổ chức theo đúng 10 Nhóm Danh Mục Cây Sơ Đồ Web) -->
+    <nav class="hidden lg:flex items-center gap-3 xl:gap-4 text-xs font-semibold text-textsoft">
+      
+      <!-- 1. Giới thiệu Công ty -->
+      <div class="relative group cursor-pointer py-2">
+        <a href="#su-menh" class="inline-flex items-center gap-1 hover:text-green700 transition">
+          <span>Giới thiệu</span>
+          <svg class="w-3 h-3 text-textfaint transition-transform group-hover:rotate-180 group-hover:text-green700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
         </a>
-
-        <!-- POPUP MEGA MENU DROPDOWN -->
-        <div class="absolute right-0 top-full pt-2 hidden group-hover:block z-50 w-[92vw] max-w-6xl -mr-16 sm:-mr-0">
-          <div class="bg-surface/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-green-700/30 p-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 text-xs">
-            <!-- Mega Item 1 -->
-            <div class="p-2 bg-bgivory/80 rounded-xl border border-borderc">
-              <div class="font-bold text-green900 flex items-center gap-1.5 mb-1.5 text-[11px] uppercase border-b border-borderc pb-1">
-                <span>🏢</span> Giới thiệu Công ty
-              </div>
-              <ul class="space-y-1 text-[11px] text-textsoft">
-                <li><a href="#su-menh" class="hover:text-green700 block py-0.5">1. Sứ mệnh</a></li>
-                <li><a href="#tam-nhin" class="hover:text-green700 block py-0.5">2. Tầm nhìn</a></li>
-                <li><a href="#gioi-thieu" class="hover:text-green700 block py-0.5">3. Giá trị cốt lõi</a></li>
-                <li><a href="#gioi-thieu" class="hover:text-green700 block py-0.5">4. Lịch sử hình thành</a></li>
-                <li><a href="#gioi-thieu" class="hover:text-green700 block py-0.5">5. Đội ngũ</a></li>
-                <li><a href="#chung-nhan" class="hover:text-green700 block py-0.5">6. Giải thưởng</a></li>
-              </ul>
-            </div>
-            <!-- Mega Item 2 -->
-            <div class="p-2 bg-bgivory/80 rounded-xl border border-borderc">
-              <div class="font-bold text-green900 flex items-center gap-1.5 mb-1.5 text-[11px] uppercase border-b border-borderc pb-1">
-                <span>🌱</span> Sản phẩm BDF
-              </div>
-              <ul class="space-y-1 text-[11px] text-textsoft">
-                <li><a href="#san-pham" class="hover:text-green700 block py-0.5">1. Sâm Bố Chính</a></li>
-                <li><a href="#san-pham" class="hover:text-green700 block py-0.5">2. SP Chế biến</a></li>
-                <li><a href="#san-pham" class="hover:text-green700 block py-0.5">3. Sản phẩm khác</a></li>
-                <li><a href="#san-pham" class="hover:text-green700 block py-0.5">4. Bộ quà tặng</a></li>
-                <li><a href="#san-pham" class="hover:text-green700 block py-0.5">5. Bảng giá</a></li>
-                <li><a href="#san-pham" class="hover:text-green700 block py-0.5">6. HDSD</a></li>
-              </ul>
-            </div>
-            <!-- Mega Item 3 -->
-            <div class="p-2 bg-bgivory/80 rounded-xl border border-borderc">
-              <div class="font-bold text-green900 flex items-center gap-1.5 mb-1.5 text-[11px] uppercase border-b border-borderc pb-1">
-                <span>🪴</span> Vùng trồng
-              </div>
-              <ul class="space-y-1 text-[11px] text-textsoft">
-                <li><a href="#vung-trong" class="hover:text-green700 block py-0.5">1. Vùng Bà Đen</a></li>
-                <li><a href="#vung-trong" class="hover:text-green700 block py-0.5">2. Quy trình canh tác</a></li>
-                <li><a href="#vung-trong" class="hover:text-green700 block py-0.5">3. Tiêu chuẩn</a></li>
-                <li><a href="#vung-trong" class="hover:text-green700 block py-0.5">4. Hình ảnh thực tế</a></li>
-                <li><a href="#video-gioi-thieu" class="hover:text-green700 block py-0.5">5. Video vùng trồng</a></li>
-              </ul>
-            </div>
-            <!-- Mega Item 4 -->
-            <div class="p-2 bg-bgivory/80 rounded-xl border border-borderc">
-              <div class="font-bold text-green900 flex items-center gap-1.5 mb-1.5 text-[11px] uppercase border-b border-borderc pb-1">
-                <span>🎬</span> Video BDF
-              </div>
-              <ul class="space-y-1 text-[11px] text-textsoft">
-                <li><a href="#video-gioi-thieu" class="hover:text-green700 block py-0.5">1. Giới thiệu BDF</a></li>
-                <li><a href="#video-gioi-thieu" class="hover:text-green700 block py-0.5">2. Vùng trồng sâm</a></li>
-                <li><a href="#video-gioi-thieu" class="hover:text-green700 block py-0.5">3. Quy trình sản xuất</a></li>
-                <li><a href="#video-gioi-thieu" class="hover:text-green700 block py-0.5">4. Chia sẻ KH</a></li>
-                <li><a href="#video-gioi-thieu" class="hover:text-green700 block py-0.5">5. Tin tức & Sự kiện</a></li>
-              </ul>
-            </div>
-            <!-- Mega Item 5 -->
-            <div class="p-2 bg-bgivory/80 rounded-xl border border-borderc">
-              <div class="font-bold text-green900 flex items-center gap-1.5 mb-1.5 text-[11px] uppercase border-b border-borderc pb-1">
-                <span>🎯</span> Chứng nhận
-              </div>
-              <ul class="space-y-1 text-[11px] text-textsoft">
-                <li><a href="#chung-nhan" class="hover:text-green700 block py-0.5">1. Chứng nhận OCOP</a></li>
-                <li><a href="#chung-nhan" class="hover:text-green700 block py-0.5">2. VietGAP</a></li>
-                <li><a href="#chung-nhan" class="hover:text-green700 block py-0.5">3. Kiểm nghiệm SP</a></li>
-                <li><a href="#chung-nhan" class="hover:text-green700 block py-0.5">4. Hồ sơ pháp lý</a></li>
-                <li><a href="#chung-nhan" class="hover:text-green700 block py-0.5">5. Giấy tờ & khác</a></li>
-              </ul>
-            </div>
-            <!-- Mega Item 6 -->
-            <div class="p-2 bg-bgivory/80 rounded-xl border border-borderc">
-              <div class="font-bold text-green900 flex items-center gap-1.5 mb-1.5 text-[11px] uppercase border-b border-borderc pb-1">
-                <span>🍲</span> Ẩm thực Sâm
-              </div>
-              <ul class="space-y-1 text-[11px] text-textsoft">
-                <li><a href="#am-thuc" class="hover:text-green700 block py-0.5">1. Món ăn từ sâm</a></li>
-                <li><a href="#am-thuc" class="hover:text-green700 block py-0.5">2. Công thức nấu</a></li>
-                <li><a href="#am-thuc" class="hover:text-green700 block py-0.5">3. Tư vấn dinh dưỡng</a></li>
-                <li><a href="#am-thuc" class="hover:text-green700 block py-0.5">4. Video hướng dẫn</a></li>
-              </ul>
-            </div>
-
-            <!-- View All Tree Button -->
-            <div class="col-span-full pt-2 flex items-center justify-between border-t border-borderc text-xs">
-              <span class="text-textsoft font-medium">✨ Khám phá thêm: Lợi ích, Truy xuất QR, Chính sách Đại lý, FAQ...</span>
-              <a href="#cay-menu" class="inline-flex items-center gap-1 text-green700 hover:text-green900 font-bold underline">
-                Xem toàn bộ 11 Cột Sơ Đồ Cây Menu →
-              </a>
-            </div>
+        <div class="absolute left-0 top-full pt-1.5 hidden group-hover:block z-50 min-w-[210px]">
+          <div class="bg-surface rounded-xl shadow-xl border border-borderc p-2 text-xs space-y-1">
+            <a href="#su-menh" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">1</span> <span>Sứ mệnh</span></a>
+            <a href="#tam-nhin" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">2</span> <span>Tầm nhìn</span></a>
+            <a href="#gioi-thieu" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">3</span> <span>Giá trị cốt lõi</span></a>
+            <a href="#gioi-thieu" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">4</span> <span>Lịch sử hình thành</span></a>
+            <a href="#gioi-thieu" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">5</span> <span>Đội ngũ</span></a>
+            <a href="#chung-nhan" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">6</span> <span>Giải thưởng & CC</span></a>
           </div>
         </div>
       </div>
+
+      <!-- 2. Sản phẩm -->
+      <div class="relative group cursor-pointer py-2">
+        <a href="#san-pham" class="inline-flex items-center gap-1 hover:text-green700 transition">
+          <span>Sản phẩm</span>
+          <svg class="w-3 h-3 text-textfaint transition-transform group-hover:rotate-180 group-hover:text-green700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </a>
+        <div class="absolute left-0 top-full pt-1.5 hidden group-hover:block z-50 min-w-[210px]">
+          <div class="bg-surface rounded-xl shadow-xl border border-borderc p-2 text-xs space-y-1">
+            <a href="#san-pham" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">1</span> <span>Sâm Bố Chính tươi</span></a>
+            <a href="#san-pham" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">2</span> <span>Sản phẩm chế biến</span></a>
+            <a href="#san-pham" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">3</span> <span>Sản phẩm khác</span></a>
+            <a href="#san-pham" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">4</span> <span>Bộ quà tặng cao cấp</span></a>
+            <a href="#san-pham" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">5</span> <span>Bảng giá niêm yết</span></a>
+            <a href="#san-pham" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">6</span> <span>Hướng dẫn sử dụng</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Vùng trồng -->
+      <div class="relative group cursor-pointer py-2">
+        <a href="#vung-trong" class="inline-flex items-center gap-1 hover:text-green700 transition">
+          <span>Vùng trồng</span>
+          <svg class="w-3 h-3 text-textfaint transition-transform group-hover:rotate-180 group-hover:text-green700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </a>
+        <div class="absolute left-0 top-full pt-1.5 hidden group-hover:block z-50 min-w-[210px]">
+          <div class="bg-surface rounded-xl shadow-xl border border-borderc p-2 text-xs space-y-1">
+            <a href="#vung-trong" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">1</span> <span>Vùng trồng Núi Bà Đen</span></a>
+            <a href="#vung-trong" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">2</span> <span>Quy trình canh tác</span></a>
+            <a href="#vung-trong" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">3</span> <span>Tiêu chuẩn chất lượng</span></a>
+            <a href="#vung-trong" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">4</span> <span>Hình ảnh thực tế</span></a>
+            <a href="#video-gioi-thieu" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">5</span> <span>Video vùng trồng</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Video BDF -->
+      <div class="relative group cursor-pointer py-2">
+        <a href="#video-gioi-thieu" class="inline-flex items-center gap-1 hover:text-green700 transition">
+          <span>Video BDF</span>
+          <svg class="w-3 h-3 text-textfaint transition-transform group-hover:rotate-180 group-hover:text-green700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </a>
+        <div class="absolute left-0 top-full pt-1.5 hidden group-hover:block z-50 min-w-[210px]">
+          <div class="bg-surface rounded-xl shadow-xl border border-borderc p-2 text-xs space-y-1">
+            <a href="#video-gioi-thieu" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">1</span> <span>Giới thiệu Bà Đen Farm</span></a>
+            <a href="#video-gioi-thieu" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">2</span> <span>Vùng trồng sâm</span></a>
+            <a href="#video-gioi-thieu" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">3</span> <span>Quy trình sản xuất</span></a>
+            <a href="#video-gioi-thieu" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">4</span> <span>Chia sẻ khách hàng</span></a>
+            <a href="#video-gioi-thieu" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">5</span> <span>Tin tức & Sự kiện</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Chứng nhận -->
+      <div class="relative group cursor-pointer py-2">
+        <a href="#chung-nhan" class="inline-flex items-center gap-1 hover:text-green700 transition">
+          <span>Chứng nhận</span>
+          <svg class="w-3 h-3 text-textfaint transition-transform group-hover:rotate-180 group-hover:text-green700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </a>
+        <div class="absolute left-0 top-full pt-1.5 hidden group-hover:block z-50 min-w-[210px]">
+          <div class="bg-surface rounded-xl shadow-xl border border-borderc p-2 text-xs space-y-1">
+            <a href="#chung-nhan" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">1</span> <span>Chứng nhận OCOP 3★</span></a>
+            <a href="#chung-nhan" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">2</span> <span>Chứng nhận VietGAP</span></a>
+            <a href="#chung-nhan" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">3</span> <span>Kiểm nghiệm sản phẩm</span></a>
+            <a href="#chung-nhan" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">4</span> <span>Hồ sơ pháp lý</span></a>
+            <a href="#chung-nhan" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">5</span> <span>Giấy tờ & khác</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Ẩm thực Sâm -->
+      <div class="relative group cursor-pointer py-2">
+        <a href="#am-thuc" class="inline-flex items-center gap-1 hover:text-green700 transition">
+          <span>Ẩm thực Sâm</span>
+          <svg class="w-3 h-3 text-textfaint transition-transform group-hover:rotate-180 group-hover:text-green700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </a>
+        <div class="absolute left-0 top-full pt-1.5 hidden group-hover:block z-50 min-w-[210px]">
+          <div class="bg-surface rounded-xl shadow-xl border border-borderc p-2 text-xs space-y-1">
+            <a href="#am-thuc" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">1</span> <span>Món ăn từ sâm</span></a>
+            <a href="#am-thuc" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">2</span> <span>Công thức nấu ăn</span></a>
+            <a href="#am-thuc" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">3</span> <span>Tư vấn dinh dưỡng</span></a>
+            <a href="#am-thuc" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">4</span> <span>Video hướng dẫn</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Lợi ích -->
+      <div class="relative group cursor-pointer py-2">
+        <a href="#loi-ich" class="inline-flex items-center gap-1 hover:text-green700 transition">
+          <span>Lợi ích</span>
+          <svg class="w-3 h-3 text-textfaint transition-transform group-hover:rotate-180 group-hover:text-green700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </a>
+        <div class="absolute left-0 top-full pt-1.5 hidden group-hover:block z-50 min-w-[210px]">
+          <div class="bg-surface rounded-xl shadow-xl border border-borderc p-2 text-xs space-y-1">
+            <a href="#loi-ich" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">1</span> <span>Đối với sức khỏe</span></a>
+            <a href="#loi-ich" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">2</span> <span>Đối với gia đình</span></a>
+            <a href="#loi-ich" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">3</span> <span>Đối với cộng đồng</span></a>
+            <a href="#loi-ich" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">4</span> <span>Vì sao chọn BDF</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. Truy xuất QR -->
+      <div class="relative group cursor-pointer py-2">
+        <a href="#truy-xuat" class="inline-flex items-center gap-1 hover:text-green700 transition">
+          <span>Truy xuất QR</span>
+          <svg class="w-3 h-3 text-textfaint transition-transform group-hover:rotate-180 group-hover:text-green700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </a>
+        <div class="absolute left-0 top-full pt-1.5 hidden group-hover:block z-50 min-w-[210px]">
+          <div class="bg-surface rounded-xl shadow-xl border border-borderc p-2 text-xs space-y-1">
+            <a href="#truy-xuat" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">1</span> <span>Hướng dẫn truy xuất</span></a>
+            <a href="#truy-xuat" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">2</span> <span>Tra cứu sản phẩm</span></a>
+            <a href="#truy-xuat" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">3</span> <span>Ý nghĩa QR</span></a>
+            <a href="#truy-xuat" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">4</span> <span>Bảo vệ hàng thật</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. Đại lý Đối tác -->
+      <div class="relative group cursor-pointer py-2">
+        <a href="#dai-ly" class="inline-flex items-center gap-1 hover:text-green700 transition">
+          <span>Đại lý Đối tác</span>
+          <svg class="w-3 h-3 text-textfaint transition-transform group-hover:rotate-180 group-hover:text-green700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </a>
+        <div class="absolute left-0 top-full pt-1.5 hidden group-hover:block z-50 min-w-[210px]">
+          <div class="bg-surface rounded-xl shadow-xl border border-borderc p-2 text-xs space-y-1">
+            <a href="#dai-ly" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">1</span> <span>Chính sách đại lý</span></a>
+            <a href="#dai-ly" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">2</span> <span>Quyền lợi đối tác</span></a>
+            <a href="#dai-ly" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">3</span> <span>Đăng ký đại lý</span></a>
+            <a href="#dai-ly" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">4</span> <span>Câu chuyện đối tác</span></a>
+            <a href="#dai-ly" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">5</span> <span>Chính sách truy xuất</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. FAQ -->
+      <div class="relative group cursor-pointer py-2">
+        <a href="#faq" class="inline-flex items-center gap-1 hover:text-green700 transition">
+          <span>FAQ</span>
+          <svg class="w-3 h-3 text-textfaint transition-transform group-hover:rotate-180 group-hover:text-green700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </a>
+        <div class="absolute right-0 top-full pt-1.5 hidden group-hover:block z-50 min-w-[210px]">
+          <div class="bg-surface rounded-xl shadow-xl border border-borderc p-2 text-xs space-y-1">
+            <a href="#faq" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">1</span> <span>Câu hỏi thường gặp</span></a>
+            <a href="#lien-he" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">2</span> <span>Hỗ trợ khách hàng</span></a>
+            <a href="#faq" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">3</span> <span>Chính sách đổi trả</span></a>
+            <a href="#lien-he" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-green100 text-green900 font-semibold"><span class="w-4 h-4 rounded-full bg-green700 text-white text-[9px] grid place-items-center">4</span> <span>Liên hệ</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- MEGA MENU TRIGGER BUTTON -->
+      <div class="relative group cursor-pointer py-1">
+        <a href="#cay-menu" class="inline-flex items-center gap-1 font-bold text-green900 bg-green100 hover:bg-green700 hover:text-white px-2.5 py-1 rounded-full transition-all border border-green700/20 shadow-xs text-[11px]">
+          <span>🌳 Sơ Đồ Web</span>
+        </a>
+      </div>
+
     </nav>
 
     <!-- Header Actions (CTA & Mobile menu toggle) -->
