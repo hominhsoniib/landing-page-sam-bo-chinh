@@ -86,7 +86,7 @@ INSERT INTO public.site_content (id, type, content, alt_text, category) VALUES
 -- NỘI DUNG VĂN BẢN (TEXT & SLOGAN)
 ('sp-duoc-tuu-title', 'text', 'Đế Vương Tửu Bà Đen Farm', 'Tên sản phẩm Rượu/Dược Tửu', 'san-pham'),
 ('site-slogan', 'text', 'Sâm thật · Trồng thật · Chất lượng thật', 'Slogan chính đầu trang', 'trang-chu'),
-('company-phone', 'text', '0919 257 757', 'Số điện thoại hotline liên hệ', 'lien-he'),
+('company-phone', 'text', '0919 257 757 - 0886554242', 'Số điện thoại hotline liên hệ', 'lien-he'),
 ('company-address', 'text', 'Số 02 - Đường Lộ 12A - Khu phố Tân Trung, Phường Bình Minh, Tỉnh Tây Ninh', 'Địa chỉ trụ sở công ty', 'lien-he'),
 ('company-email', 'text', 'contact@badenfarm.com', 'Email liên hệ công ty', 'lien-he')
 
