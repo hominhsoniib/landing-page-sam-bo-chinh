@@ -40,6 +40,22 @@ window.SITE_IMAGES = {
     src: "images/giay-chung-nhan-sp-tieu-bieu.jpg",
     alt: "Giấy chứng nhận Sản phẩm Công nghiệp Nông thôn Tiêu biểu cấp Khu vực — Trà túi lọc Sâm Bố Chính"
   },
+  "giay-cn-ocop-1": {
+    src: "images/giay-cn-ocop-1.png",
+    alt: "Giấy chứng nhận Sản phẩm OCOP 3 Sao tỉnh Tây Ninh — Sâm Bố Chính Bà Đen Farm"
+  },
+  "giay-cn-ocop-2": {
+    src: "images/giay-cn-ocop-2.png",
+    alt: "Giấy chứng nhận Sản phẩm OCOP 3 Sao tỉnh Tây Ninh — Sản phẩm Chế biến từ Sâm"
+  },
+  "giay-cn-ocop-top-1": {
+    src: "images/giay-cn-ocop-top-1.png",
+    alt: "Giấy chứng nhận Sản phẩm Công nghiệp Nông thôn Tiêu biểu cấp Khu vực"
+  },
+  "giay-cn-ocop-top-2": {
+    src: "images/giay-cn-ocop-top-2.png",
+    alt: "Giấy chứng nhận Sản phẩm Công nghiệp Nông thôn Tiêu biểu cấp Tỉnh Tây Ninh"
+  },
   "tam-nhin-infographic": {
     src: "images/tam-nhin.png",
     alt: "Infographic Tầm nhìn Bà Đen Farm - Phục vụ cộng đồng trên khắp cả nước & Lan tỏa giá trị Sâm Việt"

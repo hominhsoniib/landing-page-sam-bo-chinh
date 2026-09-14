@@ -28,7 +28,34 @@ window.SITE_IMAGES = {
     src: "images/VUON SAM BC.jpg",
     alt: "Vườn Sâm Bố Chính phủ xanh ngát tại Bà Đen Farm"
   },
-
+  "gioi-thieu-infographic": {
+    src: "images/gioi-thieu-infographic.jpg",
+    alt: "Infographic Giới thiệu Công ty CP Bà Đen Farm — Sâm Việt cho sức khỏe Việt"
+  },
+  "giay-chung-nhan-haccp": {
+    src: "images/giay-chung-nhan-haccp.jpg",
+    alt: "Giấy chứng nhận Hệ thống Quản lý An toàn Thực phẩm HACCP TCVN 5603:2023"
+  },
+  "giay-chung-nhan-sp-tieu-bieu": {
+    src: "images/giay-chung-nhan-sp-tieu-bieu.jpg",
+    alt: "Giấy chứng nhận Sản phẩm Công nghiệp Nông thôn Tiêu biểu cấp Khu vực — Trà túi lọc Sâm Bố Chính"
+  },
+  "giay-cn-ocop-1": {
+    src: "images/giay-cn-ocop-1.png",
+    alt: "Giấy chứng nhận Sản phẩm OCOP 3 Sao tỉnh Tây Ninh — Sâm Bố Chính Bà Đen Farm"
+  },
+  "giay-cn-ocop-2": {
+    src: "images/giay-cn-ocop-2.png",
+    alt: "Giấy chứng nhận Sản phẩm OCOP 3 Sao tỉnh Tây Ninh — Sản phẩm Chế biến từ Sâm"
+  },
+  "giay-cn-ocop-top-1": {
+    src: "images/giay-cn-ocop-top-1.png",
+    alt: "Giấy chứng nhận Sản phẩm Công nghiệp Nông thôn Tiêu biểu cấp Khu vực"
+  },
+  "giay-cn-ocop-top-2": {
+    src: "images/giay-cn-ocop-top-2.png",
+    alt: "Giấy chứng nhận Sản phẩm Công nghiệp Nông thôn Tiêu biểu cấp Tỉnh Tây Ninh"
+  },
   "tam-nhin-infographic": {
     src: "images/tam-nhin.png",
     alt: "Infographic Tầm nhìn Bà Đen Farm - Phục vụ cộng đồng trên khắp cả nước & Lan tỏa giá trị Sâm Việt"
@@ -142,6 +169,12 @@ window.SITE_IMAGES = {
  * ============================================================
  */
 window.SITE_VIDEOS = {
+  // Video Clip Giới Thiệu BDF v2 (MP4 trực tiếp HD)
+  "v2": "videos/clips-gioi-thieu-bdf-v2.mp4",
+
+  // Video Google Drive Giới Thiệu Bà Đen Farm
+  "drive1": "https://drive.google.com/file/d/1lQ98cuk9g9F1Z-tGCG-XCeadLIdcQqw9/preview",
+
   // 5 Video YouTube tư liệu chính thức từ Bà Đen Farm (Trích xuất từ Clip.docx)
   "yt1": "https://www.youtube.com/embed/wtxXklOBhgE",
   "yt2": "https://www.youtube.com/embed/-vmvlboyWPQ",
