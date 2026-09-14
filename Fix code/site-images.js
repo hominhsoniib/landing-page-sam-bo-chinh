@@ -133,13 +133,13 @@ window.SITE_IMAGES = {
   },
 
   "sp-tra-hoa-sam": {
-    src: "images/BONG SAM-CỦ.jpg",
-    alt: "Trà hoa sâm tứ vị & Củ sâm tươi Bố Chính"
+    src: "images/tra-hoa-sam.jpg",
+    alt: "Trà Hoa Sâm Bố Chính - Tinh Hoa Thiên Nhiên Từ Đất Việt"
   },
 
   "sp-sam-say-lat": {
     src: "images/sam-say-lat.png",
-    alt: "Sâm Bố Chính Sấy Lát - 100% Củ Sâm Tươi Sấy Lạnh Bảo Toàn Kháng Thể"
+    alt: "Sâm Bố Chính Sấy Lát / Sấy Khô - 100% Củ Sâm Tươi Sấy Lạnh Bảo Toàn Kháng Thể"
   },
 
   "sp-set-lau-sam": {
