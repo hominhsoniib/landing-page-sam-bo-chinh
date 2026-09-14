@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bà Đen Farm — Quản Trị Nội Dung Web (Supabase Admin)</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Supabase JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            green900: '#103d18', green700: '#1b5e20', green600: '#2e7d32',
+            gold600: '#c9a227', gold100: '#f6edcf',
+            bgivory: '#faf8f2', surface: '#ffffff'
+          },
+          fontFamily: {
+            display: ['"Be Vietnam Pro"', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-bgivory font-body text-gray-800 min-h-screen flex flex-col">
+
+  <!-- HEADER NAV -->
+  <header class="bg-green900 text-white shadow-md border-b border-gold600/30">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gold600 text-green900 font-bold font-display flex items-center justify-center text-xl shadow">B</div>
+        <div>
+          <h1 class="font-display font-bold text-lg leading-tight text-gold100">BÀ ĐEN FARM — CMS ADMIN</h1>
+          <p class="text-xs text-green-200">Trang quản trị nội dung & hình ảnh website</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3 text-sm">
+        <a href="index.html" target="_blank" class="px-3 py-1.5 rounded-lg bg-green800 hover:bg-green700 text-green-100 flex items-center gap-1.5 transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          Xem trang web
+        </a>
+        <div id="userStatus" class="hidden flex items-center gap-2">
+          <span id="userEmail" class="text-xs bg-green800/80 px-2.5 py-1 rounded text-gold100 font-medium"></span>
+          <button id="logoutBtn" class="px-3 py-1.5 rounded-lg bg-red-800/80 hover:bg-red-700 text-white text-xs transition">Đăng xuất</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 space-y-6">
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="hidden fixed top-5 right-5 z-50 px-4 py-3 rounded-xl shadow-xl text-white font-medium text-sm transition-all duration-300 flex items-center gap-2"></div>
+
+    <!-- CONFIG CARD (Supabase Credentials) -->
+    <div id="configCard" class="bg-surface rounded-2xl p-6 shadow-sm border border-amber-200">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="font-display font-bold text-gray-900 flex items-center gap-2 text-base">
+          <svg class="w-5 h-5 text-gold600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          1. Kết Nối Dự Án Supabase
+        </h2>
+        <span class="text-xs bg-amber-100 text-amber-800 px-2.5 py-0.5 rounded-full font-semibold">Bắt buộc</span>
+      </div>
+
+      <p class="text-sm text-gray-600 mb-4">Nhập thông tin <b>Project URL</b> và <b>Anon Key</b> từ bảng điều khiển Supabase của bạn (Supabase Dashboard -> Project Settings -> API).</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-xs font-semibold text-gray-700 mb-1">SUPABASE URL</label>
+          <input id="cfgUrl" type="text" placeholder="https://xyz...supabase.co" class="w-full px-3.5 py-2 rounded-xl border border-gray-300 focus:ring-2 focus:ring-green700 text-sm">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-gray-700 mb-1">SUPABASE ANON KEY</label>
+          <input id="cfgKey" type="text" placeholder="eyJh..." class="w-full px-3.5 py-2 rounded-xl border border-gray-300 focus:ring-2 focus:ring-green700 text-sm">
+        </div>
+      </div>
+
+      <div class="mt-4 flex flex-wrap justify-between items-center gap-3">
+        <span class="text-xs text-gray-500">Đã nạp file <a href="schema.sql" target="_blank" class="text-green700 font-semibold underline">schema.sql</a> chưa? Hướng dẫn thiết lập bảng database trong file <code>schema.sql</code>.</span>
+        <button id="saveCfgBtn" class="px-5 py-2 rounded-xl bg-green900 hover:bg-green700 text-white font-semibold text-sm transition shadow">Lưu Kết Nối</button>
+      </div>
+    </div>
+
+    <!-- LOGIN PANEL -->
+    <div id="loginCard" class="hidden bg-surface rounded-2xl p-6 md:p-8 max-w-md mx-auto shadow-md border border-gray-100">
+      <div class="text-center mb-6">
+        <div class="w-14 h-14 bg-green900 text-gold600 text-2xl font-bold rounded-2xl flex items-center justify-center mx-auto mb-3 shadow">B</div>
+        <h2 class="font-display font-bold text-xl text-gray-900">Đăng Nhập Admin</h2>
+        <p class="text-xs text-gray-500 mt-1">Dành cho nhân viên quản trị Bà Đen Farm</p>
+      </div>
+
+      <form id="loginForm" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-gray-700 mb-1">Email tài khoản Admin</label>
+          <input id="loginEmail" type="email" required placeholder="admin@badenfarm.com" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-green700 text-sm">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-gray-700 mb-1">Mật khẩu</label>
+          <input id="loginPassword" type="password" required placeholder="••••••••" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-green700 text-sm">
+        </div>
+
+        <button type="submit" id="submitLoginBtn" class="w-full py-3 bg-green900 hover:bg-green700 text-white font-bold text-sm rounded-xl transition shadow-lg">
+          Đăng Nhập Quản Trị
+        </button>
+      </form>
+
+      <p class="text-xs text-center text-gray-500 mt-4">Chưa có tài khoản? Hãy nhờ Super Admin tạo tài khoản trong <b>Supabase Dashboard -> Authentication -> Users</b>.</p>
+    </div>
+
+    <!-- DASHBOARD PANEL (TABS & CONTENT) -->
+    <div id="dashboardCard" class="hidden space-y-6">
+
+      <!-- TABS HEADER -->
+      <div class="flex flex-wrap gap-2 border-b border-gray-200 pb-2">
+        <button tab-target="tabImages" class="tab-btn px-4 py-2 rounded-xl text-sm font-semibold transition bg-green900 text-white shadow">
+          🖼️ Hình Ảnh (Images)
+        </button>
+        <button tab-target="tabTexts" class="tab-btn px-4 py-2 rounded-xl text-sm font-semibold transition bg-gray-100 text-gray-700 hover:bg-gray-200">
+          📝 Văn Bản & Slogan
+        </button>
+        <button tab-target="tabUpload" class="tab-btn px-4 py-2 rounded-xl text-sm font-semibold transition bg-gray-100 text-gray-700 hover:bg-gray-200">
+          📁 Tải Ảnh Mới Up Server
+        </button>
+      </div>
+
+      <!-- TAB 1: IMAGES MANAGER -->
+      <div id="tabImages" class="tab-content space-y-4">
+        <div class="flex flex-wrap justify-between items-center gap-3 bg-surface p-4 rounded-xl border border-gray-200">
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-semibold text-gray-500 uppercase">Lọc Danh Mục:</span>
+            <select id="imgCategoryFilter" class="px-3 py-1.5 text-xs font-semibold rounded-lg border border-gray-300 bg-white">
+              <option value="all">Tất cả danh mục</option>
+              <option value="trang-chu">Trang chủ</option>
+              <option value="gioi-thieu">Giới thiệu</option>
+              <option value="san-pham">Sản phẩm</option>
+              <option value="chung-nhan">Chứng nhận OCOP / HACCP</option>
+            </select>
+          </div>
+          <button id="reloadImagesBtn" class="px-3 py-1.5 text-xs font-medium bg-gray-100 hover:bg-gray-200 rounded-lg transition flex items-center gap-1">
+            🔄 Làm mới danh sách
+          </button>
+        </div>
+
+        <div id="imagesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Image items dynamically rendered here -->
+        </div>
+      </div>
+
+      <!-- TAB 2: TEXTS MANAGER -->
+      <div id="tabTexts" class="tab-content hidden space-y-4">
+        <div id="textsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Text items dynamically rendered here -->
+        </div>
+      </div>
+
+      <!-- TAB 3: FILE UPLOADER -->
+      <div id="tabUpload" class="tab-content hidden bg-surface rounded-2xl p-6 shadow-sm border border-gray-200 space-y-4">
+        <h3 class="font-display font-bold text-gray-900 text-base">Tải Ảnh Trực Tiếp Lên Supabase Storage</h3>
+        <p class="text-xs text-gray-500">Ảnh tải lên sẽ tự động lưu vào bucket <code>site-assets</code> và trả về đường dẫn URL công khai để sử dụng cho website.</p>
+
+        <div class="border-2 border-dashed border-green700/30 rounded-2xl p-8 text-center bg-green-50/30 hover:bg-green-50/60 transition">
+          <input type="file" id="directUploadInput" accept="image/*" class="hidden">
+          <label for="directUploadInput" class="cursor-pointer space-y-2 block">
+            <div class="w-12 h-12 bg-green100 text-green700 rounded-full flex items-center justify-center mx-auto text-xl font-bold">↑</div>
+            <p class="text-sm font-semibold text-gray-800">Nhấn vào đây để chọn ảnh từ máy tính / điện thoại</p>
+            <p class="text-xs text-gray-400">Hỗ trợ JPG, PNG, WEBP, SVG</p>
+          </label>
+        </div>
+
+        <div id="uploadResult" class="hidden bg-gray-50 p-4 rounded-xl space-y-2">
+          <p class="text-xs font-bold text-green700">✓ Tải ảnh thành công!</p>
+          <div class="flex items-center gap-2">
+            <input id="uploadedUrlInput" type="text" readonly class="flex-1 px-3 py-1.5 bg-white border rounded text-xs">
+            <button id="copyUrlBtn" class="px-3 py-1.5 bg-green900 text-white text-xs font-semibold rounded hover:bg-green700">Sao chép URL</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    var supabaseClient = null;
+    var currentSession = null;
+    var allContent = [];
+
+    // Toast helper
+    function showToast(msg, isError) {
+      var toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.className = 'fixed top-5 right-5 z-50 px-4 py-3 rounded-xl shadow-xl text-white font-medium text-sm transition-all duration-300 flex items-center gap-2 ' +
+        (isError ? 'bg-red-600' : 'bg-green700');
+      toast.classList.remove('hidden');
+      setTimeout(function(){ toast.classList.add('hidden'); }, 3500);
+    }
+
+    // Config Initialization
+    function initAppConfig() {
+      var savedUrl = localStorage.getItem('BDF_SUPABASE_URL') || window.SUPABASE_URL || 'https://ajugxtxxlllwalgzrfef.supabase.co';
+      var savedKey = localStorage.getItem('BDF_SUPABASE_ANON_KEY') || window.SUPABASE_ANON_KEY || 'sb_publishable_p-RaEm9cpLCznKXSkD7Qhw_AEpvXIYM';
+
+      document.getElementById('cfgUrl').value = savedUrl;
+      document.getElementById('cfgKey').value = savedKey;
+
+      if (savedUrl && savedKey && window.supabase) {
+        try {
+          supabaseClient = window.supabase.createClient(savedUrl, savedKey);
+          document.getElementById('configCard').classList.add('hidden');
+          checkAuthStatus();
+        } catch (e) {
+          console.error(e);
+          document.getElementById('configCard').classList.remove('hidden');
+        }
+      } else {
+        document.getElementById('configCard').classList.remove('hidden');
+      }
+    }
+
+    document.getElementById('saveCfgBtn').addEventListener('click', function(){
+      var url = document.getElementById('cfgUrl').value.trim();
+      var key = document.getElementById('cfgKey').value.trim();
+      if (!url || !key) {
+        showToast('Vui lòng nhập đầy đủ URL và Anon Key!', true);
+        return;
+      }
+      localStorage.setItem('BDF_SUPABASE_URL', url);
+      localStorage.setItem('BDF_SUPABASE_ANON_KEY', key);
+      showToast('Đã lưu cấu hình kết nối!');
+      initAppConfig();
+    });
+
+    // Check Auth Status
+    async function checkAuthStatus() {
+      if (!supabaseClient) return;
+      var sessionRes = await supabaseClient.auth.getSession();
+      currentSession = sessionRes.data ? sessionRes.data.session : null;
+
+      if (currentSession) {
+        document.getElementById('loginCard').classList.add('hidden');
+        document.getElementById('dashboardCard').classList.remove('hidden');
+        document.getElementById('userStatus').classList.remove('hidden');
+        document.getElementById('userEmail').textContent = currentSession.user.email;
+        loadDashboardData();
+      } else {
+        document.getElementById('loginCard').classList.remove('hidden');
+        document.getElementById('dashboardCard').classList.add('hidden');
+        document.getElementById('userStatus').classList.add('hidden');
+      }
+    }
+
+    // Login Form Submit
+    document.getElementById('loginForm').addEventListener('submit', async function(e){
+      e.preventDefault();
+      var email = document.getElementById('loginEmail').value.trim();
+      var password = document.getElementById('loginPassword').value.trim();
+      var btn = document.getElementById('submitLoginBtn');
+
+      btn.disabled = true;
+      btn.textContent = 'Đang xác thực...';
+
+      var res = await supabaseClient.auth.signInWithPassword({ email: email, password: password });
+      btn.disabled = false;
+      btn.textContent = 'Đăng Nhập Quản Trị';
+
+      if (res.error) {
+        showToast('Đăng nhập thất bại: ' + res.error.message, true);
+      } else {
+        showToast('Đăng nhập thành công!');
+        checkAuthStatus();
+      }
+    });
+
+    // Logout
+    document.getElementById('logoutBtn').addEventListener('click', async function(){
+      if (supabaseClient) {
+        await supabaseClient.auth.signOut();
+        showToast('Đã đăng xuất!');
+        checkAuthStatus();
+      }
+    });
+
+    // Tabs switching
+    document.querySelectorAll('.tab-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        document.querySelectorAll('.tab-btn').forEach(function(b){
+          b.className = 'tab-btn px-4 py-2 rounded-xl text-sm font-semibold transition bg-gray-100 text-gray-700 hover:bg-gray-200';
+        });
+        this.className = 'tab-btn px-4 py-2 rounded-xl text-sm font-semibold transition bg-green900 text-white shadow';
+
+        var targetId = this.getAttribute('tab-target');
+        document.querySelectorAll('.tab-content').forEach(function(content){
+          content.classList.add('hidden');
+        });
+        document.getElementById(targetId).classList.remove('hidden');
+      });
+    });
+
+    // Load Dashboard Data
+    async function loadDashboardData() {
+      if (!supabaseClient) return;
+      var res = await supabaseClient.from('site_content').select('*').order('id');
+      if (res.error) {
+        showToast('Lỗi nạp dữ liệu: ' + res.error.message, true);
+        return;
+      }
+      allContent = res.data || [];
+
+      // Tự động nạp key tiêu đề Đế Vương Tửu nếu chưa có
+      var hasTitle = allContent.some(function(item){ return item.id === 'sp-duoc-tuu-title'; });
+      if (!hasTitle && currentSession) {
+        await supabaseClient.from('site_content').upsert({
+          id: 'sp-duoc-tuu-title',
+          type: 'text',
+          content: 'Đế Vương Tửu Bà Đen Farm',
+          alt_text: 'Tên tiêu đề sản phẩm 3 (Rượu / Dược Tửu)',
+          category: 'san-pham'
+        });
+        var reFetch = await supabaseClient.from('site_content').select('*').order('id');
+        if (reFetch.data) allContent = reFetch.data;
+      }
+
+      renderImagesGrid();
+      renderTextsGrid();
+    }
+
+    document.getElementById('reloadImagesBtn').addEventListener('click', loadDashboardData);
+    document.getElementById('imgCategoryFilter').addEventListener('change', renderImagesGrid);
+
+    // Render Images Grid
+    function renderImagesGrid() {
+      var grid = document.getElementById('imagesGrid');
+      grid.innerHTML = '';
+      var catFilter = document.getElementById('imgCategoryFilter').value;
+
+      var images = allContent.filter(function(item){
+        return item.type === 'image' && (catFilter === 'all' || item.category === catFilter);
+      });
+
+      if (images.length === 0) {
+        grid.innerHTML = '<div class="col-span-full py-8 text-center text-gray-400 text-sm">Không có hình ảnh nào trong danh mục này.</div>';
+        return;
+      }
+
+      images.forEach(function(item){
+        var card = document.createElement('div');
+        card.className = 'bg-surface rounded-2xl p-4 shadow-sm border border-gray-200 space-y-3 flex flex-col justify-between';
+        card.innerHTML = `
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="font-mono text-xs font-bold text-green900 bg-green-50 px-2 py-0.5 rounded border border-green-200">${item.id}</span>
+              <span class="text-[10px] text-gray-400 uppercase font-semibold">${item.category || 'chung'}</span>
+            </div>
+
+            <div class="aspect-video bg-gray-100 rounded-xl overflow-hidden mb-3 border border-gray-100 flex items-center justify-center relative group">
+              <img id="img-prev-${item.id}" src="${item.content}" alt="${item.alt_text || ''}" class="w-full h-full object-cover">
+            </div>
+
+            <div class="space-y-2 text-xs">
+              <div>
+                <label class="font-semibold text-gray-600">Đường dẫn ảnh (URL)</label>
+                <input id="img-url-${item.id}" type="text" value="${item.content || ''}" class="w-full px-2.5 py-1.5 rounded-lg border border-gray-300 text-xs focus:ring-1 focus:ring-green700">
+              </div>
+              <div>
+                <label class="font-semibold text-gray-600">Mô tả ảnh (ALT SEO)</label>
+                <input id="img-alt-${item.id}" type="text" value="${item.alt_text || ''}" class="w-full px-2.5 py-1.5 rounded-lg border border-gray-300 text-xs focus:ring-1 focus:ring-green700">
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-2 flex items-center justify-between gap-2 border-t border-gray-100">
+            <label for="upload-file-${item.id}" class="px-2.5 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold rounded-lg cursor-pointer transition">
+              📁 Đổi ảnh
+            </label>
+            <input type="file" id="upload-file-${item.id}" accept="image/*" class="hidden" onchange="uploadSingleImage('${item.id}', this)">
+
+            <button onclick="saveSingleImage('${item.id}')" class="px-3 py-1.5 bg-green900 hover:bg-green700 text-white text-xs font-bold rounded-lg transition shadow">
+              Lưu Đổi Ảnh
+            </button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Save Single Image Row
+    window.saveSingleImage = async function(id) {
+      var urlInput = document.getElementById('img-url-' + id);
+      var altInput = document.getElementById('img-alt-' + id);
+      var newUrl = urlInput.value.trim();
+      var newAlt = altInput.value.trim();
+
+      var res = await supabaseClient.from('site_content').update({
+        content: newUrl,
+        alt_text: newAlt,
+        updated_at: new Date().toISOString()
+      }).eq('id', id);
+
+      if (res.error) {
+        showToast('Lỗi lưu ảnh: ' + res.error.message, true);
+      } else {
+        showToast('Đã lưu thay đổi cho ' + id + '!');
+        document.getElementById('img-prev-' + id).src = newUrl;
+      }
+    };
+
+    // Upload Single Image directly to Bucket
+    window.uploadSingleImage = async function(id, inputElem) {
+      if (!inputElem.files || !inputElem.files[0]) return;
+      var file = inputElem.files[0];
+      var fileExt = file.name.split('.').pop();
+      var fileName = id + '_' + Date.now() + '.' + fileExt;
+      var filePath = 'images/' + fileName;
+
+      showToast('Đang tải ảnh lên server...');
+
+      var uploadRes = await supabaseClient.storage.from('site-assets').upload(filePath, file);
+      if (uploadRes.error) {
+        showToast('Lỗi tải ảnh: ' + uploadRes.error.message, true);
+        return;
+      }
+
+      var publicUrlRes = supabaseClient.storage.from('site-assets').getPublicUrl(filePath);
+      var publicUrl = publicUrlRes.data.publicUrl;
+
+      document.getElementById('img-url-' + id).value = publicUrl;
+      document.getElementById('img-prev-' + id).src = publicUrl;
+      showToast('Tải ảnh thành công! Bấm "Lưu Đổi Ảnh" để hoàn tất.');
+    };
+
+    // Render Texts Grid
+    function renderTextsGrid() {
+      var grid = document.getElementById('textsGrid');
+      grid.innerHTML = '';
+
+      var texts = allContent.filter(function(item){ return item.type === 'text'; });
+      if (texts.length === 0) {
+        grid.innerHTML = '<div class="col-span-full py-8 text-center text-gray-400 text-sm">Không có mục văn bản nào.</div>';
+        return;
+      }
+
+      texts.forEach(function(item){
+        var card = document.createElement('div');
+        card.className = 'bg-surface rounded-2xl p-4 shadow-sm border border-gray-200 space-y-3';
+        card.innerHTML = `
+          <div class="flex justify-between items-center">
+            <span class="font-mono text-xs font-bold text-green900 bg-green-50 px-2 py-0.5 rounded border border-green-200">${item.id}</span>
+            <span class="text-[10px] text-gray-400">${item.alt_text || 'Mô tả'}</span>
+          </div>
+          <div>
+            <textarea id="text-val-${item.id}" rows="2" class="w-full px-3 py-2 text-xs rounded-xl border border-gray-300 focus:ring-1 focus:ring-green700">${item.content || ''}</textarea>
+          </div>
+          <div class="text-right">
+            <button onclick="saveSingleText('${item.id}')" class="px-3 py-1.5 bg-green900 hover:bg-green700 text-white text-xs font-bold rounded-lg transition shadow">Lưu Văn Bản</button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    window.saveSingleText = async function(id) {
+      var val = document.getElementById('text-val-' + id).value.trim();
+      var res = await supabaseClient.from('site_content').update({
+        content: val,
+        updated_at: new Date().toISOString()
+      }).eq('id', id);
+
+      if (res.error) {
+        showToast('Lỗi lưu văn bản: ' + res.error.message, true);
+      } else {
+        showToast('Đã lưu văn bản ' + id + '!');
+      }
+    };
+
+    // Direct Uploader Tab logic
+    document.getElementById('directUploadInput').addEventListener('change', async function(){
+      if (!this.files || !this.files[0]) return;
+      var file = this.files[0];
+      var fileExt = file.name.split('.').pop();
+      var fileName = 'asset_' + Date.now() + '.' + fileExt;
+      var filePath = 'uploads/' + fileName;
+
+      showToast('Đang tải file lên...');
+      var res = await supabaseClient.storage.from('site-assets').upload(filePath, file);
+      if (res.error) {
+        showToast('Lỗi upload: ' + res.error.message, true);
+      } else {
+        var publicUrlRes = supabaseClient.storage.from('site-assets').getPublicUrl(filePath);
+        var publicUrl = publicUrlRes.data.publicUrl;
+        document.getElementById('uploadedUrlInput').value = publicUrl;
+        document.getElementById('uploadResult').classList.remove('hidden');
+        showToast('Tải file thành công!');
+      }
+    });
+
+    document.getElementById('copyUrlBtn').addEventListener('click', function(){
+      var input = document.getElementById('uploadedUrlInput');
+      input.select();
+      document.execCommand('copy');
+      showToast('Đã sao chép đường dẫn URL vào bộ nhớ tạm!');
+    });
+
+    // Start App
+    document.addEventListener('DOMContentLoaded', initAppConfig);
+  </script>
+</body>
+</html>
