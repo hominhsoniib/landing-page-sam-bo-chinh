@@ -320,16 +320,43 @@
       }
       allContent = res.data || [];
 
-      // Tự động nạp key tiêu đề Đế Vương Tửu nếu chưa có
-      var hasTitle = allContent.some(function(item){ return item.id === 'sp-duoc-tuu-title'; });
-      if (!hasTitle && currentSession) {
-        await supabaseClient.from('site_content').upsert({
-          id: 'sp-duoc-tuu-title',
-          type: 'text',
-          content: 'Đế Vương Tửu Bà Đen Farm',
-          alt_text: 'Tên tiêu đề sản phẩm 3 (Rượu / Dược Tửu)',
-          category: 'san-pham'
-        });
+      // Tự động nạp thêm danh sách các key văn bản mặc định cho các sản phẩm nếu chưa có
+      var defaultTextSeeds = [
+        { id: 'sp-tra-tui-loc-title', content: 'Trà túi lọc Sâm Bố Chính', alt_text: 'Tên SP 1: Trà túi lọc', category: 'san-pham' },
+        { id: 'sp-tra-tui-loc-desc', content: 'Trà thảo dược giàu Saponin & Mucin tự nhiên. Vị ngọt thanh lưu lâu ở cổ họng, giải nhiệt mát gan & bồi bổ cơ thể hàng ngày.', alt_text: 'Mô tả SP 1', category: 'san-pham' },
+        { id: 'sp-ruou-sam-title', content: 'Rượu Sâm Tiến Vua', alt_text: 'Tên SP 2: Rượu Sâm', category: 'san-pham' },
+        { id: 'sp-ruou-sam-desc', content: 'Xử lý Điện Từ Trường 2-3h đằm thắm như ngâm hạ thổ nhiều năm. Phối hợp Sâm Bố Chính, Ashwagandha & Đẳng Sâm bổ sinh lực.', alt_text: 'Mô tả SP 2', category: 'san-pham' },
+        { id: 'sp-duoc-tuu-title', content: 'Đế Vương Tửu Bà Đen Farm', alt_text: 'Tên SP 3: Đế Vương Tửu', category: 'san-pham' },
+        { id: 'sp-duoc-tuu-desc', content: 'Giúp bồi bổ khí huyết, giảm đau mỏi xương khớp, tăng cường thể lực và dưỡng tâm an thần hiệu quả cho người trung niên.', alt_text: 'Mô tả SP 3', category: 'san-pham' },
+        { id: 'sp-sam-say-lat-title', content: 'Sâm Bố Chính Sấy Lát', alt_text: 'Tên SP 4: Sấy Lát', category: 'san-pham' },
+        { id: 'sp-sam-say-lat-desc', content: 'Dồi dào Mucin (377.8mg/g) trơn khớp, kích thích Collagen trẻ hóa da, phục hồi cơ thể sau bệnh & phẫu thuật.', alt_text: 'Mô tả SP 4', category: 'san-pham' },
+        { id: 'sp-bot-sam-title', content: 'Bột Sâm Bố Chính', alt_text: 'Tên SP 5: Bột Sâm', category: 'san-pham' },
+        { id: 'sp-bot-sam-desc', content: 'Bảo toàn 100% Saponin (15.2mg/g) & Mucin. Dễ dàng pha nước uống, pha sinh tố hoặc hầm canh bổ dưỡng.', alt_text: 'Mô tả SP 5', category: 'san-pham' },
+        { id: 'sp-cao-sam-title', content: 'Cao Sâm Bố Chính', alt_text: 'Tên SP 6: Cao Sâm', category: 'san-pham' },
+        { id: 'sp-cao-sam-desc', content: 'Hàm lượng dược tính cô đặc gấp nhiều lần, giúp chống mệt mỏi, phục hồi thể lực và hỗ trợ người bệnh ăn ngon ngủ sâu.', alt_text: 'Mô tả SP 6', category: 'san-pham' },
+        { id: 'sp-tra-hoa-sam-title', content: 'Trà Hoa Sâm Tứ Vị', alt_text: 'Tên SP 7: Trà Hoa Sâm', category: 'san-pham' },
+        { id: 'sp-tra-hoa-sam-desc', content: 'Chứa Glycine, Histidine & Lysine giúp an thần ngủ ngon, chống lão hóa da, cải thiện sinh lý & phòng ngừa gan nhiễm mỡ.', alt_text: 'Mô tả SP 7', category: 'san-pham' },
+        { id: 'sp-set-lau-sam-title', content: 'Set Lẩu Sâm Khô', alt_text: 'Tên SP 8: Set Lẩu Sâm', category: 'san-pham' },
+        { id: 'sp-set-lau-sam-desc', content: 'Sâm Bố Chính sấy lát phối hợp thảo mộc thanh ngọt. Cho nước lẩu bổ dưỡng, thanh nhiệt và bồi bổ thể lực gia đình.', alt_text: 'Mô tả SP 8', category: 'san-pham' }
+      ];
+
+      var needRefetch = false;
+      for (var i = 0; i < defaultTextSeeds.length; i++) {
+        var seed = defaultTextSeeds[i];
+        var exists = allContent.some(function(item){ return item.id === seed.id; });
+        if (!exists && currentSession) {
+          await supabaseClient.from('site_content').upsert({
+            id: seed.id,
+            type: 'text',
+            content: seed.content,
+            alt_text: seed.alt_text,
+            category: seed.category
+          });
+          needRefetch = true;
+        }
+      }
+
+      if (needRefetch) {
         var reFetch = await supabaseClient.from('site_content').select('*').order('id');
         if (reFetch.data) allContent = reFetch.data;
       }
