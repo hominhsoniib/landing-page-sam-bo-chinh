@@ -99,6 +99,23 @@
                 elem.textContent = item.content;
               }
             });
+
+            // Cập nhật các thẻ chỉ đổi link href (như icon Zalo, 📞, @) mà giữ nguyên icon/text gốc
+            var hrefElems = document.querySelectorAll('[data-href-key="' + item.id + '"]');
+            hrefElems.forEach(function (elem) {
+              if (elem.tagName === 'A' && elem.href) {
+                if (item.id === 'company-phone') {
+                  var cleanNum = item.content.split(/[-–]/)[0].replace(/[^0-9+]/g, '');
+                  if (elem.href.includes('zalo.me') || elem.getAttribute('aria-label') === 'Zalo' || elem.getAttribute('aria-label') === 'Chat Zalo') {
+                    elem.href = 'https://zalo.me/' + cleanNum;
+                  } else {
+                    elem.href = 'tel:' + cleanNum;
+                  }
+                } else if (item.id === 'company-email') {
+                  elem.href = 'mailto:' + item.content;
+                }
+              }
+            });
           }
         });
       } catch (e) {
