@@ -137,6 +137,11 @@ window.SITE_IMAGES = {
     alt: "Trà hoa sâm tứ vị & Củ sâm tươi Bố Chính"
   },
 
+  "sp-sam-say-lat": {
+    src: "images/sam-say-lat.png",
+    alt: "Sâm Bố Chính Sấy Lát - 100% Củ Sâm Tươi Sấy Lạnh Bảo Toàn Kháng Thể"
+  },
+
   "sp-set-lau-sam": {
     src: "images/set-lau-sam.png",
     alt: "Set Lẩu Sâm Khô - Thanh Ngọt Tự Nhiên, Bồi Bổ Sức Khỏe - Sâm Bố Chính Bà Đen Farm"
