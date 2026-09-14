@@ -36,33 +36,63 @@ window.SITE_IMAGES = {
     src: "images/giay-chung-nhan-haccp.jpg",
     alt: "Giấy chứng nhận Hệ thống Quản lý An toàn Thực phẩm HACCP TCVN 5603:2023"
   },
+  "giay-cn-atvstp": {
+    src: "images/giay-cn-atvstp.png",
+    alt: "Giấy chứng nhận Cơ sở đủ điều kiện An toàn Vệ sinh Thực phẩm — Bà Đen Farm Tây Ninh"
+  },
   "giay-chung-nhan-sp-tieu-bieu": {
     src: "images/giay-chung-nhan-sp-tieu-bieu.jpg",
     alt: "Giấy chứng nhận Sản phẩm Công nghiệp Nông thôn Tiêu biểu cấp Khu vực — Trà túi lọc Sâm Bố Chính"
+  },
+  "giay-cn-sp-tieu-bieu-1": {
+    src: "images/giay-cn-sp-tieu-bieu-1.jpg",
+    alt: "Giấy chứng nhận Sản phẩm Nông thôn Tiêu biểu — Công ty CP Bà Đen Farm"
+  },
+  "giay-cn-ocop-1": {
+    src: "images/giay-cn-ocop-1.png",
+    alt: "Giấy chứng nhận Sản phẩm OCOP 3 Sao tỉnh Tây Ninh — Trà túi lọc Sâm Bố Chính"
+  },
+  "giay-cn-ocop-2": {
+    src: "images/giay-cn-ocop-2.png",
+    alt: "Giấy chứng nhận Sản phẩm OCOP 3 Sao tỉnh Tây Ninh — Rượu & Dược Tửu Sâm Bố Chính"
+  },
+  "giay-cn-ocop-3": {
+    src: "images/giay-cn-ocop-3.png",
+    alt: "Giấy chứng nhận Sản phẩm OCOP 3 Sao tỉnh Tây Ninh — Củ Sâm Bố Chính Tươi"
+  },
+  "giay-cn-ocop-4": {
+    src: "images/giay-cn-ocop-4.png",
+    alt: "Giấy chứng nhận Sản phẩm OCOP 3 Sao tỉnh Tây Ninh — Bột Sâm Nguyên Chất BDF"
+  },
+  "giay-cn-ocop-5": {
+    src: "images/giay-cn-ocop-5.png",
+    alt: "Giấy chứng nhận Sản phẩm OCOP 3 Sao tỉnh Tây Ninh — Cao Sâm Bố Chính"
+  },
+  "giay-cn-ocop-6": {
+    src: "images/giay-cn-ocop-6.png",
+    alt: "Giấy chứng nhận Sản phẩm OCOP 3 Sao tỉnh Tây Ninh — Trà Hoa Sâm Tứ Vị"
+  },
+  "giay-cn-ocop-7": {
+    src: "images/giay-cn-ocop-7.png",
+    alt: "Giấy chứng nhận Sản phẩm OCOP 3 Sao tỉnh Tây Ninh — Set Lẩu Sâm Khô Thanh Ngọt"
+  },
+  "giay-cn-ocop-top-1": {
+    src: "images/giay-cn-ocop-top-1.png",
+    alt: "Giấy chứng nhận Sản phẩm Công nghiệp Nông thôn Tiêu biểu cấp Khu vực"
+  },
+  "giay-cn-ocop-top-2": {
+    src: "images/giay-cn-ocop-top-2.png",
+    alt: "Giấy chứng nhận Sản phẩm Công nghiệp Nông thôn Tiêu biểu cấp Tỉnh Tây Ninh"
+  },
+  "tam-nhin-infographic": {
+    src: "images/tam-nhin.png",
+    alt: "Infographic Tầm nhìn Bà Đen Farm - Phục vụ cộng đồng trên khắp cả nước & Lan tỏa giá trị Sâm Việt"
   },
 
   // 3. Ảnh Nhà hàng Ẩm thực Sâm Bà Đen (#am-thuc)
   "am-thuc-visual": {
     src: "images/2-trung-bay-sp.jpg",
     alt: "Không gian trưng bày & trải nghiệm Ẩm thực Sâm Bà Đen chân núi Bà Đen"
-  },
-
-  // 3.5. Infographic 6 Lợi ích sức khỏe (#loi-ich)
-  "loi-ich-infographic": {
-    src: "images/loi-ich-sbc.png",
-    alt: "6 Lợi ích sức khỏe vượt trội của Sâm Bố Chính Bà Đen Farm"
-  },
-
-  // 3.6. Infographic Sứ mệnh Bà Đen Farm (#su-menh)
-  "su-menh-infographic": {
-    src: "images/su-menh.png",
-    alt: "Sứ mệnh Bà Đen Farm - Vì sức khỏe cộng đồng, lan tỏa giá trị dược liệu Việt"
-  },
-
-  // 3.7. Infographic Tầm nhìn Bà Đen Farm (#tam-nhin)
-  "tam-nhin-infographic": {
-    src: "images/tam-nhin.png",
-    alt: "Tầm nhìn Bà Đen Farm - Phục vụ cộng đồng trên khắp cả nước & Lan tỏa giá trị Sâm Việt"
   },
 
   // 4. Ảnh Hoạt động trải nghiệm nông trại (#trai-nghiem)
@@ -103,8 +133,13 @@ window.SITE_IMAGES = {
   },
 
   "sp-tra-hoa-sam": {
-    src: "images/BONG SAM-CỦ.jpg",
-    alt: "Trà hoa sâm tứ vị & Củ sâm tươi Bố Chính"
+    src: "images/tra-hoa-sam.jpg",
+    alt: "Trà Hoa Sâm Bố Chính - Tinh Hoa Thiên Nhiên Từ Đất Việt"
+  },
+
+  "sp-sam-say-lat": {
+    src: "images/sam-say-lat.png",
+    alt: "Sâm Bố Chính Sấy Lát / Sấy Khô - 100% Củ Sâm Tươi Sấy Lạnh Bảo Toàn Kháng Thể"
   },
 
   "sp-set-lau-sam": {
