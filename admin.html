@@ -131,8 +131,17 @@
         <button tab-target="tabTexts" class="tab-btn px-4 py-2 rounded-xl text-sm font-semibold transition bg-gray-100 text-gray-700 hover:bg-gray-200">
           📝 Văn Bản & Slogan
         </button>
+        <button tab-target="tabAcademy" class="tab-btn px-4 py-2 rounded-xl text-sm font-semibold transition bg-gray-100 text-gray-700 hover:bg-gray-200">
+          🎓 Học Viện Sâm Bố Chính
+        </button>
+        <button tab-target="tabOrders" class="tab-btn px-4 py-2 rounded-xl text-sm font-semibold transition bg-gray-100 text-gray-700 hover:bg-gray-200">
+          🛍️ Đơn Hàng Đại Lý
+        </button>
+        <button tab-target="tabFarmLogs" class="tab-btn px-4 py-2 rounded-xl text-sm font-semibold transition bg-gray-100 text-gray-700 hover:bg-gray-200">
+          🪴 Nhật Ký Vùng Trồng
+        </button>
         <button tab-target="tabUpload" class="tab-btn px-4 py-2 rounded-xl text-sm font-semibold transition bg-gray-100 text-gray-700 hover:bg-gray-200">
-          📁 Tải Ảnh Mới Up Server
+          📁 Tải Ảnh Up Server
         </button>
       </div>
 
@@ -166,7 +175,57 @@
         </div>
       </div>
 
-      <!-- TAB 3: FILE UPLOADER -->
+      <!-- TAB 3: HỌC VIỆN BÀ ĐEN FARM (ACADEMY) -->
+      <div id="tabAcademy" class="tab-content hidden space-y-6">
+        <div class="bg-gradient-to-r from-green900 to-green700 text-white p-6 rounded-2xl shadow-sm flex flex-wrap justify-between items-center gap-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-gold100">🎓 CỔNG ĐÀO TẠO & NĂNG LỰC</span>
+            <h3 class="text-xl font-bold font-display mt-1">Học Viện Nông Nghiệp Bà Đen Farm</h3>
+            <p class="text-xs text-white/80 mt-1">Quản lý các chương trình tập huấn VietGAP & Kỹ năng kinh doanh cho Nông hộ và Đại lý.</p>
+          </div>
+          <div class="flex gap-4 text-center text-xs">
+            <div class="bg-white/10 px-4 py-2 rounded-xl border border-white/20"><div class="text-lg font-bold text-gold100">124</div><div>Học viên</div></div>
+            <div class="bg-white/10 px-4 py-2 rounded-xl border border-white/20"><div class="text-lg font-bold text-gold100">88</div><div>Chứng chỉ cấp</div></div>
+            <div class="bg-white/10 px-4 py-2 rounded-xl border border-white/20"><div class="text-lg font-bold text-gold100">85/100</div><div>Điểm TB</div></div>
+          </div>
+        </div>
+
+        <div id="coursesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Courses rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- TAB 4: ĐƠN HÀNG ĐẠI LÝ & ĐIỂM THƯỞNG (ORDERS) -->
+      <div id="tabOrders" class="tab-content hidden space-y-4">
+        <div class="flex justify-between items-center bg-surface p-4 rounded-xl border border-gray-200">
+          <div>
+            <h3 class="font-display font-bold text-gray-900 text-sm">Quản Lý Đơn Hàng Phân Phối Đại Lý</h3>
+            <p class="text-xs text-gray-500">Theo dõi doanh số, chiết khấu và điểm thưởng tích lũy của đại lý.</p>
+          </div>
+          <span class="text-xs font-bold bg-green-100 text-green700 px-3 py-1 rounded-full">Tích lũy 100đ = 1.000 VNĐ</span>
+        </div>
+        <div id="ordersTableWrap" class="bg-surface rounded-2xl border border-gray-200 overflow-hidden shadow-xs">
+          <!-- Orders table rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- TAB 5: NHẬT KÝ VÙNG TRỒNG VIETGAP (FARM LOGS) -->
+      <div id="tabFarmLogs" class="tab-content hidden space-y-4">
+        <div class="flex justify-between items-center bg-surface p-4 rounded-xl border border-gray-200">
+          <div>
+            <h3 class="font-display font-bold text-gray-900 text-sm">Nhật Ký Canh Tác Vùng Trồng Sâm VietGAP</h3>
+            <p class="text-xs text-gray-500">Cập nhật tiến độ xuống giống, chăm sóc và thu hoạch để xuất mã QR Product Passport.</p>
+          </div>
+          <button onclick="addNewFarmLogPrompt()" class="px-3 py-1.5 bg-green900 text-white text-xs font-bold rounded-lg hover:bg-green700 transition">
+            + Thêm Nhật Ký Mới
+          </button>
+        </div>
+        <div id="farmLogsList" class="space-y-3">
+          <!-- Farm logs rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- TAB 6: FILE UPLOADER -->
       <div id="tabUpload" class="tab-content hidden bg-surface rounded-2xl p-6 shadow-sm border border-gray-200 space-y-4">
         <h3 class="font-display font-bold text-gray-900 text-base">Tải Ảnh Trực Tiếp Lên Supabase Storage</h3>
         <p class="text-xs text-gray-500">Ảnh tải lên sẽ tự động lưu vào bucket <code>site-assets</code> và trả về đường dẫn URL công khai để sử dụng cho website.</p>
@@ -363,7 +422,169 @@
 
       renderImagesGrid();
       renderTextsGrid();
+      renderCoursesGrid();
+      renderOrdersTable();
+      renderFarmLogs();
     }
+
+    // Render Courses Grid (Academy Tab)
+    async function renderCoursesGrid() {
+      var grid = document.getElementById('coursesGrid');
+      grid.innerHTML = '<div class="col-span-full py-4 text-center text-xs text-gray-400">Đang nạp danh sách khóa học...</div>';
+
+      var courses = [
+        { id: 'course-vietgap-01', title: 'Kỹ thuật Canh tác Sâm Bố Chính chuẩn VietGAP', description: 'Hướng dẫn làm đất, bón phân hữu cơ, quản lý nguồn nước và phòng trừ sâu bệnh sinh học.', thumbnail: 'images/ghep-vuon-sam.png', category: 'VietGAP', level: 'Cơ bản', duration: '3 giờ', lessons: 6 },
+        { id: 'course-thuhoach-02', title: 'Quy trình Thu hoạch & Sơ chế Củ Sâm Tươi', description: 'Phương pháp đào sâm tránh gãy rễ, phân loại sâm củ và kỹ thuật rửa siêu âm giữ dưỡng chất.', thumbnail: 'images/cu sam.jpg', category: 'Thu Hoạch', level: 'Nâng cao', duration: '2.5 giờ', lessons: 4 },
+        { id: 'course-banhang-03', title: 'Đào tạo Marketing & Phân phối Sâm Bố Chính', description: 'Kỹ năng tư vấn khách hàng, xây dựng thương hiệu cá nhân và quản lý điểm bán OCOP.', thumbnail: 'images/sp tieu bieu.png', category: 'Đại Lý', level: 'Kinh Doanh', duration: '4 giờ', lessons: 8 }
+      ];
+
+      if (supabaseClient) {
+        var res = await supabaseClient.from('courses').select('*');
+        if (res.data && res.data.length > 0) {
+          courses = res.data.map(function(c){
+            return {
+              id: c.id, title: c.title, description: c.description, thumbnail: c.thumbnail || 'images/ghep-vuon-sam.png',
+              category: c.category || 'VietGAP', level: c.level || 'Cơ bản', duration: c.duration || '2 giờ', lessons: c.lessons_count || 5
+            };
+          });
+        }
+      }
+
+      grid.innerHTML = '';
+      courses.forEach(function(item){
+        var card = document.createElement('div');
+        card.className = 'bg-surface rounded-2xl p-4 border border-gray-200 shadow-xs flex flex-col justify-between space-y-3 hover:shadow-md transition';
+        card.innerHTML = `
+          <div>
+            <div class="aspect-video bg-gray-100 rounded-xl overflow-hidden mb-3 border border-gray-100 relative">
+              <img src="${item.thumbnail}" alt="${item.title}" class="w-full h-full object-cover">
+              <span class="absolute top-2 left-2 bg-green900 text-gold100 text-[10px] font-bold px-2 py-0.5 rounded">${item.category}</span>
+            </div>
+            <h4 class="font-display font-bold text-sm text-gray-900 leading-tight">${item.title}</h4>
+            <p class="text-xs text-gray-500 mt-1 line-clamp-2">${item.description}</p>
+          </div>
+          <div class="pt-3 border-t border-gray-100 flex items-center justify-between text-xs font-semibold">
+            <span class="text-gray-400">⏱️ ${item.duration} · ${item.lessons} bài</span>
+            <button onclick="showToast('Khóa học sẵn sàng cho học viên!')" class="bg-green-100 text-green700 px-2.5 py-1 rounded-lg hover:bg-green-200 transition">Vào Học</button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Render Agent Orders Table
+    async function renderOrdersTable() {
+      var wrap = document.getElementById('ordersTableWrap');
+
+      var orders = [
+        { id: 'ORD-2026-001', agent_name: 'Đại Lý Tây Ninh Sâm Việt', phone: '0988123456', total: 16500000, discount: 20, status: 'completed', date: '2026-09-12' },
+        { id: 'ORD-2026-002', agent_name: 'Điểm Bán OCOP TP.HCM', phone: '0912987654', total: 19500000, discount: 15, status: 'confirmed', date: '2026-09-14' }
+      ];
+
+      if (supabaseClient) {
+        var res = await supabaseClient.from('agent_orders').select('*').order('created_at', { ascending: false });
+        if (res.data && res.data.length > 0) {
+          orders = res.data.map(function(o){
+            return {
+              id: o.id, agent_name: o.agent_name, phone: o.phone, total: o.total_amount, discount: o.discount_rate || 15,
+              status: o.status || 'pending', date: (o.created_at || '').substring(0, 10)
+            };
+          });
+        }
+      }
+
+      var html = `
+        <table class="w-full text-left text-xs">
+          <thead class="bg-gray-50 text-gray-500 uppercase border-b border-gray-200">
+            <tr>
+              <th class="p-3">Mã Đơn</th>
+              <th class="p-3">Đại Lý Phân Phối</th>
+              <th class="p-3">SĐT</th>
+              <th class="p-3">Tổng Tiền</th>
+              <th class="p-3">Chiết Khấu</th>
+              <th class="p-3">Trạng Thái</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100 font-medium">
+      `;
+
+      orders.forEach(function(o){
+        var badgeColor = o.status === 'completed' ? 'bg-green-100 text-green700' : 'bg-amber-100 text-amber-800';
+        var statusLabel = o.status === 'completed' ? 'Đã Giao Hang' : 'Đã Xác Nhận';
+        html += `
+          <tr class="hover:bg-gray-50">
+            <td class="p-3 font-mono font-bold text-green900">${o.id}</td>
+            <td class="p-3 font-bold text-gray-900">${o.agent_name}</td>
+            <td class="p-3 text-gray-600">${o.phone}</td>
+            <td class="p-3 font-bold text-gray-900">${Number(o.total).toLocaleString('vi-VN')} VNĐ</td>
+            <td class="p-3 text-green700 font-bold">-${o.discount}%</td>
+            <td class="p-3"><span class="px-2 py-0.5 rounded text-[11px] font-bold ${badgeColor}">${statusLabel}</span></td>
+          </tr>
+        `;
+      });
+      html += '</tbody></table>';
+      wrap.innerHTML = html;
+    }
+
+    // Render Farm Logs List
+    async function renderFarmLogs() {
+      var wrap = document.getElementById('farmLogsList');
+
+      var logs = [
+        { id: 'LOG-2026-101', farmer: 'Hộ Nông Dân Nguyễn Văn A', batch: 'LOT-BDF-2026-08', stage: 'Xuống Giống', activity: 'Bón lót phân hữu cơ sinh học, làm luống cao 30cm, phủ bạt diệt cỏ.', date: '2026-08-15' },
+        { id: 'LOG-2026-102', farmer: 'Hộ Nông Dân Trần Thị B', batch: 'LOT-BDF-2026-08', stage: 'Chăm Sóc', activity: 'Phun chế phẩm sinh học Trichoderma phòng nấm rễ, kiểm tra độ ẩm đất.', date: '2026-09-02' },
+        { id: 'LOG-2026-103', farmer: 'Kỹ Thuật Viên Lê Văn C', batch: 'LOT-BDF-2026-06', stage: 'Thu Hoạch', activity: 'Kiểm tra hàm lượng Saponin đạt 4.8%, tiến hành thu hoạch đợt 1.', date: '2026-09-10' }
+      ];
+
+      if (supabaseClient) {
+        var res = await supabaseClient.from('farm_logs').select('*').order('log_date', { ascending: false });
+        if (res.data && res.data.length > 0) {
+          logs = res.data.map(function(l){
+            return { id: l.id, farmer: l.farmer_name, batch: l.batch_code, stage: l.stage, activity: l.activity, date: l.log_date };
+          });
+        }
+      }
+
+      wrap.innerHTML = '';
+      logs.forEach(function(l){
+        var item = document.createElement('div');
+        item.className = 'bg-surface p-4 rounded-xl border border-gray-200 shadow-xs flex flex-wrap justify-between items-center gap-3';
+        item.innerHTML = `
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-mono text-xs font-bold text-green900 bg-green-50 px-2 py-0.5 rounded border border-green-200">${l.id}</span>
+              <span class="text-xs font-bold text-gold600 bg-gold100 px-2 py-0.5 rounded">${l.batch}</span>
+              <span class="text-xs text-gray-500 font-medium">📅 ${l.date}</span>
+            </div>
+            <h4 class="font-bold text-sm text-gray-900 mt-1">${l.farmer} — Stage: <span class="text-green700">${l.stage}</span></h4>
+            <p class="text-xs text-gray-600 mt-0.5">${l.activity}</p>
+          </div>
+          <button onclick="showToast('Đã xác thực minh bạch Product Passport!')" class="text-xs font-bold text-green700 bg-green-50 px-3 py-1.5 rounded-lg hover:bg-green-100 transition">✓ Verified QR</button>
+        `;
+        wrap.appendChild(item);
+      });
+    }
+
+    window.addNewFarmLogPrompt = function() {
+      var farmer = prompt('Nhập tên Hộ Nông Dân / Kỹ thuật viên:');
+      if (!farmer) return;
+      var batch = prompt('Nhập Mã Lô Trồng (Ví dụ: LOT-BDF-2026-09):', 'LOT-BDF-2026-09');
+      var activity = prompt('Nhập nội dung hoạt động canh tác:');
+      if (!activity) return;
+
+      var newId = 'LOG-2026-' + Math.floor(Math.random() * 900 + 100);
+      if (supabaseClient) {
+        supabaseClient.from('farm_logs').insert({
+          id: newId, farmer_name: farmer, batch_code: batch, stage: 'Chăm Sóc', activity: activity, log_date: new Date().toISOString().substring(0, 10)
+        }).then(function(){
+          showToast('Đã thêm nhật ký mới thành công!');
+          renderFarmLogs();
+        });
+      } else {
+        showToast('Đã ghi nhận nhật ký vùng trồng mới!');
+      }
+    };
+
 
     document.getElementById('reloadImagesBtn').addEventListener('click', loadDashboardData);
     document.getElementById('imgCategoryFilter').addEventListener('change', renderImagesGrid);

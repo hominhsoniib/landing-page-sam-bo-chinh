@@ -188,8 +188,8 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
       </div>
       <div class="flex items-center gap-3 text-[11px]">
         <a href="tel:0919257757" class="text-white/90 hover:text-gold600 transition flex items-center gap-1 font-semibold">📞 Hotline: 0919.257.757</a>
-        <a href="#cay-menu" class="hidden sm:inline-flex items-center gap-1 bg-gold600/20 text-gold600 hover:bg-gold600 hover:text-green900 px-2.5 py-0.5 rounded-full font-bold transition">
-          🌳 Sơ đồ Web
+        <a href="admin.html" target="_blank" class="hidden sm:inline-flex items-center gap-1 bg-gold600/20 text-gold600 hover:bg-gold600 hover:text-green900 px-2.5 py-0.5 rounded-full font-bold transition" title="Bấm để mở trang CMS Admin quản trị & sửa website">
+          ⚙️ Admin Quản Trị
         </a>
       </div>
     </div>
@@ -387,6 +387,10 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
 
     <!-- Header Actions (CTA & Mobile menu toggle) -->
     <div class="flex items-center gap-2 sm:gap-3">
+      <button onclick="openPortalModal()" class="inline-flex items-center gap-1.5 rounded-full bg-green700 hover:bg-green900 text-white font-display font-bold text-xs px-3.5 py-2 shadow-sm transition border border-gold600/30 cursor-pointer">
+        <span>🔐</span>
+        <span class="hidden sm:inline">Cổng Thành Viên</span>
+      </button>
       <a href="#lien-he" class="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-gold600 via-amber-500 to-gold600 text-green950 font-display font-extrabold text-xs sm:text-sm px-4 py-2 shadow-md hover:brightness-110 transform hover:scale-105 transition">
         <span>🛒</span>
         <span>Đặt hàng / Tư vấn</span>
@@ -888,6 +892,301 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
       <div class="mt-4 pt-3 border-t border-borderc/50 text-xs font-semibold text-green700 flex items-center justify-between">
         <span>🌏 Vươn tầm quốc tế</span>
         <span class="text-gold600">Thương hiệu Việt</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 7 GIÁ TRỊ CỐT LÕI BÀ ĐEN FARM (INTERACTIVE WHEEL) ===================== -->
+<section id="gia-tri-cot-loi" class="bg-surface border-y border-borderc py-16 sm:py-20 relative overflow-hidden">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-3xl mx-auto reveal">
+      <span class="inline-flex items-center gap-2 rounded-full bg-gold100 text-gold600 px-3.5 py-1 text-xs font-bold uppercase tracking-wider mb-2">
+        💎 7 GIÁ TRỊ CỐT LÕI BÀ ĐEN FARM
+      </span>
+      <h2 class="text-2xl sm:text-4xl font-extrabold text-green900 leading-tight">
+        Tâm Huyết & Cam Kết Bền Vững Với Sâm Việt
+      </h2>
+      <p class="mt-3 text-sm sm:text-base text-textsoft font-medium">
+        Bấm hoặc di chuột vào từng giá trị trên bánh xe để khám phá nguyên tắc cốt lõi của Bà Đen Farm.
+      </p>
+    </div>
+
+    <!-- BÁNH XE 7 GIÁ TRỊ TƯƠNG TÁC (INTERACTIVE 7-SPOKE WHEEL) -->
+    <div class="mt-12 grid lg:grid-cols-12 gap-8 items-center">
+      <!-- Bánh xe bên trái (7 vị trí xoay) -->
+      <div class="lg:col-span-6 reveal flex justify-center">
+        <div class="relative w-full max-w-[420px] aspect-square">
+          <!-- Tâm Bánh Xe -->
+          <div class="absolute inset-0 m-auto w-36 h-36 rounded-full bg-gradient-to-br from-green-950 via-green-900 to-green-950 text-white border-4 border-gold600 flex flex-col items-center justify-center text-center p-2 shadow-2xl z-20">
+            <span class="font-display font-extrabold text-3xl text-gold600 leading-none">7</span>
+            <span class="text-[10px] font-bold uppercase text-gold100 tracking-wider mt-1">GIÁ TRỊ CỐT LÕI</span>
+            <span class="text-[9px] text-white/70">BÀ ĐEN FARM</span>
+          </div>
+
+          <!-- Ring Vòng Tròn Trang Trí -->
+          <div class="absolute inset-4 rounded-full border-2 border-dashed border-gold600/30 animate-[spin_60s_linear_infinite] pointer-events-none"></div>
+
+          <!-- 7 Cánh Bánh Xe (Vị trí quay quanh tâm) -->
+          <div class="wheel-node cursor-pointer absolute top-[5%] left-[50%] -translate-x-[50%] group" onclick="selectBdfValue(1)">
+            <div id="wnode-1" class="w-12 h-12 rounded-full bg-gradient-to-br from-gold600 to-amber-600 text-green950 font-bold text-sm grid place-items-center shadow-lg border-2 border-white group-hover:scale-110 transition duration-300">1</div>
+            <span class="text-[11px] font-bold text-green900 bg-white/90 px-2 py-0.5 rounded-full shadow border border-borderc absolute top-14 left-1/2 -translate-x-1/2 whitespace-nowrap">Chất Lượng Thật</span>
+          </div>
+
+          <div class="wheel-node cursor-pointer absolute top-[24%] right-[4%] group" onclick="selectBdfValue(2)">
+            <div id="wnode-2" class="w-12 h-12 rounded-full bg-surface text-green700 font-bold text-sm grid place-items-center shadow-md border-2 border-green700 group-hover:scale-110 transition duration-300">2</div>
+            <span class="text-[11px] font-bold text-green900 bg-white/90 px-2 py-0.5 rounded-full shadow border border-borderc absolute top-14 left-1/2 -translate-x-1/2 whitespace-nowrap">Nông Nghiệp Sạch</span>
+          </div>
+
+          <div class="wheel-node cursor-pointer absolute bottom-[26%] right-[3%] group" onclick="selectBdfValue(3)">
+            <div id="wnode-3" class="w-12 h-12 rounded-full bg-surface text-green700 font-bold text-sm grid place-items-center shadow-md border-2 border-green700 group-hover:scale-110 transition duration-300">3</div>
+            <span class="text-[11px] font-bold text-green900 bg-white/90 px-2 py-0.5 rounded-full shadow border border-borderc absolute top-14 left-1/2 -translate-x-1/2 whitespace-nowrap">Minh Bạch QR</span>
+          </div>
+
+          <div class="wheel-node cursor-pointer absolute bottom-[3%] left-[64%] -translate-x-[50%] group" onclick="selectBdfValue(4)">
+            <div id="wnode-4" class="w-12 h-12 rounded-full bg-surface text-green700 font-bold text-sm grid place-items-center shadow-md border-2 border-green700 group-hover:scale-110 transition duration-300">4</div>
+            <span class="text-[11px] font-bold text-green900 bg-white/90 px-2 py-0.5 rounded-full shadow border border-borderc absolute top-14 left-1/2 -translate-x-1/2 whitespace-nowrap">Đồng Hành Nông Hộ</span>
+          </div>
+
+          <div class="wheel-node cursor-pointer absolute bottom-[3%] left-[36%] -translate-x-[50%] group" onclick="selectBdfValue(5)">
+            <div id="wnode-5" class="w-12 h-12 rounded-full bg-surface text-green700 font-bold text-sm grid place-items-center shadow-md border-2 border-green700 group-hover:scale-110 transition duration-300">5</div>
+            <span class="text-[11px] font-bold text-green900 bg-white/90 px-2 py-0.5 rounded-full shadow border border-borderc absolute top-14 left-1/2 -translate-x-1/2 whitespace-nowrap">Di Sản Khôi Phục</span>
+          </div>
+
+          <div class="wheel-node cursor-pointer absolute bottom-[26%] left-[3%] group" onclick="selectBdfValue(6)">
+            <div id="wnode-6" class="w-12 h-12 rounded-full bg-surface text-green700 font-bold text-sm grid place-items-center shadow-md border-2 border-green700 group-hover:scale-110 transition duration-300">6</div>
+            <span class="text-[11px] font-bold text-green900 bg-white/90 px-2 py-0.5 rounded-full shadow border border-borderc absolute top-14 left-1/2 -translate-x-1/2 whitespace-nowrap">Thịnh Vượng Chung</span>
+          </div>
+
+          <div class="wheel-node cursor-pointer absolute top-[24%] left-[4%] group" onclick="selectBdfValue(7)">
+            <div id="wnode-7" class="w-12 h-12 rounded-full bg-surface text-green700 font-bold text-sm grid place-items-center shadow-md border-2 border-green700 group-hover:scale-110 transition duration-300">7</div>
+            <span class="text-[11px] font-bold text-green900 bg-white/90 px-2 py-0.5 rounded-full shadow border border-borderc absolute top-14 left-1/2 -translate-x-1/2 whitespace-nowrap">Sức Khỏe Việt</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Khối Hiển Thị Chi Tiết Bên Phải -->
+      <div class="lg:col-span-6 reveal">
+        <div id="valDetailCard" class="bg-gradient-to-br from-green-950 via-green-900 to-green-950 text-white p-8 rounded-3xl border-2 border-gold600/40 shadow-2xl relative">
+          <span id="valBadge" class="inline-flex items-center gap-2 rounded-full bg-gold600 text-green950 px-3.5 py-1 text-xs font-bold uppercase tracking-wider mb-4">
+            GIÁ TRỊ #1
+          </span>
+          <h3 id="valTitle" class="text-2xl font-extrabold text-gold100 font-display">1. CHẤT LƯỢNG THẬT</h3>
+          <p id="valDesc" class="mt-4 text-sm sm:text-base text-white/90 leading-relaxed">
+            Nói thật – Làm thật. Mỗi củ Sâm Bố Chính Bà Đen Farm đạt hàm lượng Saponin cao (15.2mg/g) & Mucin dồi dào, được kiểm nghiệm độc lập bởi trung tâm kiểm định uy tín.
+          </p>
+          <div class="mt-6 pt-4 border-t border-white/20 flex items-center justify-between text-xs text-gold600 font-semibold">
+            <span id="valTag">✓ Kiểm nghiệm tiêu chuẩn VietGAP & OCOP 3★</span>
+            <span class="text-white/70">Bà Đen Farm Tây Ninh</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SƠ ĐỒ 5 TAM GIÁC CHUỖI GIÁ TRỊ SÂM BỐ CHÍNH ===================== -->
+<section id="tam-giac-chien-luoc" class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+  <div class="text-center max-w-3xl mx-auto reveal">
+    <span class="inline-flex items-center gap-2 rounded-full bg-green100 text-green700 px-3.5 py-1 text-xs font-bold uppercase tracking-wider mb-2">
+      📐 SƠ ĐỒ CHIẾN LƯỢC 5 TAM GIÁC
+    </span>
+    <h2 class="text-2xl sm:text-4xl font-extrabold text-green900">
+      5 Trụ Cột Định Hướng Phát Triển Bền Vững
+    </h2>
+    <p class="mt-3 text-sm sm:text-base text-textsoft font-medium">
+      Mô hình quản trị và chuỗi giá trị toàn diện được chuẩn hóa từ HTX 369 ứng dụng cho Bà Đen Farm.
+    </p>
+  </div>
+
+  <div class="mt-12 grid md:grid-cols-3 lg:grid-cols-5 gap-4">
+    <!-- Tam giác 1 -->
+    <div class="reveal bg-surface rounded-2xl p-5 border border-borderc shadow-xs hover:shadow-md transition flex flex-col justify-between relative group">
+      <div>
+        <span class="w-8 h-8 rounded-full bg-green900 text-gold600 font-bold text-sm grid place-items-center mb-3 group-hover:bg-gold600 group-hover:text-green900 transition">1</span>
+        <h3 class="font-display font-bold text-green900 text-sm">TAM GIÁC MỤC TIÊU</h3>
+        <p class="text-xs text-green700 font-semibold mt-1">Sức khỏe cộng đồng</p>
+        <p class="mt-2 text-xs text-textsoft leading-relaxed">Tự hào nâng tầm Sâm Bố Chính Việt Nam, đưa thảo dược quý phục vụ 63 tỉnh thành.</p>
+      </div>
+      <div class="mt-4 pt-2 border-t border-borderc text-[11px] font-bold text-gold600">🎯 Đoàn kết & Sức mạnh Việt</div>
+    </div>
+
+    <!-- Tam giác 2 -->
+    <div class="reveal bg-surface rounded-2xl p-5 border border-borderc shadow-xs hover:shadow-md transition flex flex-col justify-between relative group">
+      <div>
+        <span class="w-8 h-8 rounded-full bg-green900 text-gold600 font-bold text-sm grid place-items-center mb-3 group-hover:bg-gold600 group-hover:text-green900 transition">2</span>
+        <h3 class="font-display font-bold text-green900 text-sm">TAM GIÁC KINH TẾ</h3>
+        <p class="text-xs text-green700 font-semibold mt-1">Nông nghiệp tuần hoàn</p>
+        <p class="mt-2 text-xs text-textsoft leading-relaxed">Kinh tế vùng trồng kết hợp chế biến sâu (Trà, Rượu, Bột, Cao) tạo giá trị gia tăng cao.</p>
+      </div>
+      <div class="mt-4 pt-2 border-t border-borderc text-[11px] font-bold text-green700">🌱 Nông nghiệp công nghệ cao</div>
+    </div>
+
+    <!-- Tam giác 3 -->
+    <div class="reveal bg-surface rounded-2xl p-5 border border-borderc shadow-xs hover:shadow-md transition flex flex-col justify-between relative group">
+      <div>
+        <span class="w-8 h-8 rounded-full bg-green900 text-gold600 font-bold text-sm grid place-items-center mb-3 group-hover:bg-gold600 group-hover:text-green900 transition">3</span>
+        <h3 class="font-display font-bold text-green900 text-sm">TAM GIÁC KẾT NỐI</h3>
+        <p class="text-xs text-green700 font-semibold mt-1">Nông hộ - BDF - Đại lý</p>
+        <p class="mt-2 text-xs text-textsoft leading-relaxed">Gắn kết chặt chẽ giữa Hộ canh tác, Nhà máy Bà Đen Farm và Mạng lưới Điểm bán OCOP.</p>
+      </div>
+      <div class="mt-4 pt-2 border-t border-borderc text-[11px] font-bold text-gold600">🤝 Bao tiêu & Cùng thắng</div>
+    </div>
+
+    <!-- Tam giác 4 -->
+    <div class="reveal bg-surface rounded-2xl p-5 border border-borderc shadow-xs hover:shadow-md transition flex flex-col justify-between relative group">
+      <div>
+        <span class="w-8 h-8 rounded-full bg-green900 text-gold600 font-bold text-sm grid place-items-center mb-3 group-hover:bg-gold600 group-hover:text-green900 transition">4</span>
+        <h3 class="font-display font-bold text-green900 text-sm">TAM GIÁC SẢN PHẨM</h3>
+        <p class="text-xs text-green700 font-semibold mt-1">Chuẩn VietGAP & OCOP 3★</p>
+        <p class="mt-2 text-xs text-textsoft leading-relaxed">Đa dạng hệ sinh thái sản phẩm chất lượng cao, có Product Passport truy xuất QR minh bạch.</p>
+      </div>
+      <div class="mt-4 pt-2 border-t border-borderc text-[11px] font-bold text-green700">🏆 Chứng nhận uy tín</div>
+    </div>
+
+    <!-- Tam giác 5 -->
+    <div class="reveal bg-surface rounded-2xl p-5 border border-borderc shadow-xs hover:shadow-md transition flex flex-col justify-between relative group">
+      <div>
+        <span class="w-8 h-8 rounded-full bg-green900 text-gold600 font-bold text-sm grid place-items-center mb-3 group-hover:bg-gold600 group-hover:text-green900 transition">5</span>
+        <h3 class="font-display font-bold text-green900 text-sm">TAM GIÁC PHÚC LỢI</h3>
+        <p class="text-xs text-green700 font-semibold mt-1">Bảo tồn & An sinh local</p>
+        <p class="mt-2 text-xs text-textsoft leading-relaxed">Tạo sinh kế ổn định cho nông dân Tây Ninh và bảo tồn nguồn giống dược liệu quý quốc gia.</p>
+      </div>
+      <div class="mt-4 pt-2 border-t border-borderc text-[11px] font-bold text-gold600">💚 Vì cộng đồng bền vững</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 6 MẮT XÍCH NÔNG NGHIỆP CÔNG NGHỆ CAO ===================== -->
+<section id="6-mat-xich" class="bg-surface2/60 border-y border-borderc py-16 sm:py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-3xl mx-auto reveal">
+      <span class="inline-flex items-center gap-2 rounded-full bg-gold100 text-gold600 px-3.5 py-1 text-xs font-bold uppercase tracking-wider mb-2">
+        🔗 HỆ SINH THÁI 6 MẮT XÍCH
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-green900">
+        Vòng Chu Chuyển Nông Nghiệp & Thương Mại Sâm
+      </h2>
+    </div>
+
+    <div class="mt-12 grid grid-cols-2 md:grid-cols-6 gap-3 text-center reveal">
+      <div class="bg-surface p-4 rounded-2xl border border-borderc shadow-xs hover:scale-105 transition">
+        <div class="w-10 h-10 rounded-full bg-green900 text-gold600 font-bold text-sm grid place-items-center mx-auto mb-2">01</div>
+        <h4 class="font-display font-bold text-xs text-green900">VÙNG TRỒNG</h4>
+        <p class="text-[10px] text-textsoft mt-1">Tây Ninh VietGAP</p>
+      </div>
+
+      <div class="bg-surface p-4 rounded-2xl border border-borderc shadow-xs hover:scale-105 transition">
+        <div class="w-10 h-10 rounded-full bg-green900 text-gold600 font-bold text-sm grid place-items-center mx-auto mb-2">02</div>
+        <h4 class="font-display font-bold text-xs text-green900">THU HOẠCH</h4>
+        <p class="text-[10px] text-textsoft mt-1">Tuyển chọn củ tươi</p>
+      </div>
+
+      <div class="bg-surface p-4 rounded-2xl border border-borderc shadow-xs hover:scale-105 transition">
+        <div class="w-10 h-10 rounded-full bg-green900 text-gold600 font-bold text-sm grid place-items-center mx-auto mb-2">03</div>
+        <h4 class="font-display font-bold text-xs text-green900">CHẾ BIẾN SÂU</h4>
+        <p class="text-[10px] text-textsoft mt-1">Nhà máy HACCP</p>
+      </div>
+
+      <div class="bg-surface p-4 rounded-2xl border border-borderc shadow-xs hover:scale-105 transition">
+        <div class="w-10 h-10 rounded-full bg-green900 text-gold600 font-bold text-sm grid place-items-center mx-auto mb-2">04</div>
+        <h4 class="font-display font-bold text-xs text-green900">ĐẠI LÝ OCOP</h4>
+        <p class="text-[10px] text-textsoft mt-1">Mạng lưới phân phối</p>
+      </div>
+
+      <div class="bg-surface p-4 rounded-2xl border border-borderc shadow-xs hover:scale-105 transition">
+        <div class="w-10 h-10 rounded-full bg-green900 text-gold600 font-bold text-sm grid place-items-center mx-auto mb-2">05</div>
+        <h4 class="font-display font-bold text-xs text-green900">NGƯỜI DÙNG</h4>
+        <p class="text-[10px] text-textsoft mt-1">An tâm sức khỏe</p>
+      </div>
+
+      <div class="bg-surface p-4 rounded-2xl border border-borderc shadow-xs hover:scale-105 transition">
+        <div class="w-10 h-10 rounded-full bg-gold600 text-green950 font-bold text-sm grid place-items-center mx-auto mb-2">06</div>
+        <h4 class="font-display font-bold text-xs text-green900">TÁI ĐẦU TƯ</h4>
+        <p class="text-[10px] text-textsoft mt-1">Mở rộng vùng trồng</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== QUY TRÌNH 5 BƯỚC HỢP TÁC ===================== -->
+<section id="quy-trinh-hop-tac" class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+  <div class="text-center max-w-3xl mx-auto reveal">
+    <span class="inline-flex items-center gap-2 rounded-full bg-green100 text-green700 px-3.5 py-1 text-xs font-bold uppercase tracking-wider mb-2">
+      🚀 QUY TRÌNH 5 BƯỚC HỢP TÁC
+    </span>
+    <h2 class="text-2xl sm:text-3xl font-extrabold text-green900">
+      Trở Thành Nông Hộ Liên Kết Hoặc Đại Lý Phân Phối
+    </h2>
+  </div>
+
+  <!-- STEP FLOW STEPPERS -->
+  <div class="mt-12 grid md:grid-cols-5 gap-4 text-center reveal">
+    <div class="bg-bgivory p-5 rounded-2xl border border-borderc shadow-xs relative">
+      <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gold600 to-amber-600 text-green950 font-bold text-lg grid place-items-center mx-auto mb-3 shadow">1</div>
+      <h4 class="font-display font-bold text-sm text-green900">BƯỚC 1: ĐĂNG KÝ</h4>
+      <p class="text-xs text-textsoft mt-1 leading-relaxed">Điền thông tin hợp tác trên website hoặc hotline.</p>
+    </div>
+
+    <div class="bg-bgivory p-5 rounded-2xl border border-borderc shadow-xs relative">
+      <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gold600 to-amber-600 text-green950 font-bold text-lg grid place-items-center mx-auto mb-3 shadow">2</div>
+      <h4 class="font-display font-bold text-sm text-green900">BƯỚC 2: KHẢO SÁT</h4>
+      <p class="text-xs text-textsoft mt-1 leading-relaxed">Khảo sát thổ nhưỡng vùng trồng hoặc mặt bằng điểm bán.</p>
+    </div>
+
+    <div class="bg-bgivory p-5 rounded-2xl border border-borderc shadow-xs relative">
+      <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gold600 to-amber-600 text-green950 font-bold text-lg grid place-items-center mx-auto mb-3 shadow">3</div>
+      <h4 class="font-display font-bold text-sm text-green900">BƯỚC 3: KÝ HỢP ĐỒNG</h4>
+      <p class="text-xs text-textsoft mt-1 leading-relaxed">Ký kết hợp đồng bao tiêu sản phẩm hoặc chính sách đại lý.</p>
+    </div>
+
+    <div class="bg-bgivory p-5 rounded-2xl border border-borderc shadow-xs relative">
+      <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gold600 to-amber-600 text-green950 font-bold text-lg grid place-items-center mx-auto mb-3 shadow">4</div>
+      <h4 class="font-display font-bold text-sm text-green900">BƯỚC 4: TẬP HUẤN</h4>
+      <p class="text-xs text-textsoft mt-1 leading-relaxed">Đào tạo kỹ thuật canh tác VietGAP hoặc kỹ năng bán hàng.</p>
+    </div>
+
+    <div class="bg-bgivory p-5 rounded-2xl border border-borderc shadow-xs relative">
+      <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-700 to-green-900 text-gold100 font-bold text-lg grid place-items-center mx-auto mb-3 shadow">5</div>
+      <h4 class="font-display font-bold text-sm text-green900">BƯỚC 5: NHẬN PORTAL</h4>
+      <p class="text-xs text-textsoft mt-1 leading-relaxed">Cấp tài khoản Cổng Thành Viên & nhận giống/hàng.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BANNER CỔNG THÀNH VIÊN & HỌC VIỆN ===================== -->
+<section id="cong-thanh-vien" class="leaf-bg text-white py-16 sm:py-20 relative overflow-hidden">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-10 items-center">
+    <div class="reveal">
+      <span class="inline-flex items-center gap-2 rounded-full bg-white/10 ring-1 ring-white/20 px-3 py-1 text-xs font-medium tracking-wide text-gold600">
+        🔐 CỔNG ĐÀO TẠO & QUẢN TRỊ DÀNH CHO THÀNH VIÊN & ĐẠI LÝ
+      </span>
+      <h2 class="mt-5 text-3xl sm:text-4xl font-extrabold leading-tight">
+        Học Viện Nông Nghiệp & <br><span class="text-gold600">Quản Trị Phân Phối Sâm Bố Chính</span>
+      </h2>
+      <p class="mt-4 text-white/85 text-sm sm:text-base leading-relaxed">
+        Dành riêng cho Nông hộ liên kết vùng trồng, Đại lý phân phối & Cán bộ Bà Đen Farm. Đăng nhập một lần để tiếp cận kho báu bài giảng kỹ thuật VietGAP, quản lý đơn hàng & nhật ký vùng trồng.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <button onclick="openPortalModal()" class="inline-flex justify-center items-center gap-2 rounded-xl bg-gold600 text-green950 font-display font-bold px-6 py-3.5 shadow-xl hover:brightness-110 transition cursor-pointer">
+          🔐 Đăng Nhập Cổng Thành Viên
+        </button>
+        <a href="admin.html" target="_blank" class="inline-flex justify-center items-center gap-2 rounded-xl bg-white/10 ring-1 ring-white/30 text-white font-display font-semibold px-6 py-3.5 hover:bg-white/20 transition">
+          🖥️ Mở Trang CMS Admin
+        </a>
+      </div>
+    </div>
+
+    <div class="reveal bg-white/5 border border-white/10 rounded-3xl p-6 backdrop-blur-sm space-y-4">
+      <div class="flex items-center justify-between border-b border-white/10 pb-3">
+        <span class="text-xs font-bold text-gold600 uppercase">📊 THỐNG KÊ CỔNG HỌC VIỆN</span>
+        <span class="text-[11px] bg-green-500/20 text-green-300 px-2 py-0.5 rounded-full font-bold">Đang Hoạt Động ✓</span>
+      </div>
+      <div class="grid grid-cols-2 gap-3 text-xs">
+        <div class="bg-white/5 p-3 rounded-xl"><div class="text-xl font-bold text-gold600">124+</div><div class="text-white/70 mt-0.5">Nông hộ & Đại lý</div></div>
+        <div class="bg-white/5 p-3 rounded-xl"><div class="text-xl font-bold text-gold600">18+</div><div class="text-white/70 mt-0.5">Khóa học VietGAP</div></div>
+        <div class="bg-white/5 p-3 rounded-xl"><div class="text-xl font-bold text-gold600">100%</div><div class="text-white/70 mt-0.5">Truy xuất QR</div></div>
+        <div class="bg-white/5 p-3 rounded-xl"><div class="text-xl font-bold text-gold600">24/7</div><div class="text-white/70 mt-0.5">Hỗ trợ kỹ thuật</div></div>
       </div>
     </div>
   </div>
@@ -2805,6 +3104,152 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
       });
     }
   })();
+</script>
+
+<!-- ===================== PORTAL LOGIN & REGISTRATION MODAL ===================== -->
+<div id="portalModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-green-950/80 backdrop-blur-md flex items-center justify-center p-4">
+  <div class="bg-bgivory rounded-3xl max-w-md w-full border-2 border-gold600/50 shadow-2xl overflow-hidden relative">
+    <!-- Modal Header -->
+    <div class="bg-gradient-to-r from-green-950 via-green-900 to-green-950 text-white p-5 flex justify-between items-center border-b border-gold600/30">
+      <div class="flex items-center gap-3">
+        <span class="w-9 h-9 rounded-xl bg-gold600 text-green950 font-bold font-display grid place-items-center text-lg shadow">B</span>
+        <div>
+          <h3 class="font-display font-bold text-sm text-gold100">CỔNG THÀNH VIÊN & HỌC VIỆN</h3>
+          <p class="text-[11px] text-white/70">Bà Đen Farm — Sâm Bố Chính Tây Ninh</p>
+        </div>
+      </div>
+      <button onclick="closePortalModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold grid place-items-center text-sm transition">✕</button>
+    </div>
+
+    <!-- Modal Tabs -->
+    <div class="p-6 space-y-4">
+      <div class="flex bg-surface2 rounded-xl p-1 text-xs font-bold text-textsoft">
+        <button id="pTabLogin" onclick="switchPortalTab('login')" class="flex-1 py-2 rounded-lg bg-green900 text-white shadow">🔑 Đăng Nhập</button>
+        <button id="pTabRegister" onclick="switchPortalTab('register')" class="flex-1 py-2 rounded-lg hover:text-green900">📝 Đăng Ký Hợp Tác</button>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <form id="portalLoginForm" onsubmit="submitPortalAuth(event, 'login')" class="space-y-3.5">
+        <div>
+          <label class="block text-xs font-semibold text-textsoft mb-1">Số điện thoại hoặc Email</label>
+          <input id="pLoginUser" type="text" required placeholder="0919.257.757 hoặc email@domain.com" class="w-full px-3.5 py-2.5 rounded-xl border border-borderc bg-surface text-xs focus:ring-2 focus:ring-green700 outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-textsoft mb-1">Mật khẩu</label>
+          <input id="pLoginPass" type="password" required placeholder="••••••••" class="w-full px-3.5 py-2.5 rounded-xl border border-borderc bg-surface text-xs focus:ring-2 focus:ring-green700 outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-textsoft mb-1">Vai Trò Đăng Nhập</label>
+          <select id="pLoginRole" class="w-full px-3.5 py-2.5 rounded-xl border border-borderc bg-surface text-xs font-semibold text-green900 focus:ring-2 focus:ring-green700 outline-none">
+            <option value="nong_ho">🌱 Nông Hộ Liên Kết Vùng Trồng</option>
+            <option value="dai_ly">💼 Đại Lý & Điểm Bán OCOP</option>
+            <option value="can_bo">📋 Cán Bộ Kỹ Thuật & Quản Lý</option>
+            <option value="admin">🏛️ Ban Điều Hành Bà Đen Farm</option>
+          </select>
+        </div>
+        <button type="submit" class="w-full py-3 bg-gradient-to-r from-gold600 via-amber-500 to-gold600 text-green950 font-display font-extrabold text-xs sm:text-sm rounded-xl shadow-lg hover:brightness-105 transition cursor-pointer">
+          Vào Cổng Thành Viên & Học Viện →
+        </button>
+      </form>
+
+      <!-- REGISTER FORM (Hidden by default) -->
+      <form id="portalRegisterForm" onsubmit="submitPortalAuth(event, 'register')" class="hidden space-y-3.5">
+        <div>
+          <label class="block text-xs font-semibold text-textsoft mb-1">Họ và Tên người đăng ký</label>
+          <input id="pRegName" type="text" required placeholder="Nguyễn Văn A" class="w-full px-3.5 py-2.5 rounded-xl border border-borderc bg-surface text-xs focus:ring-2 focus:ring-green700 outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-textsoft mb-1">Số điện thoại Zalo</label>
+          <input id="pRegPhone" type="tel" required placeholder="0912.345.678" class="w-full px-3.5 py-2.5 rounded-xl border border-borderc bg-surface text-xs focus:ring-2 focus:ring-green700 outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-textsoft mb-1">Hình thức hợp tác mong muốn</label>
+          <select id="pRegRole" class="w-full px-3.5 py-2.5 rounded-xl border border-borderc bg-surface text-xs font-semibold text-green900">
+            <option value="nong_ho">Góp đất / Đăng ký hợp tác trồng sâm VietGAP</option>
+            <option value="dai_ly">Đăng ký làm Đại lý / Điểm bán OCOP Sâm Bố Chính</option>
+            <option value="khoi_nghiep">Cá nhân khởi nghiệp với sản phẩm Sâm Bố Chính</option>
+          </select>
+        </div>
+        <button type="submit" class="w-full py-3 bg-green900 text-gold100 font-display font-extrabold text-xs sm:text-sm rounded-xl shadow-lg hover:bg-green800 transition cursor-pointer">
+          Gửi Đơn Đăng Ký Hợp Tác →
+        </button>
+      </form>
+      <p class="text-[11px] text-center text-textsoft font-medium">Bảo mật thông tin theo Điều lệ & Chính sách Bà Đen Farm Tây Ninh.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // 7 Giá Trị Cốt Lõi Bánh Xe Data & Interactive Switch
+  var BDF_VALUES = [
+    { badge: "GIÁ TRỊ #1", title: "1. CHẤT LƯỢNG THẬT", desc: "Nói thật – Làm thật. Mỗi củ Sâm Bố Chính Bà Đen Farm đạt hàm lượng Saponin cao (15.2mg/g) & Mucin dồi dào, được kiểm nghiệm độc lập bởi trung tâm kiểm định uy tín.", tag: "✓ Kiểm nghiệm tiêu chuẩn VietGAP & OCOP 3★" },
+    { badge: "GIÁ TRỊ #2", title: "2. NÔNG NGHIỆP SẠCH", desc: "100% không phân bón hóa học hay thuốc trừ sâu độc hại. Áp dụng quy trình sinh học vi sinh, đất giàu mùn hữu cơ chân Núi Bà Đen.", tag: "🌱 Canh tác xanh VietGAP Organic" },
+    { badge: "GIÁ TRỊ #3", title: "3. MINH BẠCH QR", desc: "Mã QR Product Passport trên từng bao bì sản phẩm. Quét mã thấy tận gốc nhật ký vụ trồng, người chăm sóc, ngày bón phân và ngày thu hoạch.", tag: "📲 Truy xuất nguồn gốc 100%" },
+    { badge: "GIÁ TRỊ #4", title: "4. ĐỒNG HÀNH NÔNG HỘ", desc: "Bà Đen Farm bao tiêu 100% đầu ra cho các Nông hộ liên kết, cung cấp nguồn giống thuần chủng và chuyển giao toàn bộ quy trình kỹ thuật.", tag: "🤝 Bao tiêu sản phẩm & Hỗ trợ kỹ thuật" },
+    { badge: "GIÁ TRỊ #5", title: "5. DI SẢN KHÔI PHỤC", desc: "Khôi phục và vinh danh giống Sâm Tiến Vua 300 năm lịch sử Triều Nguyễn. Đưa thương hiệu dược liệu quý của người Việt vươn tầm hiện đại.", tag: "👑 Di sản Hoàng gia 300 năm" },
+    { badge: "GIÁ TRỊ #6", title: "6. THỊNH VƯỢNG CHUNG", desc: "Chia sẻ lợi ích minh bạch và công bằng cho Nông hộ vùng trồng, Mạng lưới Đại lý và Cộng đồng. Cùng nhau phát triển bền vững dài lâu.", tag: "📈 Cộng sinh & Cùng thắng" },
+    { badge: "GIÁ TRỊ #7", title: "7. SỨC KHỎE VIỆT", desc: "Mang sản phẩm Sâm Bố Chính nguyên chất, chế biến sâu với giá thành hợp lý tới từng gia đình Việt Nam, bảo vệ sức khỏe cộng đồng.", tag: "💚 Vì sức khỏe gia đình Việt" }
+  ];
+
+  function selectBdfValue(idx) {
+    var data = BDF_VALUES[idx - 1];
+    if (!data) return;
+
+    for (var i = 1; i <= 7; i++) {
+      var node = document.getElementById('wnode-' + i);
+      if (node) {
+        if (i === idx) {
+          node.className = "w-12 h-12 rounded-full bg-gradient-to-br from-gold600 to-amber-600 text-green950 font-bold text-sm grid place-items-center shadow-lg border-2 border-white scale-110 transition duration-300";
+        } else {
+          node.className = "w-12 h-12 rounded-full bg-surface text-green700 font-bold text-sm grid place-items-center shadow-md border-2 border-green700 transition duration-300";
+        }
+      }
+    }
+
+    document.getElementById('valBadge').textContent = data.badge;
+    document.getElementById('valTitle').textContent = data.title;
+    document.getElementById('valDesc').textContent = data.desc;
+    document.getElementById('valTag').textContent = data.tag;
+  }
+
+  // Modal Controls
+  function openPortalModal() {
+    document.getElementById('portalModal').classList.remove('hidden');
+  }
+
+  function closePortalModal() {
+    document.getElementById('portalModal').classList.add('hidden');
+  }
+
+  function switchPortalTab(type) {
+    var loginBtn = document.getElementById('pTabLogin');
+    var regBtn = document.getElementById('pTabRegister');
+    var loginForm = document.getElementById('portalLoginForm');
+    var regForm = document.getElementById('portalRegisterForm');
+
+    if (type === 'login') {
+      loginBtn.className = "flex-1 py-2 rounded-lg bg-green900 text-white shadow font-bold";
+      regBtn.className = "flex-1 py-2 rounded-lg hover:text-green900 font-bold text-textsoft";
+      loginForm.classList.remove('hidden');
+      regForm.classList.add('hidden');
+    } else {
+      regBtn.className = "flex-1 py-2 rounded-lg bg-green900 text-white shadow font-bold";
+      loginBtn.className = "flex-1 py-2 rounded-lg hover:text-green900 font-bold text-textsoft";
+      regForm.classList.remove('hidden');
+      loginForm.classList.add('hidden');
+    }
+  }
+
+  function submitPortalAuth(e, mode) {
+    e.preventDefault();
+    if (mode === 'login') {
+      alert('Đăng nhập Cổng Thành Viên & Học Viện thành công! Đang chuyển đến bảng điều khiển...');
+      window.location.href = 'admin.html';
+    } else {
+      alert('Đã gửi thông tin đăng ký hợp tác! Ban điều hành Bà Đen Farm sẽ liên hệ xác minh trong 24h.');
+      closePortalModal();
+    }
+  }
 </script>
 
 <!-- ===== SUPABASE HEADLESS CMS INTEGRATION ===== -->

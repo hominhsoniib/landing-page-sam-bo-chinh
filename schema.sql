@@ -94,3 +94,107 @@ ON CONFLICT (id) DO UPDATE SET
     content = EXCLUDED.content,
     alt_text = EXCLUDED.alt_text,
     updated_at = NOW();
+
+-- ============================================================
+-- 5. BẢNG PHÂN QUYỀN THÀNH VIÊN & ĐỐI TÁC (profiles)
+-- ============================================================
+CREATE TABLE IF NOT EXISTS public.profiles (
+    id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
+    full_name TEXT NOT NULL,
+    phone TEXT NOT NULL,
+    role TEXT NOT NULL DEFAULT 'nong_ho', -- 'nong_ho', 'dai_ly', 'can_bo', 'admin'
+    status TEXT NOT NULL DEFAULT 'active', -- 'pending', 'active', 'suspended'
+    region TEXT DEFAULT 'Tây Ninh',
+    points INT DEFAULT 0,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Public read profiles" ON public.profiles FOR SELECT USING (true);
+CREATE POLICY "Users update own profile" ON public.profiles FOR UPDATE USING (auth.uid() = id);
+
+-- ============================================================
+-- 6. BẢNG HỌC VIỆN NÔNG NGHIỆP SÂM BỐ CHÍNH (courses & user_progress)
+-- ============================================================
+CREATE TABLE IF NOT EXISTS public.courses (
+    id TEXT PRIMARY KEY,
+    title TEXT NOT NULL,
+    description TEXT,
+    thumbnail TEXT,
+    category TEXT DEFAULT 'vietgap',
+    level TEXT DEFAULT 'Cơ bản',
+    duration TEXT DEFAULT '2 giờ',
+    lessons_count INT DEFAULT 5,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE public.courses ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Public read courses" ON public.courses FOR SELECT USING (true);
+
+CREATE TABLE IF NOT EXISTS public.user_progress (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
+    course_id TEXT REFERENCES public.courses(id) ON DELETE CASCADE,
+    progress INT DEFAULT 0,
+    completed BOOLEAN DEFAULT FALSE,
+    certificate_issued BOOLEAN DEFAULT FALSE,
+    updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE public.user_progress ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Users read own progress" ON public.user_progress FOR SELECT USING (auth.uid() = user_id);
+
+-- DỮ LIỆU MẪU HỌC VIỆN
+INSERT INTO public.courses (id, title, description, thumbnail, category, level, duration, lessons_count) VALUES
+('course-vietgap-01', 'Kỹ thuật Canh tác Sâm Bố Chính chuẩn VietGAP', 'Hướng dẫn làm đất, bón phân hữu cơ, quản lý nguồn nước và phòng trừ sâu bệnh sinh học.', 'images/ghep-vuon-sam.png', 'vietgap', 'Cơ bản', '3 giờ', 6),
+('course-thuhoach-02', 'Quy trình Thu hoạch & Sơ chế Củ Sâm Tươi', 'Phương pháp đào sâm tránh gãy rễ, phân loại sâm củ và kỹ thuật rửa siêu âm giữ dưỡng chất.', 'images/cu sam.jpg', 'thu_hoach', 'Nâng cao', '2.5 giờ', 4),
+('course-banhang-03', 'Đào tạo Marketing & Phân phối Sâm Bố Chính', 'Kỹ năng tư vấn khách hàng, xây dựng thương hiệu cá nhân và quản lý điểm bán OCOP.', 'images/sp tieu bieu.png', 'ban_hang', 'Đại lý', '4 giờ', 8)
+ON CONFLICT (id) DO NOTHING;
+
+-- ============================================================
+-- 7. BẢNG ĐƠN HÀNG ĐẠI LÝ & ĐIỂM THƯỞNG (agent_orders)
+-- ============================================================
+CREATE TABLE IF NOT EXISTS public.agent_orders (
+    id TEXT PRIMARY KEY,
+    agent_name TEXT NOT NULL,
+    phone TEXT NOT NULL,
+    items JSONB NOT NULL,
+    total_amount NUMERIC NOT NULL,
+    discount_rate INT DEFAULT 15,
+    status TEXT DEFAULT 'pending', -- 'pending', 'confirmed', 'shipping', 'completed', 'cancelled'
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE public.agent_orders ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Public read orders" ON public.agent_orders FOR SELECT USING (true);
+CREATE POLICY "Public insert orders" ON public.agent_orders FOR INSERT WITH CHECK (true);
+
+-- DỮ LIỆU MẪU ĐƠN HÀNG
+INSERT INTO public.agent_orders (id, agent_name, phone, items, total_amount, discount_rate, status) VALUES
+('ORD-2026-001', 'Đại Lý Tây Ninh Sâm Việt', '0988123456', '[{"name":"Trà Túi Lọc Sâm","qty":50,"price":150000},{"name":"Rượu Sâm Tiến Vua","qty":20,"price":450000}]', 16500000, 20, 'completed'),
+('ORD-2026-002', 'Điểm Bán OCOP TP.HCM', '0912987654', '[{"name":"Cao Sâm Bố Chính","qty":30,"price":650000}]', 19500000, 15, 'confirmed')
+ON CONFLICT (id) DO NOTHING;
+
+-- ============================================================
+-- 8. BẢNG NHẬT KÝ VÙNG TRỒNG VIETGAP (farm_logs)
+-- ============================================================
+CREATE TABLE IF NOT EXISTS public.farm_logs (
+    id TEXT PRIMARY KEY,
+    farmer_name TEXT NOT NULL,
+    batch_code TEXT NOT NULL,
+    location TEXT DEFAULT 'Vùng trồng Núi Bà Đen - Lô A1',
+    stage TEXT NOT NULL,
+    activity TEXT NOT NULL,
+    log_date DATE DEFAULT CURRENT_DATE
+);
+
+ALTER TABLE public.farm_logs ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Public read farm logs" ON public.farm_logs FOR SELECT USING (true);
+
+-- DỮ LIỆU MẪU NHẬT KÝ VÙNG TRỒNG
+INSERT INTO public.farm_logs (id, farmer_name, batch_code, location, stage, activity, log_date) VALUES
+('LOG-2026-101', 'Hộ Nông Dân Nguyễn Văn A', 'LOT-BDF-2026-08', 'Vùng 1 - Chân Núi Bà Đen', 'Xuống Giống', 'Bón lót phân hữu cơ sinh học, làm luống cao 30cm, phủ bạt diệt cỏ.', '2026-08-15'),
+('LOG-2026-102', 'Hộ Nông Dân Trần Thị B', 'LOT-BDF-2026-08', 'Vùng 2 - Tân Trung', 'Chăm Sóc', 'Phun chế phẩm sinh học Trichoderma phòng nấm rễ, kiểm tra độ ẩm đất.', '2026-09-02'),
+('LOG-2026-103', 'Kỹ Thuật Viên Lê Văn C', 'LOT-BDF-2026-06', 'Vùng 1 - Chân Núi Bà Đen', 'Thu Hoạch', 'Kiểm tra hàm lượng Saponin đạt 4.8%, tiến hành thu hoạch đợt 1.', '2026-09-10')
+ON CONFLICT (id) DO NOTHING;
+
