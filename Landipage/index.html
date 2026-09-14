@@ -106,6 +106,52 @@
   details[open] .faq-ic{ transform:rotate(45deg); }
   a{ text-decoration:none; }
   section img:not(header img):not(footer img) { cursor: zoom-in; }
+  
+  /* STYLES CÂY MENU SƠ ĐỒ ĐIỀU HƯỚNG BÀ ĐEN FARM */
+  .tree-item {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.35rem;
+    border-radius: 0.375rem;
+    color: #1c2419;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  .tree-item:hover {
+    background-color: #e6efe7;
+    color: #1b5e20;
+    transform: translateX(2px);
+  }
+  .tree-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.15rem;
+    height: 1.15rem;
+    border-radius: 9999px;
+    background-color: #2e7d32;
+    color: #ffffff;
+    font-size: 9.5px;
+    font-weight: 700;
+    flex-shrink: 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  }
+  .tree-item:hover .tree-badge {
+    background-color: #c9a227;
+    color: #103d18;
+  }
+  .highlight-tree-item {
+    background-color: #f6edcf !important;
+    border: 1px solid #c9a227 !important;
+    box-shadow: 0 0 10px rgba(201, 162, 39, 0.5) !important;
+  }
+  .leaf-pattern-bg {
+    background-image: radial-gradient(rgba(46,125,50,0.04) 1px, transparent 1px);
+    background-size: 16px 16px;
+  }
+
   @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior:auto; }
     .reveal{ opacity:1 !important; transform:none !important; transition:none !important; }
@@ -129,79 +175,184 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
 <body class="font-body text-textc bg-bgivory">
 
 <!-- ===================== HEADER ===================== -->
-<header id="top" class="fixed top-0 inset-x-0 z-50 bg-bgivory/90 backdrop-blur border-b border-borderc">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-    <a href="#top" class="flex items-center gap-2" aria-label="Bà Đen Farm - trang chủ">
-      <span class="grid place-items-center w-9 h-9 rounded-xl2 bg-green700 text-white font-display font-bold">B</span>
-      <span class="font-display font-bold text-green900 leading-tight">Bà Đen Farm<span class="block text-[10px] font-medium text-textsoft tracking-wide">SÂM BỐ CHÍNH · TÂY NINH</span></span>
-    </a>
-    <nav class="hidden md:flex items-center gap-5 lg:gap-6 text-sm font-medium text-textsoft">
-      <a href="#su-menh" class="hover:text-green700">Sứ mệnh</a>
-      <a href="#tam-nhin" class="hover:text-green700">Tầm nhìn</a>
-      <a href="#gioi-thieu" class="hover:text-green700">Giới thiệu</a>
-      <a href="#video-gioi-thieu" class="hover:text-green700">Video BDF</a>
-      <a href="#chung-nhan" class="hover:text-green700">Chứng nhận</a>
-      <a href="#am-thuc" class="hover:text-green700">Ẩm thực Sâm</a>
-      <a href="#loi-ich" class="hover:text-green700">Lợi ích</a>
-      <a href="#truy-xuat" class="hover:text-green700">Truy xuất QR</a>
-      <a href="#san-pham" class="hover:text-green700">Sản phẩm</a>
-      <a href="#vung-trong" class="hover:text-green700">Vùng trồng</a>
-      <a href="#dai-ly" class="hover:text-green700">Đại lý</a>
+<header id="top" class="fixed top-0 inset-x-0 z-50 bg-bgivory/95 backdrop-blur-md border-b border-borderc shadow-xs">
+  <!-- TOP ANNOUNCEMENT BAR (Slogan theo hình ảnh) -->
+  <div class="bg-gradient-to-r from-green-950 via-green-900 to-green-950 text-gold600 py-1 px-4 text-xs font-medium border-b border-green-800/40">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2 text-white/95">
+        <span class="inline-block w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+        <span class="font-serif italic text-gold600 text-xs sm:text-sm font-semibold">Sâm thật · Trồng thật · Truy xuất thật</span>
+      </div>
+      <div class="hidden md:flex items-center gap-2 text-white/80 font-medium tracking-wide uppercase text-[11px]">
+        <span>🍃 TỰ HÀO NHÂN SÂM VIỆT NAM — SỨC MẠNH VIỆT</span>
+      </div>
+      <div class="flex items-center gap-3 text-[11px]">
+        <a href="tel:0919257757" class="text-white/90 hover:text-gold600 transition flex items-center gap-1 font-semibold">📞 Hotline: 0919.257.757</a>
+        <a href="#cay-menu" class="hidden sm:inline-flex items-center gap-1 bg-gold600/20 text-gold600 hover:bg-gold600 hover:text-green900 px-2.5 py-0.5 rounded-full font-bold transition">
+          🌳 Sơ đồ Web
+        </a>
+      </div>
+    </div>
+  </div>
 
-      <!-- MENU ĐỐI TÁC DROPDOWN -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <!-- Logo & Brand Name -->
+    <a href="#top" class="flex items-center gap-2.5 group" aria-label="Bà Đen Farm - trang chủ">
+      <span class="grid place-items-center w-9 h-9 rounded-xl2 bg-gradient-to-br from-green-700 to-green-900 text-white font-display font-extrabold text-base shadow-sm group-hover:scale-105 transition">B</span>
+      <span class="font-display font-extrabold text-green900 leading-tight tracking-tight">
+        Bà Đen Farm
+        <span class="block text-[10px] font-semibold text-green700 tracking-wider">SÂM BỐ CHÍNH · TÂY NINH</span>
+      </span>
+    </a>
+
+    <!-- Desktop Navigation Menu -->
+    <nav class="hidden lg:flex items-center gap-4 xl:gap-5 text-xs font-semibold text-textsoft">
+      <a href="#su-menh" class="hover:text-green700 transition">Sứ mệnh</a>
+      <a href="#tam-nhin" class="hover:text-green700 transition">Tầm nhìn</a>
+      <a href="#gioi-thieu" class="hover:text-green700 transition">Giới thiệu</a>
+      <a href="#san-pham" class="hover:text-green700 transition">Sản phẩm</a>
+      <a href="#vung-trong" class="hover:text-green700 transition">Vùng trồng</a>
+      <a href="#video-gioi-thieu" class="hover:text-green700 transition">Video BDF</a>
+      <a href="#chung-nhan" class="hover:text-green700 transition">Chứng nhận</a>
+      <a href="#am-thuc" class="hover:text-green700 transition">Ẩm thực Sâm</a>
+      <a href="#loi-ich" class="hover:text-green700 transition">Lợi ích</a>
+      <a href="#truy-xuat" class="hover:text-green700 transition">Truy xuất QR</a>
+      <a href="#dai-ly" class="hover:text-green700 transition">Đại lý</a>
+      <a href="#faq" class="hover:text-green700 transition">FAQ</a>
+
+      <!-- MEGA MENU DROPDOWN (Xòe 11 nhóm danh mục cây menu) -->
       <div class="relative group cursor-pointer py-1">
-        <button class="inline-flex items-center gap-1 hover:text-green700 focus:outline-none font-medium">
-          <span>Đối tác</span>
+        <a href="#cay-menu" class="inline-flex items-center gap-1.5 font-bold text-green900 bg-green100/90 hover:bg-green700 hover:text-white px-3 py-1.5 rounded-full transition-all border border-green700/20 shadow-xs">
+          <span>🌳 Sơ Đồ Web</span>
           <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-        </button>
-        <div class="absolute left-0 top-full pt-1.5 hidden group-hover:block z-50 min-w-[220px]">
-          <div class="bg-surface rounded-xl2 shadow-soft border border-borderc p-1.5">
-            <a href="https://landing-page-sam-bo-chinh.vercel.app/#tam-nhin" class="flex items-center gap-2.5 px-3 py-2 text-xs font-semibold text-green900 hover:bg-green100 rounded-lg transition">
-              <span class="text-base">🏢</span>
-              <span>Cty CP Bà Đen Farm</span>
-            </a>
+        </a>
+
+        <!-- POPUP MEGA MENU DROPDOWN -->
+        <div class="absolute right-0 top-full pt-2 hidden group-hover:block z-50 w-[92vw] max-w-6xl -mr-16 sm:-mr-0">
+          <div class="bg-surface/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-green-700/30 p-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 text-xs">
+            <!-- Mega Item 1 -->
+            <div class="p-2 bg-bgivory/80 rounded-xl border border-borderc">
+              <div class="font-bold text-green900 flex items-center gap-1.5 mb-1.5 text-[11px] uppercase border-b border-borderc pb-1">
+                <span>🏢</span> Giới thiệu Công ty
+              </div>
+              <ul class="space-y-1 text-[11px] text-textsoft">
+                <li><a href="#su-menh" class="hover:text-green700 block py-0.5">1. Sứ mệnh</a></li>
+                <li><a href="#tam-nhin" class="hover:text-green700 block py-0.5">2. Tầm nhìn</a></li>
+                <li><a href="#gioi-thieu" class="hover:text-green700 block py-0.5">3. Giá trị cốt lõi</a></li>
+                <li><a href="#gioi-thieu" class="hover:text-green700 block py-0.5">4. Lịch sử hình thành</a></li>
+                <li><a href="#gioi-thieu" class="hover:text-green700 block py-0.5">5. Đội ngũ</a></li>
+                <li><a href="#chung-nhan" class="hover:text-green700 block py-0.5">6. Giải thưởng</a></li>
+              </ul>
+            </div>
+            <!-- Mega Item 2 -->
+            <div class="p-2 bg-bgivory/80 rounded-xl border border-borderc">
+              <div class="font-bold text-green900 flex items-center gap-1.5 mb-1.5 text-[11px] uppercase border-b border-borderc pb-1">
+                <span>🌱</span> Sản phẩm BDF
+              </div>
+              <ul class="space-y-1 text-[11px] text-textsoft">
+                <li><a href="#san-pham" class="hover:text-green700 block py-0.5">1. Sâm Bố Chính</a></li>
+                <li><a href="#san-pham" class="hover:text-green700 block py-0.5">2. SP Chế biến</a></li>
+                <li><a href="#san-pham" class="hover:text-green700 block py-0.5">3. Sản phẩm khác</a></li>
+                <li><a href="#san-pham" class="hover:text-green700 block py-0.5">4. Bộ quà tặng</a></li>
+                <li><a href="#san-pham" class="hover:text-green700 block py-0.5">5. Bảng giá</a></li>
+                <li><a href="#san-pham" class="hover:text-green700 block py-0.5">6. HDSD</a></li>
+              </ul>
+            </div>
+            <!-- Mega Item 3 -->
+            <div class="p-2 bg-bgivory/80 rounded-xl border border-borderc">
+              <div class="font-bold text-green900 flex items-center gap-1.5 mb-1.5 text-[11px] uppercase border-b border-borderc pb-1">
+                <span>🪴</span> Vùng trồng
+              </div>
+              <ul class="space-y-1 text-[11px] text-textsoft">
+                <li><a href="#vung-trong" class="hover:text-green700 block py-0.5">1. Vùng Bà Đen</a></li>
+                <li><a href="#vung-trong" class="hover:text-green700 block py-0.5">2. Quy trình canh tác</a></li>
+                <li><a href="#vung-trong" class="hover:text-green700 block py-0.5">3. Tiêu chuẩn</a></li>
+                <li><a href="#vung-trong" class="hover:text-green700 block py-0.5">4. Hình ảnh thực tế</a></li>
+                <li><a href="#video-gioi-thieu" class="hover:text-green700 block py-0.5">5. Video vùng trồng</a></li>
+              </ul>
+            </div>
+            <!-- Mega Item 4 -->
+            <div class="p-2 bg-bgivory/80 rounded-xl border border-borderc">
+              <div class="font-bold text-green900 flex items-center gap-1.5 mb-1.5 text-[11px] uppercase border-b border-borderc pb-1">
+                <span>🎬</span> Video BDF
+              </div>
+              <ul class="space-y-1 text-[11px] text-textsoft">
+                <li><a href="#video-gioi-thieu" class="hover:text-green700 block py-0.5">1. Giới thiệu BDF</a></li>
+                <li><a href="#video-gioi-thieu" class="hover:text-green700 block py-0.5">2. Vùng trồng sâm</a></li>
+                <li><a href="#video-gioi-thieu" class="hover:text-green700 block py-0.5">3. Quy trình sản xuất</a></li>
+                <li><a href="#video-gioi-thieu" class="hover:text-green700 block py-0.5">4. Chia sẻ KH</a></li>
+                <li><a href="#video-gioi-thieu" class="hover:text-green700 block py-0.5">5. Tin tức & Sự kiện</a></li>
+              </ul>
+            </div>
+            <!-- Mega Item 5 -->
+            <div class="p-2 bg-bgivory/80 rounded-xl border border-borderc">
+              <div class="font-bold text-green900 flex items-center gap-1.5 mb-1.5 text-[11px] uppercase border-b border-borderc pb-1">
+                <span>🎯</span> Chứng nhận
+              </div>
+              <ul class="space-y-1 text-[11px] text-textsoft">
+                <li><a href="#chung-nhan" class="hover:text-green700 block py-0.5">1. Chứng nhận OCOP</a></li>
+                <li><a href="#chung-nhan" class="hover:text-green700 block py-0.5">2. VietGAP</a></li>
+                <li><a href="#chung-nhan" class="hover:text-green700 block py-0.5">3. Kiểm nghiệm SP</a></li>
+                <li><a href="#chung-nhan" class="hover:text-green700 block py-0.5">4. Hồ sơ pháp lý</a></li>
+                <li><a href="#chung-nhan" class="hover:text-green700 block py-0.5">5. Giấy tờ & khác</a></li>
+              </ul>
+            </div>
+            <!-- Mega Item 6 -->
+            <div class="p-2 bg-bgivory/80 rounded-xl border border-borderc">
+              <div class="font-bold text-green900 flex items-center gap-1.5 mb-1.5 text-[11px] uppercase border-b border-borderc pb-1">
+                <span>🍲</span> Ẩm thực Sâm
+              </div>
+              <ul class="space-y-1 text-[11px] text-textsoft">
+                <li><a href="#am-thuc" class="hover:text-green700 block py-0.5">1. Món ăn từ sâm</a></li>
+                <li><a href="#am-thuc" class="hover:text-green700 block py-0.5">2. Công thức nấu</a></li>
+                <li><a href="#am-thuc" class="hover:text-green700 block py-0.5">3. Tư vấn dinh dưỡng</a></li>
+                <li><a href="#am-thuc" class="hover:text-green700 block py-0.5">4. Video hướng dẫn</a></li>
+              </ul>
+            </div>
+
+            <!-- View All Tree Button -->
+            <div class="col-span-full pt-2 flex items-center justify-between border-t border-borderc text-xs">
+              <span class="text-textsoft font-medium">✨ Khám phá thêm: Lợi ích, Truy xuất QR, Chính sách Đại lý, FAQ...</span>
+              <a href="#cay-menu" class="inline-flex items-center gap-1 text-green700 hover:text-green900 font-bold underline">
+                Xem toàn bộ 11 Cột Sơ Đồ Cây Menu →
+              </a>
+            </div>
           </div>
         </div>
       </div>
-
-      <a href="#faq" class="hover:text-green700">FAQ</a>
     </nav>
-    <div class="flex items-center gap-2">
-      <a href="#lien-he" class="inline-flex items-center gap-2 rounded-xl2 bg-gold600 text-green900 font-display font-semibold text-sm px-4 py-2 shadow-soft hover:brightness-105">
-        Đặt hàng / Tư vấn
+
+    <!-- Header Actions (CTA & Mobile menu toggle) -->
+    <div class="flex items-center gap-2 sm:gap-3">
+      <a href="#lien-he" class="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-gold600 via-amber-500 to-gold600 text-green950 font-display font-extrabold text-xs sm:text-sm px-4 py-2 shadow-md hover:brightness-110 transform hover:scale-105 transition">
+        <span>🛒</span>
+        <span>Đặt hàng / Tư vấn</span>
       </a>
-      <!-- Button Mobile Menu Toggle -->
-      <button id="mobileMenuBtn" class="md:hidden p-2 text-textsoft hover:text-green700 focus:outline-none" aria-label="Menu">
+      <!-- Mobile Menu Toggle Button -->
+      <button id="mobileMenuBtn" class="lg:hidden p-2 text-textsoft hover:text-green700 focus:outline-none bg-surface2 rounded-xl" aria-label="Menu Mobile">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
       </button>
     </div>
   </div>
 
-  <!-- Mobile Navigation -->
-  <div id="mobileMenu" class="hidden md:hidden bg-surface border-b border-borderc px-4 pt-2 pb-4 space-y-2 text-sm font-medium text-textsoft">
-    <a href="#su-menh" class="block py-1.5 hover:text-green700">Sứ mệnh</a>
-    <a href="#tam-nhin" class="block py-1.5 hover:text-green700">Tầm nhìn</a>
-    <a href="#gioi-thieu" class="block py-1.5 hover:text-green700">Giới thiệu</a>
-    <a href="#video-gioi-thieu" class="block py-1.5 hover:text-green700">Video BDF</a>
-    <a href="#chung-nhan" class="block py-1.5 hover:text-green700">Chứng nhận HACCP</a>
-    <a href="#am-thuc" class="block py-1.5 hover:text-green700">Ẩm thực Sâm</a>
-    <a href="#loi-ich" class="block py-1.5 hover:text-green700">Lợi ích</a>
-    <a href="#truy-xuat" class="block py-1.5 hover:text-green700">Truy xuất QR</a>
-    <a href="#san-pham" class="block py-1.5 hover:text-green700">Sản phẩm</a>
-    <a href="#vung-trong" class="block py-1.5 hover:text-green700">Vùng trồng</a>
-    <a href="#dai-ly" class="block py-1.5 hover:text-green700">Đại lý</a>
-    <details class="group py-1">
-      <summary class="flex justify-between items-center cursor-pointer font-semibold text-green900 py-1">
-        <span>🤝 Đối tác</span>
-        <span class="text-xs transition-transform group-open:rotate-180">▼</span>
-      </summary>
-      <div class="pl-4 pt-1 space-y-1">
-        <a href="https://landing-page-sam-bo-chinh.vercel.app/#tam-nhin" class="block py-1 text-xs font-medium text-green700 hover:underline">
-          🏢 Cty CP Bà Đen Farm
-        </a>
-      </div>
-    </details>
-    <a href="#faq" class="block py-1.5 hover:text-green700">FAQ</a>
+  <!-- Mobile Drawer Navigation -->
+  <div id="mobileMenu" class="hidden lg:hidden bg-surface border-b border-borderc px-4 pt-3 pb-5 space-y-2.5 text-sm font-medium text-textsoft max-h-[80vh] overflow-y-auto">
+    <a href="#cay-menu" class="flex items-center justify-between py-2 px-3 bg-green100 rounded-xl text-green900 font-bold">
+      <span>🌳 Xem Cây Menu Sơ Đồ Web</span>
+      <span class="text-xs text-green700">11 Danh mục →</span>
+    </a>
+    <div class="grid grid-cols-2 gap-2 text-xs">
+      <a href="#su-menh" class="block p-2 bg-surface2 rounded-lg hover:text-green700">🏢 Sứ mệnh & Tầm nhìn</a>
+      <a href="#san-pham" class="block p-2 bg-surface2 rounded-lg hover:text-green700">🌱 Sản phẩm Bà Đen</a>
+      <a href="#vung-trong" class="block p-2 bg-surface2 rounded-lg hover:text-green700">🪴 Vùng trồng Tây Ninh</a>
+      <a href="#video-gioi-thieu" class="block p-2 bg-surface2 rounded-lg hover:text-green700">🎬 Video Clip BDF</a>
+      <a href="#chung-nhan" class="block p-2 bg-surface2 rounded-lg hover:text-green700">🎯 Chứng nhận OCOP</a>
+      <a href="#am-thuc" class="block p-2 bg-surface2 rounded-lg hover:text-green700">🍲 Ẩm thực Sâm</a>
+      <a href="#loi-ich" class="block p-2 bg-surface2 rounded-lg hover:text-green700">⭐ Lợi ích sức khỏe</a>
+      <a href="#truy-xuat" class="block p-2 bg-surface2 rounded-lg hover:text-green700">📲 Truy xuất nguồn gốc</a>
+      <a href="#dai-ly" class="block p-2 bg-surface2 rounded-lg hover:text-green700">💼 Đại lý & Đối tác</a>
+      <a href="#faq" class="block p-2 bg-surface2 rounded-lg hover:text-green700">💬 Câu hỏi thường gặp</a>
+    </div>
   </div>
 </header>
 
@@ -270,6 +421,255 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
     <div class="reveal"><div class="font-display font-bold text-green700 text-lg">SP TIÊU BIỂU</div><div class="text-xs text-textsoft">CN Nông thôn cấp Khu Vực</div></div>
     <div class="reveal"><div class="font-display font-bold text-green700 text-lg">VietGAP / Organic</div><div class="text-xs text-textsoft">Quy trình canh tác chuẩn hóa</div></div>
     <div class="reveal col-span-2 sm:col-span-1"><div class="font-display font-bold text-green700 text-lg">QR TRUY XUẤT</div><div class="text-xs text-textsoft">Minh bạch 100% từng củ sâm</div></div>
+  </div>
+</section>
+
+<!-- ===================== CÂY MENU SƠ ĐỒ ĐIỀU HƯỚNG BÀ ĐEN FARM ===================== -->
+<section id="cay-menu" class="bg-surface border-y border-borderc py-14 sm:py-20 overflow-hidden relative leaf-pattern-bg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <!-- Title & Search Header -->
+    <div class="text-center max-w-3xl mx-auto reveal">
+      <span class="inline-flex items-center gap-2 rounded-full bg-green100 text-green700 px-4 py-1 text-xs font-bold uppercase tracking-wider mb-3 shadow-xs">
+        🌳 SƠ ĐỒ ĐIỀU HƯỚNG CÂY MENU BÀ ĐEN FARM
+      </span>
+      <h2 class="text-2xl sm:text-4xl font-extrabold text-green900 leading-tight">
+        Sơ Đồ Hệ Thống & Cấu Trúc Menu Đa Tầng
+      </h2>
+      <p class="mt-2 text-xs sm:text-sm text-textsoft font-medium">
+        Tra cứu nhanh 11 chuyên mục chính và 52 nội dung chi tiết theo đúng cấu trúc tổ chức Bà Đen Farm
+      </p>
+
+      <!-- Thanh Tìm Kiếm Menu Nhanh -->
+      <div class="mt-6 relative max-w-xl mx-auto">
+        <input type="text" id="treeMenuSearch" placeholder="🔍 Nhập từ khóa cần tìm (Ví dụ: VietGAP, OCOP, Lẩu sâm, Rượu sâm, Đại lý...)" 
+               class="w-full rounded-full border-2 border-green700/30 bg-bgivory px-5 py-3 pl-11 text-xs sm:text-sm text-green900 focus:border-green700 focus:ring-4 focus:ring-green700/20 outline-none transition shadow-sm font-medium" />
+        <svg class="w-5 h-5 text-green700 absolute left-4 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        <button id="clearSearchBtn" onclick="clearTreeSearch()" class="hidden absolute right-3 top-2.5 text-xs bg-surface2 hover:bg-green100 text-textsoft px-3 py-1 rounded-full font-bold transition">Xóa</button>
+      </div>
+    </div>
+
+    <!-- ROOT NODE: TRANG CHỦ -->
+    <div class="mt-10 flex justify-center reveal">
+      <a href="#top" class="inline-flex items-center gap-3 bg-gradient-to-r from-green-950 via-green-800 to-green-950 text-white px-8 py-3.5 rounded-full shadow-xl border-2 border-gold600/60 hover:border-gold600 transition transform hover:scale-105 group relative z-10">
+        <span class="w-8 h-8 rounded-full bg-green-700 grid place-items-center text-gold600 shadow-inner group-hover:bg-gold600 group-hover:text-green900 transition">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/></svg>
+        </span>
+        <span class="font-display font-extrabold text-lg sm:text-xl tracking-wider text-white">TRANG CHỦ</span>
+      </a>
+    </div>
+
+    <!-- ĐƯỜNG NỐI CÂY TRUNG TÂM (CSS & SVG Line Connector) -->
+    <div class="hidden lg:block relative my-3">
+      <div class="w-full h-8 flex justify-center items-center">
+        <svg class="w-full h-8 text-green700/40 stroke-current" viewBox="0 0 1200 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M600 0 V16 M50 16 H1150 M50 16 V32 M150 16 V32 M250 16 V32 M350 16 V32 M450 16 V32 M550 16 V32 M650 16 V32 M750 16 V32 M850 16 V32 M950 16 V32 M1050 16 V32 M1150 16 V32" stroke-width="2.5" stroke-linecap="round" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- HỆ THỐNG 11 CỘT SƠ ĐỒ MENU -->
+    <div id="treeGrid" class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-11 gap-2.5 sm:gap-3 items-start reveal">
+      
+      <!-- CỘT 1: Giới thiệu Công ty -->
+      <div class="tree-col bg-surface2/60 hover:bg-surface border border-green700/20 rounded-2xl p-2.5 shadow-xs hover:shadow-md transition duration-300">
+        <div class="tree-pillar-head bg-gradient-to-br from-green-800 to-green-950 text-white rounded-xl p-2 text-center mb-2 shadow-xs">
+          <span class="text-lg block">🏢</span>
+          <h3 class="font-display font-bold text-xs leading-tight text-gold100">Giới thiệu Công ty</h3>
+        </div>
+        <ul class="space-y-1 text-[11px]">
+          <li><a href="#su-menh" class="tree-item"><span class="tree-badge">1</span><span>Sứ mệnh</span></a></li>
+          <li><a href="#tam-nhin" class="tree-item"><span class="tree-badge">2</span><span>Tầm nhìn</span></a></li>
+          <li><a href="#gioi-thieu" class="tree-item"><span class="tree-badge">3</span><span>Giá trị cốt lõi</span></a></li>
+          <li><a href="#gioi-thieu" class="tree-item"><span class="tree-badge">4</span><span>Lịch sử hình thành</span></a></li>
+          <li><a href="#gioi-thieu" class="tree-item"><span class="tree-badge">5</span><span>Đội ngũ</span></a></li>
+          <li><a href="#chung-nhan" class="tree-item"><span class="tree-badge">6</span><span>Giải thưởng & Chứng nhận</span></a></li>
+        </ul>
+      </div>
+
+      <!-- CỘT 2: Sản phẩm -->
+      <div class="tree-col bg-surface2/60 hover:bg-surface border border-green700/20 rounded-2xl p-2.5 shadow-xs hover:shadow-md transition duration-300">
+        <div class="tree-pillar-head bg-gradient-to-br from-green-800 to-green-950 text-white rounded-xl p-2 text-center mb-2 shadow-xs">
+          <span class="text-lg block">🌱</span>
+          <h3 class="font-display font-bold text-xs leading-tight text-gold100">Sản phẩm</h3>
+        </div>
+        <ul class="space-y-1 text-[11px]">
+          <li><a href="#san-pham" class="tree-item"><span class="tree-badge">1</span><span>Sâm Bố Chính</span></a></li>
+          <li><a href="#san-pham" class="tree-item"><span class="tree-badge">2</span><span>Sản phẩm chế biến</span></a></li>
+          <li><a href="#san-pham" class="tree-item"><span class="tree-badge">3</span><span>Sản phẩm khác</span></a></li>
+          <li><a href="#san-pham" class="tree-item"><span class="tree-badge">4</span><span>Bộ quà tặng</span></a></li>
+          <li><a href="#san-pham" class="tree-item"><span class="tree-badge">5</span><span>Bảng giá</span></a></li>
+          <li><a href="#san-pham" class="tree-item"><span class="tree-badge">6</span><span>Hướng dẫn sử dụng</span></a></li>
+        </ul>
+      </div>
+
+      <!-- CỘT 3: Vùng trồng -->
+      <div class="tree-col bg-surface2/60 hover:bg-surface border border-green700/20 rounded-2xl p-2.5 shadow-xs hover:shadow-md transition duration-300">
+        <div class="tree-pillar-head bg-gradient-to-br from-green-800 to-green-950 text-white rounded-xl p-2 text-center mb-2 shadow-xs">
+          <span class="text-lg block">🪴</span>
+          <h3 class="font-display font-bold text-xs leading-tight text-gold100">Vùng trồng</h3>
+        </div>
+        <ul class="space-y-1 text-[11px]">
+          <li><a href="#vung-trong" class="tree-item"><span class="tree-badge">1</span><span>Vùng trồng Núi Bà Đen</span></a></li>
+          <li><a href="#vung-trong" class="tree-item"><span class="tree-badge">2</span><span>Quy trình canh tác</span></a></li>
+          <li><a href="#vung-trong" class="tree-item"><span class="tree-badge">3</span><span>Tiêu chuẩn chất lượng</span></a></li>
+          <li><a href="#vung-trong" class="tree-item"><span class="tree-badge">4</span><span>Hình ảnh thực tế</span></a></li>
+          <li><a href="#video-gioi-thieu" class="tree-item"><span class="tree-badge">5</span><span>Video vùng trồng</span></a></li>
+        </ul>
+      </div>
+
+      <!-- CỘT 4: Video BDF -->
+      <div class="tree-col bg-surface2/60 hover:bg-surface border border-green700/20 rounded-2xl p-2.5 shadow-xs hover:shadow-md transition duration-300">
+        <div class="tree-pillar-head bg-gradient-to-br from-green-800 to-green-950 text-white rounded-xl p-2 text-center mb-2 shadow-xs">
+          <span class="text-lg block">🎬</span>
+          <h3 class="font-display font-bold text-xs leading-tight text-gold100">Video BDF</h3>
+        </div>
+        <ul class="space-y-1 text-[11px]">
+          <li><a href="#video-gioi-thieu" class="tree-item"><span class="tree-badge">1</span><span>Giới thiệu BDF</span></a></li>
+          <li><a href="#video-gioi-thieu" class="tree-item"><span class="tree-badge">2</span><span>Vùng trồng</span></a></li>
+          <li><a href="#video-gioi-thieu" class="tree-item"><span class="tree-badge">3</span><span>Quy trình sản xuất</span></a></li>
+          <li><a href="#video-gioi-thieu" class="tree-item"><span class="tree-badge">4</span><span>Chia sẻ khách hàng</span></a></li>
+          <li><a href="#video-gioi-thieu" class="tree-item"><span class="tree-badge">5</span><span>Tin tức & Sự kiện</span></a></li>
+        </ul>
+      </div>
+
+      <!-- CỘT 5: Chứng nhận -->
+      <div class="tree-col bg-surface2/60 hover:bg-surface border border-green700/20 rounded-2xl p-2.5 shadow-xs hover:shadow-md transition duration-300">
+        <div class="tree-pillar-head bg-gradient-to-br from-green-800 to-green-950 text-white rounded-xl p-2 text-center mb-2 shadow-xs">
+          <span class="text-lg block">🎯</span>
+          <h3 class="font-display font-bold text-xs leading-tight text-gold100">Chứng nhận</h3>
+        </div>
+        <ul class="space-y-1 text-[11px]">
+          <li><a href="#chung-nhan" class="tree-item"><span class="tree-badge">1</span><span>Chứng nhận OCOP</span></a></li>
+          <li><a href="#chung-nhan" class="tree-item"><span class="tree-badge">2</span><span>Chứng nhận VietGAP</span></a></li>
+          <li><a href="#chung-nhan" class="tree-item"><span class="tree-badge">3</span><span>Kiểm nghiệm sản phẩm</span></a></li>
+          <li><a href="#chung-nhan" class="tree-item"><span class="tree-badge">4</span><span>Hồ sơ pháp lý</span></a></li>
+          <li><a href="#chung-nhan" class="tree-item"><span class="tree-badge">5</span><span>Giấy tờ & khác</span></a></li>
+        </ul>
+      </div>
+
+      <!-- CỘT 6: Ẩm thực Sâm -->
+      <div class="tree-col bg-surface2/60 hover:bg-surface border border-green700/20 rounded-2xl p-2.5 shadow-xs hover:shadow-md transition duration-300">
+        <div class="tree-pillar-head bg-gradient-to-br from-green-800 to-green-950 text-white rounded-xl p-2 text-center mb-2 shadow-xs">
+          <span class="text-lg block">🍲</span>
+          <h3 class="font-display font-bold text-xs leading-tight text-gold100">Ẩm thực Sâm</h3>
+        </div>
+        <ul class="space-y-1 text-[11px]">
+          <li><a href="#am-thuc" class="tree-item"><span class="tree-badge">1</span><span>Món ăn từ sâm</span></a></li>
+          <li><a href="#am-thuc" class="tree-item"><span class="tree-badge">2</span><span>Công thức nấu ăn</span></a></li>
+          <li><a href="#am-thuc" class="tree-item"><span class="tree-badge">3</span><span>Tư vấn dinh dưỡng</span></a></li>
+          <li><a href="#am-thuc" class="tree-item"><span class="tree-badge">4</span><span>Video hướng dẫn</span></a></li>
+        </ul>
+      </div>
+
+      <!-- CỘT 7: Lợi ích -->
+      <div class="tree-col bg-surface2/60 hover:bg-surface border border-green700/20 rounded-2xl p-2.5 shadow-xs hover:shadow-md transition duration-300">
+        <div class="tree-pillar-head bg-gradient-to-br from-green-800 to-green-950 text-white rounded-xl p-2 text-center mb-2 shadow-xs">
+          <span class="text-lg block">⭐</span>
+          <h3 class="font-display font-bold text-xs leading-tight text-gold100">Lợi ích</h3>
+        </div>
+        <ul class="space-y-1 text-[11px]">
+          <li><a href="#loi-ich" class="tree-item"><span class="tree-badge">1</span><span>Đối với sức khỏe</span></a></li>
+          <li><a href="#loi-ich" class="tree-item"><span class="tree-badge">2</span><span>Đối với gia đình</span></a></li>
+          <li><a href="#loi-ich" class="tree-item"><span class="tree-badge">3</span><span>Đối với cộng đồng</span></a></li>
+          <li><a href="#loi-ich" class="tree-item"><span class="tree-badge">4</span><span>Vì sao chọn BDF</span></a></li>
+        </ul>
+      </div>
+
+      <!-- CỘT 8: Truy xuất QR -->
+      <div class="tree-col bg-surface2/60 hover:bg-surface border border-green700/20 rounded-2xl p-2.5 shadow-xs hover:shadow-md transition duration-300">
+        <div class="tree-pillar-head bg-gradient-to-br from-green-800 to-green-950 text-white rounded-xl p-2 text-center mb-2 shadow-xs">
+          <span class="text-lg block">📲</span>
+          <h3 class="font-display font-bold text-xs leading-tight text-gold100">Truy xuất QR</h3>
+        </div>
+        <ul class="space-y-1 text-[11px]">
+          <li><a href="#truy-xuat" class="tree-item"><span class="tree-badge">1</span><span>Hướng dẫn truy xuất</span></a></li>
+          <li><a href="#truy-xuat" class="tree-item"><span class="tree-badge">2</span><span>Tra cứu sản phẩm</span></a></li>
+          <li><a href="#truy-xuat" class="tree-item"><span class="tree-badge">3</span><span>Ý nghĩa QR</span></a></li>
+          <li><a href="#truy-xuat" class="tree-item"><span class="tree-badge">4</span><span>Bảo vệ hàng thật</span></a></li>
+        </ul>
+      </div>
+
+      <!-- CỘT 9: Đại lý Đối tác (Hợp tác) -->
+      <div class="tree-col bg-surface2/60 hover:bg-surface border border-green700/20 rounded-2xl p-2.5 shadow-xs hover:shadow-md transition duration-300">
+        <div class="tree-pillar-head bg-gradient-to-br from-green-800 to-green-950 text-white rounded-xl p-2 text-center mb-2 shadow-xs">
+          <span class="text-lg block">🤝</span>
+          <h3 class="font-display font-bold text-xs leading-tight text-gold100">Đại lý Đối tác</h3>
+        </div>
+        <ul class="space-y-1 text-[11px]">
+          <li><a href="#dai-ly" class="tree-item"><span class="tree-badge">1</span><span>Chính sách truy xuất</span></a></li>
+          <li><a href="#truy-xuat" class="tree-item"><span class="tree-badge">2</span><span>Tra cứu sản phẩm</span></a></li>
+          <li><a href="#dai-ly" class="tree-item"><span class="tree-badge">3</span><span>Ý nghĩa QL</span></a></li>
+          <li><a href="#dai-ly" class="tree-item"><span class="tree-badge">4</span><span>Câu chuyện thật</span></a></li>
+        </ul>
+      </div>
+
+      <!-- CỘT 10: Đại lý Đối tác (Mạng lưới) -->
+      <div class="tree-col bg-surface2/60 hover:bg-surface border border-green700/20 rounded-2xl p-2.5 shadow-xs hover:shadow-md transition duration-300">
+        <div class="tree-pillar-head bg-gradient-to-br from-green-800 to-green-950 text-white rounded-xl p-2 text-center mb-2 shadow-xs">
+          <span class="text-lg block">💼</span>
+          <h3 class="font-display font-bold text-xs leading-tight text-gold100">Đại lý Đối tác</h3>
+        </div>
+        <ul class="space-y-1 text-[11px]">
+          <li><a href="#dai-ly" class="tree-item"><span class="tree-badge">1</span><span>Chính sách đại lý</span></a></li>
+          <li><a href="#dai-ly" class="tree-item"><span class="tree-badge">2</span><span>Quyền lợi đối tác</span></a></li>
+          <li><a href="#dai-ly" class="tree-item"><span class="tree-badge">3</span><span>Đăng ký đại lý</span></a></li>
+          <li><a href="#dai-ly" class="tree-item"><span class="tree-badge">4</span><span>Câu chuyện đối tác</span></a></li>
+        </ul>
+      </div>
+
+      <!-- CỘT 11: FAQ -->
+      <div class="tree-col bg-surface2/60 hover:bg-surface border border-green700/20 rounded-2xl p-2.5 shadow-xs hover:shadow-md transition duration-300">
+        <div class="tree-pillar-head bg-gradient-to-br from-green-800 to-green-950 text-white rounded-xl p-2 text-center mb-2 shadow-xs">
+          <span class="text-lg block">💬</span>
+          <h3 class="font-display font-bold text-xs leading-tight text-gold100">FAQ</h3>
+        </div>
+        <ul class="space-y-1 text-[11px]">
+          <li><a href="#faq" class="tree-item"><span class="tree-badge">1</span><span>Câu hỏi thường gặp</span></a></li>
+          <li><a href="#lien-he" class="tree-item"><span class="tree-badge">2</span><span>Hỗ trợ khách hàng</span></a></li>
+          <li><a href="#faq" class="tree-item"><span class="tree-badge">3</span><span>Chính sách đổi trả</span></a></li>
+          <li><a href="#lien-he" class="tree-item"><span class="tree-badge">4</span><span>Liên hệ</span></a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- BANNER CHÂN SƠ ĐỒ CÂY (Theo đúng thiết kế trong ảnh) -->
+    <div class="mt-14 pt-8 border-t border-green700/20 text-center reveal">
+      <div class="inline-block relative">
+        <h3 class="font-serif italic text-2xl sm:text-3xl font-bold text-green900">
+          Vươn từ núi thiêng — Lan tỏa giá trị Việt
+        </h3>
+        <span class="text-xs text-gold600 font-bold uppercase tracking-widest block mt-1">BÀ ĐEN FARM · TÂY NINH</span>
+      </div>
+
+      <!-- 3 CỘT TIÊU CHUẨN CAM KẾT -->
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <div class="flex items-center justify-center gap-3 bg-green100/70 p-4 rounded-2xl border border-green700/20 shadow-xs hover:bg-green100 transition">
+          <span class="text-2xl">🍃</span>
+          <div class="text-left">
+            <h4 class="font-display font-extrabold text-xs text-green900 uppercase">SẢN PHẨM THẬT</h4>
+            <p class="text-[11px] font-bold text-green700 uppercase">GIÁ TRỊ THẬT</p>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center gap-3 bg-green100/70 p-4 rounded-2xl border border-green700/20 shadow-xs hover:bg-green100 transition">
+          <span class="text-2xl">💚</span>
+          <div class="text-left">
+            <h4 class="font-display font-extrabold text-xs text-green900 uppercase">CỘNG ĐỒNG THẬT</h4>
+            <p class="text-[11px] font-bold text-green700 uppercase">THỊNH VƯỢNG THẬT</p>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center gap-3 bg-green100/70 p-4 rounded-2xl border border-green700/20 shadow-xs hover:bg-green100 transition">
+          <span class="text-2xl">👥</span>
+          <div class="text-left">
+            <h4 class="font-display font-extrabold text-xs text-green900 uppercase">CÙNG NHAU</h4>
+            <p class="text-[11px] font-bold text-green700 uppercase">VÌ SỨC KHỎE VIỆT</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -427,6 +827,108 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
         <span class="text-gold600">Thương hiệu Việt</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ===================== BÀI HÁT & ÂM NHẠC BÀ ĐEN FARM ===================== -->
+<section id="bai-hat" class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20 border-b border-borderc">
+  <div class="text-center max-w-3xl mx-auto reveal">
+    <span class="inline-flex items-center gap-2 rounded-full bg-gold100 text-gold600 px-3.5 py-1 text-xs font-bold uppercase tracking-wider mb-2">
+      🎵 ÂM NHẠC BÀ ĐEN FARM
+    </span>
+    <h2 class="text-2xl sm:text-3xl font-extrabold text-green900">
+      Giai Điệu Hào Hùng & Cảm Hứng Về Sâm Bố Chính
+    </h2>
+    <p class="mt-3 text-textsoft text-sm sm:text-base leading-relaxed">
+      Lắng nghe các ca khúc giàu cảm xúc tôn vinh cây Sâm Bố Chính (Sâm Tiến Vua) và vùng đất truyền thống Tây Ninh linh thiêng.
+    </p>
+  </div>
+
+  <!-- Featured Music Player & Playlist Grid -->
+  <div class="mt-10 grid lg:grid-cols-12 gap-8 items-start">
+    
+    <!-- Player Card Trung Tâm (Left/Top) -->
+    <div class="lg:col-span-5 reveal rounded-2xl bg-surface border border-borderc p-6 shadow-soft sticky top-20">
+      <div class="flex flex-col items-center text-center">
+        
+        <!-- Album Art / Vinyl Animation -->
+        <div class="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full p-2 bg-gradient-to-tr from-green900 via-green700 to-gold600 shadow-xl mb-6">
+          <div id="vinylDisk" class="w-full h-full rounded-full bg-neutral-900 border-4 border-neutral-800 flex items-center justify-center relative overflow-hidden transition-transform duration-700">
+            <!-- Vinyl Grooves -->
+            <div class="absolute inset-2 rounded-full border border-neutral-700/40"></div>
+            <div class="absolute inset-6 rounded-full border border-neutral-700/40"></div>
+            <div class="absolute inset-10 rounded-full border border-neutral-700/40"></div>
+            <!-- Disk Label -->
+            <div class="w-20 h-20 rounded-full bg-green700 border-4 border-gold600 grid place-items-center shadow-inner z-10">
+              <span class="text-2xl">🌿</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Track Info -->
+        <h3 id="playerTrackTitle" class="font-display font-bold text-green900 text-lg sm:text-xl line-clamp-1">Sâm Bổ Chính</h3>
+        <p id="playerTrackArtist" class="text-xs sm:text-sm font-medium text-gold600 mt-1">Bà Đen Farm · Tự Hào Nhân Sâm Việt</p>
+        <span id="playerTrackBadge" class="mt-2 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-green100 text-green700">
+          🎵 Bản Gốc Standard
+        </span>
+
+        <!-- Hidden Audio Element -->
+        <audio id="audioPlayer" preload="metadata"></audio>
+
+        <!-- Time Progress Bar -->
+        <div class="w-full mt-6">
+          <div class="flex items-center justify-between text-xs text-textsoft font-medium mb-1.5">
+            <span id="currentTimeDisplay">00:00</span>
+            <span id="durationDisplay">00:00</span>
+          </div>
+          <input type="range" id="audioProgress" min="0" max="100" value="0" step="0.1" class="w-full h-1.5 bg-surface2 accent-green700 rounded-lg cursor-pointer transition" aria-label="Thanh tiến trình bài hát">
+        </div>
+
+        <!-- Controls -->
+        <div class="flex items-center justify-center gap-4 mt-6">
+          <button id="prevTrackBtn" class="p-3 rounded-full bg-surface2 hover:bg-green100 text-green900 transition focus:outline-none" title="Bài trước">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+          </button>
+
+          <button id="playPauseBtn" class="p-4 rounded-full bg-green700 hover:bg-green900 text-white shadow-md transition transform hover:scale-105 focus:outline-none" title="Phát / Tạm dừng">
+            <svg id="playIcon" class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <svg id="pauseIcon" class="w-7 h-7 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+          </button>
+
+          <button id="nextTrackBtn" class="p-3 rounded-full bg-surface2 hover:bg-green100 text-green900 transition focus:outline-none" title="Bài tiếp theo">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+          </button>
+        </div>
+
+        <!-- Extra Controls: Volume & Download -->
+        <div class="w-full mt-6 pt-4 border-t border-borderc flex items-center justify-between gap-3 text-xs text-textsoft">
+          <div class="flex items-center gap-2">
+            <button id="muteBtn" class="text-textsoft hover:text-green700 focus:outline-none" title="Tắt / Bật tiếng">
+              <svg id="volIcon" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+            </button>
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="1" class="w-20 h-1 bg-surface2 accent-green700 rounded-lg cursor-pointer" aria-label="Âm lượng">
+          </div>
+
+          <a id="downloadTrackLink" href="#" download class="inline-flex items-center gap-1 text-xs font-semibold text-green700 hover:text-green900 transition">
+            <span>📥 Tải MP3</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Playlist Grid (Right/Bottom) -->
+    <div class="lg:col-span-7 space-y-3 reveal">
+      <div class="flex items-center justify-between mb-2 px-1">
+        <span class="text-xs font-bold uppercase tracking-wider text-green900">Danh sách 7 Bài hát</span>
+        <span class="text-xs text-textfaint">Nhấp bài hát để phát trực tiếp</span>
+      </div>
+
+      <div id="playlistContainer" class="space-y-2.5">
+        <!-- Javascript JS render tracks -->
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1668,6 +2170,171 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
     });
   })();
 
+  // Audio Player & Playlist - Bà Đen Farm Songs
+  (function(){
+    var SONGS = [
+      { id: 1, title: "Sâm Bổ Chính", subtitle: "Bản Gốc Standard", badge: "Gốc", src: "Bai-hat/Sâm Bổ Chính.mp3" },
+      { id: 2, title: "Sâm Bổ Chính (Bản v2)", subtitle: "Phiên bản Phối khí v2", badge: "Phối khí v2", src: "Bai-hat/Sâm Bổ Chính v2.mp3" },
+      { id: 3, title: "Sâm Bổ Chính (Cover)", subtitle: "Phiên bản Cover mộc mạc", badge: "Cover", src: "Bai-hat/Sâm Bổ Chính (Cover).mp3" },
+      { id: 4, title: "Sâm Bổ Chính (Cover v2)", subtitle: "Phiên bản Cover v2 đặc sắc", badge: "Cover v2", src: "Bai-hat/Sâm Bổ Chính (Cover) v2.mp3" },
+      { id: 5, title: "sbc – Tinh Hoa Đất Việt", subtitle: "Bài Hát Tinh Hoa Đất Việt Standard", badge: "Tinh Hoa", src: "Bai-hat/sbc – Tinh Hoa Đất Việt.mp3" },
+      { id: 6, title: "sbc – Tinh Hoa Đất Việt (v1)", subtitle: "Phiên bản Tinh Hoa v1", badge: "Tinh Hoa v1", src: "Bai-hat/sbc – Tinh Hoa Đất Việt v1.mp3" },
+      { id: 7, title: "sbc – Tinh Hoa Đất Việt (v2)", subtitle: "Phiên bản Tinh Hoa v2 Hào Hùng", badge: "Tinh Hoa v2", src: "Bai-hat/sbc – Tinh Hoa Đất Việt v2.mp3" }
+    ];
+
+    var audio = document.getElementById('audioPlayer');
+    var playPauseBtn = document.getElementById('playPauseBtn');
+    var playIcon = document.getElementById('playIcon');
+    var pauseIcon = document.getElementById('pauseIcon');
+    var prevBtn = document.getElementById('prevTrackBtn');
+    var nextBtn = document.getElementById('nextTrackBtn');
+    var progress = document.getElementById('audioProgress');
+    var currentTimeEl = document.getElementById('currentTimeDisplay');
+    var durationEl = document.getElementById('durationDisplay');
+    var trackTitle = document.getElementById('playerTrackTitle');
+    var trackArtist = document.getElementById('playerTrackArtist');
+    var trackBadge = document.getElementById('playerTrackBadge');
+    var downloadLink = document.getElementById('downloadTrackLink');
+    var vinyl = document.getElementById('vinylDisk');
+    var volumeSlider = document.getElementById('volumeSlider');
+    var muteBtn = document.getElementById('muteBtn');
+    var playlistContainer = document.getElementById('playlistContainer');
+
+    if (!audio || !playlistContainer) return;
+
+    var currentIdx = 0;
+    var isPlaying = false;
+
+    function formatTime(s) {
+      if (isNaN(s) || s == null) return "00:00";
+      var m = Math.floor(s / 60);
+      var sec = Math.floor(s % 60);
+      return (m < 10 ? '0' + m : m) + ":" + (sec < 10 ? '0' + sec : sec);
+    }
+
+    function renderPlaylist() {
+      playlistContainer.innerHTML = SONGS.map(function(song, index) {
+        var active = index === currentIdx;
+        var activeClass = active 
+          ? "bg-green100/90 border-green700 shadow-sm ring-1 ring-green700/30" 
+          : "bg-surface hover:bg-surface2 border-borderc";
+        var numBg = active ? "bg-green700 text-white animate-pulse" : "bg-surface2 text-textsoft";
+        
+        return '<div class="playlist-item cursor-pointer rounded-xl border p-3.5 transition flex items-center justify-between gap-3 ' + activeClass + '" data-index="' + index + '">'
+          + '<div class="flex items-center gap-3 min-w-0">'
+          + '<span class="grid place-items-center w-8 h-8 rounded-lg text-xs font-bold shrink-0 ' + numBg + '">' + (active ? '▶' : (index + 1)) + '</span>'
+          + '<div class="min-w-0">'
+          + '<div class="flex items-center gap-2 flex-wrap">'
+          + '<h4 class="font-display font-semibold text-green900 text-sm truncate">' + song.title + '</h4>'
+          + '<span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-gold100 text-gold600 shrink-0">' + song.badge + '</span>'
+          + '</div>'
+          + '<p class="text-xs text-textsoft truncate mt-0.5">' + song.subtitle + '</p>'
+          + '</div></div>'
+          + '<div class="flex items-center gap-2 shrink-0">'
+          + '<a href="' + encodeURI(song.src) + '" download onclick="event.stopPropagation()" class="p-2 rounded-lg text-textsoft hover:text-green700 hover:bg-green100 transition flex items-center gap-1 text-xs font-semibold" title="Tải bài hát này">'
+          + '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>'
+          + '<span>Tải</span>'
+          + '</a>'
+          + '</div>'
+          + '</div>';
+      }).join('');
+
+      playlistContainer.querySelectorAll('.playlist-item').forEach(function(el) {
+        el.addEventListener('click', function() {
+          var idx = parseInt(this.getAttribute('data-index'), 10);
+          loadTrack(idx, true);
+        });
+      });
+    }
+
+    function loadTrack(idx, autoPlay) {
+      if (idx < 0) idx = SONGS.length - 1;
+      if (idx >= SONGS.length) idx = 0;
+      currentIdx = idx;
+      var song = SONGS[currentIdx];
+
+      audio.src = encodeURI(song.src);
+      trackTitle.textContent = song.title;
+      trackArtist.textContent = "Bà Đen Farm · Tự Hào Nhân Sâm Việt";
+      trackBadge.textContent = "🎵 " + song.badge;
+      downloadLink.href = encodeURI(song.src);
+
+      renderPlaylist();
+
+      if (autoPlay) {
+        audio.play().then(function() {
+          setPlayingState(true);
+        }).catch(function(e) {
+          console.log("Autoplay prevented:", e);
+          setPlayingState(false);
+        });
+      } else {
+        setPlayingState(false);
+      }
+    }
+
+    function setPlayingState(playing) {
+      isPlaying = playing;
+      if (playing) {
+        playIcon.classList.add('hidden');
+        pauseIcon.classList.remove('hidden');
+        vinyl.classList.add('animate-spin');
+      } else {
+        playIcon.classList.remove('hidden');
+        pauseIcon.classList.add('hidden');
+        vinyl.classList.remove('animate-spin');
+      }
+    }
+
+    playPauseBtn.addEventListener('click', function() {
+      if (!audio.src) {
+        loadTrack(0, true);
+        return;
+      }
+      if (audio.paused) {
+        audio.play().then(function(){ setPlayingState(true); });
+      } else {
+        audio.pause();
+        setPlayingState(false);
+      }
+    });
+
+    prevBtn.addEventListener('click', function() { loadTrack(currentIdx - 1, true); });
+    nextBtn.addEventListener('click', function() { loadTrack(currentIdx + 1, true); });
+
+    audio.addEventListener('timeupdate', function() {
+      if (audio.duration) {
+        var pct = (audio.currentTime / audio.duration) * 100;
+        progress.value = pct;
+        currentTimeEl.textContent = formatTime(audio.currentTime);
+        durationEl.textContent = formatTime(audio.duration);
+      }
+    });
+
+    progress.addEventListener('input', function() {
+      if (audio.duration) {
+        audio.currentTime = (progress.value / 100) * audio.duration;
+      }
+    });
+
+    audio.addEventListener('ended', function() {
+      loadTrack(currentIdx + 1, true);
+    });
+
+    volumeSlider.addEventListener('input', function() {
+      audio.volume = this.value;
+      audio.muted = (this.value == 0);
+    });
+
+    muteBtn.addEventListener('click', function() {
+      audio.muted = !audio.muted;
+      volumeSlider.value = audio.muted ? 0 : audio.volume;
+    });
+
+    // Init first track without autoplay
+    loadTrack(0, false);
+  })();
+
   // Scroll reveal
   (function(){
     var els = document.querySelectorAll('.reveal');
@@ -1771,6 +2438,68 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
         grid.innerHTML = html + (cta ? cta.outerHTML : '');
       })
       .catch(function(){ /* giữ placeholder tĩnh */ });
+  })();
+
+  // Cây Menu Sơ Đồ Điều Hướng — Tìm kiếm nhanh & Hiệu ứng chọn mục
+  (function(){
+    var searchInput = document.getElementById('treeMenuSearch');
+    var clearBtn = document.getElementById('clearSearchBtn');
+    var treeItems = document.querySelectorAll('#treeGrid .tree-item');
+    var treeCols = document.querySelectorAll('#treeGrid .tree-col');
+
+    if (searchInput) {
+      searchInput.addEventListener('input', function(){
+        var val = this.value.trim().toLowerCase();
+        if (clearBtn) clearBtn.classList.toggle('hidden', val.length === 0);
+
+        if (!val) {
+          treeItems.forEach(function(el){ el.classList.remove('highlight-tree-item'); el.style.opacity = '1'; });
+          treeCols.forEach(function(col){ col.style.opacity = '1'; });
+          return;
+        }
+
+        treeCols.forEach(function(col){
+          var hasMatch = false;
+          var items = col.querySelectorAll('.tree-item');
+          items.forEach(function(item){
+            var text = item.textContent.toLowerCase();
+            if (text.includes(val)) {
+              item.classList.add('highlight-tree-item');
+              item.style.opacity = '1';
+              hasMatch = true;
+            } else {
+              item.classList.remove('highlight-tree-item');
+              item.style.opacity = '0.35';
+            }
+          });
+          col.style.opacity = hasMatch ? '1' : '0.4';
+        });
+      });
+    }
+
+    window.clearTreeSearch = function() {
+      if (searchInput) {
+        searchInput.value = '';
+        searchInput.dispatchEvent(new Event('input'));
+        searchInput.focus();
+      }
+    };
+
+    // Flash highlight target section on tree item click
+    treeItems.forEach(function(item){
+      item.addEventListener('click', function(){
+        var href = this.getAttribute('href');
+        if (href && href.startsWith('#') && href !== '#top') {
+          var targetSec = document.querySelector(href);
+          if (targetSec) {
+            targetSec.classList.add('ring-4', 'ring-gold600/50', 'transition-all', 'duration-500');
+            setTimeout(function(){
+              targetSec.classList.remove('ring-4', 'ring-gold600/50');
+            }, 2000);
+          }
+        }
+      });
+    });
   })();
 
   // Toggle mobile menu
