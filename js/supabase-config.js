@@ -71,7 +71,33 @@
           } else if (item.type === 'text') {
             var textElems = document.querySelectorAll('[data-text-key="' + item.id + '"]');
             textElems.forEach(function (elem) {
-              elem.textContent = item.content;
+              if (item.id === 'company-phone') {
+                if (elem.getAttribute('data-phone-prefix')) {
+                  elem.textContent = elem.getAttribute('data-phone-prefix') + item.content;
+                } else if (elem.textContent.trim().startsWith('📞')) {
+                  elem.textContent = '📞 Hotline: ' + item.content;
+                } else if (elem.textContent.trim().startsWith('Hotline:')) {
+                  elem.textContent = 'Hotline: ' + item.content;
+                } else {
+                  elem.textContent = item.content;
+                }
+
+                if (elem.tagName === 'A' && elem.href) {
+                  var cleanNum = item.content.split(/[-–]/)[0].replace(/[^0-9+]/g, '');
+                  if (elem.href.includes('zalo.me')) {
+                    elem.href = 'https://zalo.me/' + cleanNum;
+                  } else {
+                    elem.href = 'tel:' + cleanNum;
+                  }
+                }
+              } else if (item.id === 'company-email') {
+                elem.textContent = item.content;
+                if (elem.tagName === 'A' && elem.href) {
+                  elem.href = 'mailto:' + item.content;
+                }
+              } else {
+                elem.textContent = item.content;
+              }
             });
           }
         });
