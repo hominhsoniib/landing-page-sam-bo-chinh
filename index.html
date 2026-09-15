@@ -2997,6 +2997,60 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
 </script>
 
 <!-- ===================== PORTAL LOGIN & REGISTRATION MODAL ===================== -->
+<!-- ===================== AGE VERIFICATION MODAL (XÁC NHẬN NĂM SINH 18+) ===================== -->
+<div id="ageVerificationModal" class="hidden fixed inset-0 z-[100] bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+  <div class="bg-[#5c0612] text-white rounded-2xl max-w-md w-full p-6 sm:p-8 text-center border-2 border-red-500/40 shadow-2xl relative overflow-hidden">
+    <!-- Logo Badge -->
+    <div class="w-20 h-20 mx-auto mb-3 rounded-full bg-white flex items-center justify-center p-2 shadow-md">
+      <img src="images/QR_Ba_Den_Farm_Dia_Chi_Moi.png" alt="Bà Đen Farm" class="w-full h-full object-contain">
+    </div>
+    <p class="text-xs text-amber-200 font-medium tracking-wide uppercase mb-1">Xác thực thông tin độ tuổi truy cập</p>
+    <h2 class="text-lg sm:text-xl font-display font-extrabold uppercase mb-2 text-white">VUI LÒNG CHỌN NĂM SINH CỦA BẠN</h2>
+    <p class="text-xs text-white/80 mb-4 leading-relaxed">
+      Hệ thống dựa trên thông tin năm sinh để tính tuổi pháp lý (xác định <strong class="text-amber-300">đủ 18 tuổi trở lên</strong>) làm căn cứ cho phép truy cập theo quy định.
+    </p>
+
+    <!-- Form Nhập Năm Sinh -->
+    <form onsubmit="verifyBirthYear(event)" class="space-y-4 my-4">
+      <div>
+        <label class="block text-xs font-semibold text-amber-200 mb-1.5">Năm sinh của bạn:</label>
+        <select id="birthYearSelect" required class="w-full max-w-[240px] px-4 py-3 rounded-xl bg-white text-gray-900 font-bold text-base text-center border-2 border-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-inner cursor-pointer">
+          <option value="" disabled selected>-- Chọn Năm Sinh --</option>
+        </select>
+      </div>
+
+      <div id="ageVerificationMsg" class="hidden text-xs font-semibold p-3 rounded-xl transition duration-300"></div>
+
+      <button type="submit" class="w-full py-3.5 px-4 bg-gradient-to-r from-emerald-600 via-green-600 to-emerald-600 hover:from-emerald-500 hover:to-green-500 font-bold text-white rounded-xl text-sm transition shadow-lg cursor-pointer flex items-center justify-center gap-2 uppercase tracking-wider">
+        🛡️ Xác Nhận & Truy Cập
+      </button>
+    </form>
+
+    <p class="mt-4 text-[11px] text-white/60 leading-relaxed border-t border-white/10 pt-3">
+      Thông tin năm sinh là căn cứ pháp lý để thực hiện quy định Luật Phòng, chống tác hại của rượu, bia. Sản phẩm rượu không dành cho người dưới 18 tuổi.
+    </p>
+  </div>
+</div>
+
+<!-- ===================== MÀN HÌNH CHẶN KHI CHƯA ĐỦ 18 TUỔI ===================== -->
+<div id="ageBlockedScreen" class="hidden fixed inset-0 z-[101] bg-[#1a0306] text-white flex items-center justify-center p-6 text-center">
+  <div class="max-w-md space-y-4">
+    <div class="w-20 h-20 mx-auto rounded-full bg-red-600/20 text-red-500 border border-red-500/30 flex items-center justify-center text-4xl shadow-inner">
+      🚫
+    </div>
+    <h1 class="text-2xl font-bold text-red-500 uppercase font-display">TRUY CẬP BỊ CHẶN</h1>
+    <p class="text-sm text-gray-300 leading-relaxed">
+      Rất tiếc! Bạn chưa đạt đủ <strong class="text-amber-400">căn cứ từ đủ 18 tuổi trở lên</strong> để truy cập nội dung giới thiệu các sản phẩm Rượu & Dược Tửu của Bà Đen Farm.
+    </p>
+    <p id="blockedAgeDetail" class="text-xs text-red-400 bg-red-950/60 p-2.5 rounded-lg border border-red-900/50"></p>
+    <div class="pt-4 border-t border-white/10">
+      <button onclick="recheckAge()" class="text-xs text-amber-400 hover:underline cursor-pointer font-medium">
+        🔄 Nhập lại năm sinh
+      </button>
+    </div>
+  </div>
+</div>
+
 <div id="portalModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-green-950/80 backdrop-blur-md flex items-center justify-center p-4">
   <div class="bg-bgivory rounded-3xl max-w-md w-full border-2 border-gold600/50 shadow-2xl overflow-hidden relative">
     <!-- Modal Header -->
@@ -3139,6 +3193,103 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
       alert('Đã gửi thông tin đăng ký hợp tác! Ban điều hành Bà Đen Farm sẽ liên hệ xác minh trong 24h.');
       closePortalModal();
     }
+  }
+
+  // ===================== AGE VERIFICATION (XÁC NHẬN NĂM SINH 18+) =====================
+  (function populateBirthYears() {
+    var select = document.getElementById('birthYearSelect');
+    if (!select) return;
+    var currentYear = new Date().getFullYear();
+    for (var y = currentYear; y >= 1930; y--) {
+      var opt = document.createElement('option');
+      opt.value = y;
+      opt.textContent = y + " (Năm sinh " + y + ")";
+      select.appendChild(opt);
+    }
+  })();
+
+  (function initAgeCheck() {
+    var ageVerified = localStorage.getItem('bafenfarm_age_verified');
+    var ageBlocked = localStorage.getItem('bafenfarm_age_blocked');
+    var birthYear = localStorage.getItem('bafenfarm_birth_year');
+
+    var modal = document.getElementById('ageVerificationModal');
+    var blocked = document.getElementById('ageBlockedScreen');
+
+    if (ageBlocked === 'true') {
+      if (modal) modal.classList.add('hidden');
+      if (blocked) {
+        var blockedText = document.getElementById('blockedAgeDetail');
+        if (blockedText && birthYear) {
+          var age = new Date().getFullYear() - parseInt(birthYear, 10);
+          blockedText.textContent = "Hệ thống ghi nhận bạn sinh năm " + birthYear + " (mới " + age + " tuổi), chưa đủ căn cứ 18 tuổi theo quy định.";
+        }
+        blocked.classList.remove('hidden');
+      }
+    } else if (ageVerified === 'true') {
+      if (modal) modal.classList.add('hidden');
+      if (blocked) blocked.classList.add('hidden');
+    } else {
+      if (modal) modal.classList.remove('hidden');
+      if (blocked) blocked.classList.add('hidden');
+    }
+  })();
+
+  function verifyBirthYear(e) {
+    e.preventDefault();
+    var select = document.getElementById('birthYearSelect');
+    var msgBox = document.getElementById('ageVerificationMsg');
+    if (!select || !select.value) return;
+
+    var birthYear = parseInt(select.value, 10);
+    var currentYear = new Date().getFullYear();
+    var age = currentYear - birthYear;
+
+    var modal = document.getElementById('ageVerificationModal');
+    var blocked = document.getElementById('ageBlockedScreen');
+
+    if (age >= 18) {
+      // Đủ 18 tuổi
+      msgBox.className = "text-xs font-semibold p-3 rounded-xl bg-emerald-950/90 text-emerald-300 border border-emerald-500/60 shadow-md";
+      msgBox.innerHTML = "✅ <strong>XÁC THỰC THÀNH CÔNG:</strong> Bạn đã " + age + " tuổi (Sinh năm " + birthYear + ") — Đạt đủ căn cứ pháp lý trên 18 tuổi.";
+      msgBox.classList.remove('hidden');
+
+      localStorage.setItem('bafenfarm_age_verified', 'true');
+      localStorage.setItem('bafenfarm_birth_year', birthYear);
+      localStorage.removeItem('bafenfarm_age_blocked');
+
+      setTimeout(function() {
+        if (modal) modal.classList.add('hidden');
+        if (blocked) blocked.classList.add('hidden');
+      }, 1200);
+    } else {
+      // Chưa đủ 18 tuổi
+      msgBox.className = "text-xs font-semibold p-3 rounded-xl bg-red-950/90 text-red-300 border border-red-500/60 shadow-md";
+      msgBox.innerHTML = "❌ <strong>CHƯA ĐỦ ĐỘ TUỔI:</strong> Bạn sinh năm " + birthYear + " (mới " + age + " tuổi). Chưa đủ căn cứ từ 18 tuổi trở lên.";
+      msgBox.classList.remove('hidden');
+
+      localStorage.setItem('bafenfarm_age_blocked', 'true');
+      localStorage.setItem('bafenfarm_birth_year', birthYear);
+      localStorage.removeItem('bafenfarm_age_verified');
+
+      setTimeout(function() {
+        if (modal) modal.classList.add('hidden');
+        if (blocked) {
+          var blockedText = document.getElementById('blockedAgeDetail');
+          if (blockedText) {
+            blockedText.textContent = "Hệ thống ghi nhận bạn sinh năm " + birthYear + " (mới " + age + " tuổi), chưa đủ căn cứ 18 tuổi theo quy định.";
+          }
+          blocked.classList.remove('hidden');
+        }
+      }, 1500);
+    }
+  }
+
+  function recheckAge() {
+    localStorage.removeItem('bafenfarm_age_blocked');
+    localStorage.removeItem('bafenfarm_age_verified');
+    localStorage.removeItem('bafenfarm_birth_year');
+    location.reload();
   }
 </script>
 
