@@ -32,6 +32,23 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700&family=Inter:ital,wght@0,400;0,500;0,600;1,400;1,600&display=swap" rel="stylesheet" />
 
+<!-- ===== ANTI-FLICKER AGE CHECK INLINE SCRIPT ===== -->
+<script>
+  (function(){
+    try {
+      var v = localStorage.getItem('bafenfarm_age_verified');
+      var b = localStorage.getItem('bafenfarm_age_blocked');
+      if (v === 'true') {
+        document.documentElement.classList.add('age-verified');
+      } else if (b === 'true') {
+        document.documentElement.classList.add('age-blocked');
+      } else {
+        document.documentElement.classList.add('age-unverified');
+      }
+    } catch(e){}
+  })();
+</script>
+
 <!-- ===== JSON-LD: Organization + LocalBusiness ===== -->
 <script type="application/ld+json">
 {
@@ -92,6 +109,17 @@
   :root{ --green700:#1b5e20; --green600:#2e7d32; --gold600:#c9a227; }
   html{ scroll-behavior:smooth; }
   body{ font-family:Inter,system-ui,sans-serif; color:#1c2419; background:#faf8f2; }
+
+  /* ANTI-FLICKER AGE MODAL CONTROL */
+  html.age-verified #ageVerificationModal,
+  html.age-verified #ageBlockedScreen { display: none !important; }
+  
+  html.age-blocked #ageVerificationModal { display: none !important; }
+  html.age-blocked #ageBlockedScreen { display: flex !important; }
+
+  html.age-unverified #ageVerificationModal { display: flex !important; }
+  html.age-unverified #ageBlockedScreen { display: none !important; }
+  html.age-unverified body { overflow: hidden !important; }
   h1,h2,h3,h4{ font-family:"Be Vietnam Pro",system-ui,sans-serif; }
   .reveal{ opacity:0; transform:translateY(22px); transition:opacity .6s ease, transform .6s ease; }
   .reveal.in{ opacity:1; transform:none; }
@@ -3270,6 +3298,8 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
 
       setTimeout(function() {
         document.body.style.overflow = '';
+        document.documentElement.classList.remove('age-unverified', 'age-blocked');
+        document.documentElement.classList.add('age-verified');
         if (modal) modal.classList.add('hidden');
         if (blocked) blocked.classList.add('hidden');
       }, 1000);
@@ -3285,6 +3315,8 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
 
       setTimeout(function() {
         document.body.style.overflow = 'hidden';
+        document.documentElement.classList.remove('age-unverified', 'age-verified');
+        document.documentElement.classList.add('age-blocked');
         if (modal) modal.classList.add('hidden');
         if (blocked) {
           var blockedText = document.getElementById('blockedAgeDetail');
@@ -3301,6 +3333,8 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
     localStorage.removeItem('bafenfarm_age_blocked');
     localStorage.removeItem('bafenfarm_age_verified');
     localStorage.removeItem('bafenfarm_birth_year');
+    document.documentElement.classList.remove('age-verified', 'age-blocked');
+    document.documentElement.classList.add('age-unverified');
     location.reload();
   }
 </script>
