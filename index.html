@@ -36,8 +36,12 @@
 <script>
   (function(){
     try {
-      var v = localStorage.getItem('bafenfarm_age_verified');
-      var b = localStorage.getItem('bafenfarm_age_blocked');
+      localStorage.removeItem('bafenfarm_age_verified');
+      localStorage.removeItem('bafenfarm_age_blocked');
+      localStorage.removeItem('bafenfarm_birth_year');
+
+      var v = sessionStorage.getItem('bafenfarm_age_verified');
+      var b = sessionStorage.getItem('bafenfarm_age_blocked');
       if (v === 'true') {
         document.documentElement.classList.add('age-verified');
       } else if (b === 'true') {
@@ -3237,15 +3241,23 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   })();
 
   function initAgeCheck() {
-    var ageVerified = localStorage.getItem('bafenfarm_age_verified');
-    var ageBlocked = localStorage.getItem('bafenfarm_age_blocked');
-    var birthYear = localStorage.getItem('bafenfarm_birth_year');
+    try {
+      localStorage.removeItem('bafenfarm_age_verified');
+      localStorage.removeItem('bafenfarm_age_blocked');
+      localStorage.removeItem('bafenfarm_birth_year');
+    } catch(e){}
+
+    var ageVerified = sessionStorage.getItem('bafenfarm_age_verified');
+    var ageBlocked = sessionStorage.getItem('bafenfarm_age_blocked');
+    var birthYear = sessionStorage.getItem('bafenfarm_birth_year');
 
     var modal = document.getElementById('ageVerificationModal');
     var blocked = document.getElementById('ageBlockedScreen');
 
     if (ageBlocked === 'true') {
       document.body.style.overflow = 'hidden';
+      document.documentElement.classList.remove('age-unverified', 'age-verified');
+      document.documentElement.classList.add('age-blocked');
       if (modal) modal.classList.add('hidden');
       if (blocked) {
         var blockedText = document.getElementById('blockedAgeDetail');
@@ -3257,10 +3269,14 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
       }
     } else if (ageVerified === 'true') {
       document.body.style.overflow = '';
+      document.documentElement.classList.remove('age-unverified', 'age-blocked');
+      document.documentElement.classList.add('age-verified');
       if (modal) modal.classList.add('hidden');
       if (blocked) blocked.classList.add('hidden');
     } else {
       document.body.style.overflow = 'hidden';
+      document.documentElement.classList.remove('age-verified', 'age-blocked');
+      document.documentElement.classList.add('age-unverified');
       if (modal) modal.classList.remove('hidden');
       if (blocked) blocked.classList.add('hidden');
     }
@@ -3292,9 +3308,9 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
       msgBox.innerHTML = "✅ <strong>XÁC THỰC THÀNH CÔNG:</strong> Bạn đã " + age + " tuổi (Sinh năm " + birthYear + ") — Đạt đủ căn cứ pháp lý trên 18 tuổi.";
       msgBox.classList.remove('hidden');
 
-      localStorage.setItem('bafenfarm_age_verified', 'true');
-      localStorage.setItem('bafenfarm_birth_year', birthYear);
-      localStorage.removeItem('bafenfarm_age_blocked');
+      sessionStorage.setItem('bafenfarm_age_verified', 'true');
+      sessionStorage.setItem('bafenfarm_birth_year', birthYear);
+      sessionStorage.removeItem('bafenfarm_age_blocked');
 
       setTimeout(function() {
         document.body.style.overflow = '';
@@ -3309,9 +3325,9 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
       msgBox.innerHTML = "❌ <strong>CHƯA ĐỦ ĐỘ TUỔI:</strong> Bạn sinh năm " + birthYear + " (mới " + age + " tuổi). Chưa đủ căn cứ từ 18 tuổi trở lên.";
       msgBox.classList.remove('hidden');
 
-      localStorage.setItem('bafenfarm_age_blocked', 'true');
-      localStorage.setItem('bafenfarm_birth_year', birthYear);
-      localStorage.removeItem('bafenfarm_age_verified');
+      sessionStorage.setItem('bafenfarm_age_blocked', 'true');
+      sessionStorage.setItem('bafenfarm_birth_year', birthYear);
+      sessionStorage.removeItem('bafenfarm_age_verified');
 
       setTimeout(function() {
         document.body.style.overflow = 'hidden';
@@ -3330,9 +3346,14 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   }
 
   function recheckAge() {
-    localStorage.removeItem('bafenfarm_age_blocked');
-    localStorage.removeItem('bafenfarm_age_verified');
-    localStorage.removeItem('bafenfarm_birth_year');
+    sessionStorage.removeItem('bafenfarm_age_blocked');
+    sessionStorage.removeItem('bafenfarm_age_verified');
+    sessionStorage.removeItem('bafenfarm_birth_year');
+    try {
+      localStorage.removeItem('bafenfarm_age_blocked');
+      localStorage.removeItem('bafenfarm_age_verified');
+      localStorage.removeItem('bafenfarm_birth_year');
+    } catch(e){}
     document.documentElement.classList.remove('age-verified', 'age-blocked');
     document.documentElement.classList.add('age-unverified');
     location.reload();
