@@ -2998,8 +2998,8 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
 
 <!-- ===================== PORTAL LOGIN & REGISTRATION MODAL ===================== -->
 <!-- ===================== AGE VERIFICATION MODAL (XÁC NHẬN NĂM SINH 18+) ===================== -->
-<div id="ageVerificationModal" class="hidden fixed inset-0 z-[100] bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
-  <div class="bg-[#5c0612] text-white rounded-2xl max-w-md w-full p-6 sm:p-8 text-center border-2 border-red-500/40 shadow-2xl relative overflow-hidden">
+<div id="ageVerificationModal" class="fixed inset-0 z-[9999] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 overflow-y-auto">
+  <div class="bg-[#5c0612] text-white rounded-2xl max-w-md w-full p-6 sm:p-8 text-center border-2 border-red-500/40 shadow-2xl relative overflow-hidden my-auto">
     <!-- Logo Badge -->
     <div class="w-20 h-20 mx-auto mb-3 rounded-full bg-white flex items-center justify-center p-2 shadow-md">
       <img src="images/QR_Ba_Den_Farm_Dia_Chi_Moi.png" alt="Bà Đen Farm" class="w-full h-full object-contain">
@@ -3033,7 +3033,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
 </div>
 
 <!-- ===================== MÀN HÌNH CHẶN KHI CHƯA ĐỦ 18 TUỔI ===================== -->
-<div id="ageBlockedScreen" class="hidden fixed inset-0 z-[101] bg-[#1a0306] text-white flex items-center justify-center p-6 text-center">
+<div id="ageBlockedScreen" class="hidden fixed inset-0 z-[10000] bg-[#1a0306] text-white flex items-center justify-center p-6 text-center">
   <div class="max-w-md space-y-4">
     <div class="w-20 h-20 mx-auto rounded-full bg-red-600/20 text-red-500 border border-red-500/30 flex items-center justify-center text-4xl shadow-inner">
       🚫
@@ -3208,7 +3208,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
     }
   })();
 
-  (function initAgeCheck() {
+  function initAgeCheck() {
     var ageVerified = localStorage.getItem('bafenfarm_age_verified');
     var ageBlocked = localStorage.getItem('bafenfarm_age_blocked');
     var birthYear = localStorage.getItem('bafenfarm_birth_year');
@@ -3217,6 +3217,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
     var blocked = document.getElementById('ageBlockedScreen');
 
     if (ageBlocked === 'true') {
+      document.body.style.overflow = 'hidden';
       if (modal) modal.classList.add('hidden');
       if (blocked) {
         var blockedText = document.getElementById('blockedAgeDetail');
@@ -3227,13 +3228,22 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
         blocked.classList.remove('hidden');
       }
     } else if (ageVerified === 'true') {
+      document.body.style.overflow = '';
       if (modal) modal.classList.add('hidden');
       if (blocked) blocked.classList.add('hidden');
     } else {
+      document.body.style.overflow = 'hidden';
       if (modal) modal.classList.remove('hidden');
       if (blocked) blocked.classList.add('hidden');
     }
-  })();
+  }
+
+  // Run initial check immediately
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAgeCheck);
+  } else {
+    initAgeCheck();
+  }
 
   function verifyBirthYear(e) {
     e.preventDefault();
@@ -3259,9 +3269,10 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
       localStorage.removeItem('bafenfarm_age_blocked');
 
       setTimeout(function() {
+        document.body.style.overflow = '';
         if (modal) modal.classList.add('hidden');
         if (blocked) blocked.classList.add('hidden');
-      }, 1200);
+      }, 1000);
     } else {
       // Chưa đủ 18 tuổi
       msgBox.className = "text-xs font-semibold p-3 rounded-xl bg-red-950/90 text-red-300 border border-red-500/60 shadow-md";
@@ -3273,6 +3284,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
       localStorage.removeItem('bafenfarm_age_verified');
 
       setTimeout(function() {
+        document.body.style.overflow = 'hidden';
         if (modal) modal.classList.add('hidden');
         if (blocked) {
           var blockedText = document.getElementById('blockedAgeDetail');
@@ -3281,7 +3293,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
           }
           blocked.classList.remove('hidden');
         }
-      }, 1500);
+      }, 1200);
     }
   }
 
