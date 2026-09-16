@@ -28,29 +28,71 @@ window.SITE_IMAGES = {
     src: "images/VUON SAM BC.jpg",
     alt: "Vườn Sâm Bố Chính phủ xanh ngát tại Bà Đen Farm"
   },
+  "gioi-thieu-infographic": {
+    src: "images/gioi-thieu-infographic.jpg",
+    alt: "Infographic Giới thiệu Công ty CP Bà Đen Farm — Sâm Việt cho sức khỏe Việt"
+  },
+  "giay-chung-nhan-haccp": {
+    src: "images/giay-chung-nhan-haccp.jpg",
+    alt: "Giấy chứng nhận Hệ thống Quản lý An toàn Thực phẩm HACCP TCVN 5603:2023"
+  },
+  "giay-cn-atvstp": {
+    src: "images/giay-cn-atvstp.png",
+    alt: "Giấy chứng nhận Cơ sở đủ điều kiện An toàn Vệ sinh Thực phẩm — Bà Đen Farm Tây Ninh"
+  },
+  "giay-chung-nhan-sp-tieu-bieu": {
+    src: "images/giay-chung-nhan-sp-tieu-bieu.jpg",
+    alt: "Giấy chứng nhận Sản phẩm Công nghiệp Nông thôn Tiêu biểu cấp Khu vực — Trà túi lọc Sâm Bố Chính"
+  },
+  "giay-cn-sp-tieu-bieu-1": {
+    src: "images/giay-cn-sp-tieu-bieu-1.jpg",
+    alt: "Giấy chứng nhận Sản phẩm Nông thôn Tiêu biểu — Công ty CP Bà Đen Farm"
+  },
+  "giay-cn-ocop-1": {
+    src: "images/giay-cn-ocop-1.png",
+    alt: "Giấy chứng nhận Sản phẩm OCOP 3 Sao tỉnh Tây Ninh — Trà túi lọc Sâm Bố Chính"
+  },
+  "giay-cn-ocop-2": {
+    src: "images/giay-cn-ocop-2.png",
+    alt: "Giấy chứng nhận Sản phẩm OCOP 3 Sao tỉnh Tây Ninh — Rượu & Dược Tửu Sâm Bố Chính"
+  },
+  "giay-cn-ocop-3": {
+    src: "images/giay-cn-ocop-3.png",
+    alt: "Giấy chứng nhận Sản phẩm OCOP 3 Sao tỉnh Tây Ninh — Củ Sâm Bố Chính Tươi"
+  },
+  "giay-cn-ocop-4": {
+    src: "images/giay-cn-ocop-4.png",
+    alt: "Giấy chứng nhận Sản phẩm OCOP 3 Sao tỉnh Tây Ninh — Bột Sâm Nguyên Chất BDF"
+  },
+  "giay-cn-ocop-5": {
+    src: "images/giay-cn-ocop-5.png",
+    alt: "Giấy chứng nhận Sản phẩm OCOP 3 Sao tỉnh Tây Ninh — Cao Sâm Bố Chính"
+  },
+  "giay-cn-ocop-6": {
+    src: "images/giay-cn-ocop-6.png",
+    alt: "Giấy chứng nhận Sản phẩm OCOP 3 Sao tỉnh Tây Ninh — Trà Hoa Sâm Tứ Vị"
+  },
+  "giay-cn-ocop-7": {
+    src: "images/giay-cn-ocop-7.png",
+    alt: "Giấy chứng nhận Sản phẩm OCOP 3 Sao tỉnh Tây Ninh — Set Lẩu Sâm Khô Thanh Ngọt"
+  },
+  "giay-cn-ocop-top-1": {
+    src: "images/giay-cn-ocop-top-1.png",
+    alt: "Giấy chứng nhận Sản phẩm Công nghiệp Nông thôn Tiêu biểu cấp Khu vực"
+  },
+  "giay-cn-ocop-top-2": {
+    src: "images/giay-cn-ocop-top-2.png",
+    alt: "Giấy chứng nhận Sản phẩm Công nghiệp Nông thôn Tiêu biểu cấp Tỉnh Tây Ninh"
+  },
+  "tam-nhin-infographic": {
+    src: "images/tam-nhin.png",
+    alt: "Infographic Tầm nhìn Bà Đen Farm - Phục vụ cộng đồng trên khắp cả nước & Lan tỏa giá trị Sâm Việt"
+  },
 
   // 3. Ảnh Nhà hàng Ẩm thực Sâm Bà Đen (#am-thuc)
   "am-thuc-visual": {
     src: "images/2-trung-bay-sp.jpg",
     alt: "Không gian trưng bày & trải nghiệm Ẩm thực Sâm Bà Đen chân núi Bà Đen"
-  },
-
-  // 3.5. Infographic 6 Lợi ích sức khỏe (#loi-ich)
-  "loi-ich-infographic": {
-    src: "images/loi-ich-sbc.png",
-    alt: "6 Lợi ích sức khỏe vượt trội của Sâm Bố Chính Bà Đen Farm"
-  },
-
-  // 3.6. Infographic Sứ mệnh Bà Đen Farm (#su-menh)
-  "su-menh-infographic": {
-    src: "images/su-menh.png",
-    alt: "Sứ mệnh Bà Đen Farm - Vì sức khỏe cộng đồng, lan tỏa giá trị dược liệu Việt"
-  },
-
-  // 3.7. Infographic Tầm nhìn Bà Đen Farm (#tam-nhin)
-  "tam-nhin-infographic": {
-    src: "images/tam-nhin.png",
-    alt: "Tầm nhìn Bà Đen Farm - Phục vụ cộng đồng trên khắp cả nước & Lan tỏa giá trị Sâm Việt"
   },
 
   // 4. Ảnh Hoạt động trải nghiệm nông trại (#trai-nghiem)
@@ -91,8 +133,13 @@ window.SITE_IMAGES = {
   },
 
   "sp-tra-hoa-sam": {
-    src: "images/BONG SAM-CỦ.jpg",
-    alt: "Trà hoa sâm tứ vị & Củ sâm tươi Bố Chính"
+    src: "images/tra-hoa-sam.jpg",
+    alt: "Trà Hoa Sâm Bố Chính - Tinh Hoa Thiên Nhiên Từ Đất Việt"
+  },
+
+  "sp-sam-say-lat": {
+    src: "images/sam-say-lat.png",
+    alt: "Sâm Bố Chính Sấy Lát / Sấy Khô - 100% Củ Sâm Tươi Sấy Lạnh Bảo Toàn Kháng Thể"
   },
 
   "sp-set-lau-sam": {
@@ -155,16 +202,234 @@ window.SITE_IMAGES = {
  * ============================================================
  */
 window.SITE_VIDEOS = {
-  // 5 Video YouTube tư liệu chính thức từ Bà Đen Farm (Trích xuất từ Clip.docx)
+  "v2": "videos/clips-gioi-thieu-bdf-v2.mp4",
+  "full": "videos/sam-bo-chinh-tay-ninh-full.mp4",
+  "30s": "videos/sam-bo-chinh-tay-ninh-30s.mp4",
+  "drive1": "https://drive.google.com/file/d/1lQ98cuk9g9F1Z-tGCG-XCeadLIdcQqw9/preview",
   "yt1": "https://www.youtube.com/embed/wtxXklOBhgE",
   "yt2": "https://www.youtube.com/embed/-vmvlboyWPQ",
   "yt3": "https://www.youtube.com/embed/pp4PH2AByZk",
   "yt4": "https://www.youtube.com/embed/t7tI6t-nH5E",
   "yt5": "https://www.youtube.com/embed/qD9Hduf7tP4",
-
-  // Local TVC MP4
-  "30s": "videos/sam-bo-chinh-tay-ninh-30s.mp4"
+  "yt6": "https://www.youtube.com/embed/HB6Eb67gz1I",
+  "yt7": "https://www.youtube.com/embed/Pyv__M0hrco",
+  "yt8": "https://www.youtube.com/embed/30WM2x-omZ0",
+  "yt9": "https://www.youtube.com/embed/0bQ9ugJJ2rI",
+  "yt10": "https://www.youtube.com/embed/TFXPcn9pA9g",
+  "yt11": "https://www.youtube.com/embed/Np1ZAqhOmUw",
+  "yt12": "https://www.youtube.com/embed/4nfNfRplQYE",
+  "yt13": "https://www.youtube.com/embed/wauNYzVY9Zs",
+  "yt14": "https://www.youtube.com/embed/l36sI61emB4",
+  "yt15": "https://www.youtube.com/embed/BA0d2Jp1Gv8"
 };
+
+window.SITE_VIDEOS_LIST = [
+  {
+    key: "v2",
+    title: "Clip Giới Thiệu Bà Đen Farm (v2 HD)",
+    cat: "tu-lieu",
+    catName: "Phim Tư Liệu & TVC",
+    badge: "Bản HD",
+    type: "mp4",
+    url: "videos/clips-gioi-thieu-bdf-v2.mp4",
+    thumb: "images/ghep-vuon-sam.png"
+  },
+  {
+    key: "full",
+    title: "Phim Tư Liệu Sâm Bố Chính Tây Ninh Full HD",
+    cat: "tu-lieu",
+    catName: "Phim Tư Liệu & TVC",
+    badge: "Bản Đầy Đủ",
+    type: "mp4",
+    url: "videos/sam-bo-chinh-tay-ninh-full.mp4",
+    thumb: "images/14. Vuon sam.jpg"
+  },
+  {
+    key: "30s",
+    title: "TVC Quảng Cáo Sâm Bố Chính 30s",
+    cat: "tu-lieu",
+    catName: "Phim Tư Liệu & TVC",
+    badge: "TVC 30s",
+    type: "mp4",
+    url: "videos/sam-bo-chinh-tay-ninh-30s.mp4",
+    thumb: "images/loi-ich-sbc.png"
+  },
+  {
+    key: "drive1",
+    title: "Clip Drive HD Giới Thiệu Bà Đen Farm",
+    cat: "tu-lieu",
+    catName: "Phim Tư Liệu & TVC",
+    badge: "Google Drive",
+    type: "drive",
+    url: "https://drive.google.com/file/d/1lQ98cuk9g9F1Z-tGCG-XCeadLIdcQqw9/preview",
+    thumb: "images/3. Gioi thieu cong ty.jpg"
+  },
+  {
+    key: "yt1",
+    title: "Triển vọng từ cây sâm Bố Chính trên đất Tây Ninh",
+    cat: "truyen-hinh",
+    catName: "Phim Truyền Hình & Báo Chí",
+    badge: "TayNinhTV",
+    type: "youtube",
+    url: "https://www.youtube.com/embed/wtxXklOBhgE",
+    youtubeUrl: "https://www.youtube.com/watch?v=wtxXklOBhgE",
+    thumb: "https://img.youtube.com/vi/wtxXklOBhgE/hqdefault.jpg"
+  },
+  {
+    key: "yt2",
+    title: "Hành trình 'SÂM BỐ CHÍNH' đến với Tây Ninh",
+    cat: "truyen-hinh",
+    catName: "Phim Truyền Hình & Báo Chí",
+    badge: "TayNinhTV",
+    type: "youtube",
+    url: "https://www.youtube.com/embed/-vmvlboyWPQ",
+    youtubeUrl: "https://www.youtube.com/watch?v=-vmvlboyWPQ",
+    thumb: "https://img.youtube.com/vi/-vmvlboyWPQ/hqdefault.jpg"
+  },
+  {
+    key: "yt3",
+    title: "Khát vọng mùa vàng: Mô hình khởi nghiệp sâm Bố Chính",
+    cat: "truyen-hinh",
+    catName: "Phim Truyền Hình & Báo Chí",
+    badge: "THVL Tập 15",
+    type: "youtube",
+    url: "https://www.youtube.com/embed/pp4PH2AByZk",
+    youtubeUrl: "https://www.youtube.com/watch?v=pp4PH2AByZk",
+    thumb: "https://img.youtube.com/vi/pp4PH2AByZk/hqdefault.jpg"
+  },
+  {
+    key: "yt4",
+    title: "Trồng sâm Bố Chính lấy hoa mang lại hiệu quả kinh tế",
+    cat: "truyen-hinh",
+    catName: "Phim Truyền Hình & Báo Chí",
+    badge: "Tây Ninh Online",
+    type: "youtube",
+    url: "https://www.youtube.com/embed/t7tI6t-nH5E",
+    youtubeUrl: "https://www.youtube.com/watch?v=t7tI6t-nH5E",
+    thumb: "https://img.youtube.com/vi/t7tI6t-nH5E/hqdefault.jpg"
+  },
+  {
+    key: "yt5",
+    title: "Triển vọng phát triển cây sâm Bố Chính gắn với du lịch",
+    cat: "truyen-hinh",
+    catName: "Phim Truyền Hình & Báo Chí",
+    badge: "Tây Ninh Online",
+    type: "youtube",
+    url: "https://www.youtube.com/embed/qD9Hduf7tP4",
+    youtubeUrl: "https://www.youtube.com/watch?v=qD9Hduf7tP4",
+    thumb: "https://img.youtube.com/vi/qD9Hduf7tP4/hqdefault.jpg"
+  },
+  {
+    key: "yt6",
+    title: "Gỏi hoa sâm Bố Chính xé phay",
+    cat: "am-thuc",
+    catName: "Ẩm Thực Chay Việt Tinh Hoa",
+    badge: "Chay Việt Tinh Hoa",
+    type: "youtube",
+    url: "https://www.youtube.com/embed/HB6Eb67gz1I",
+    youtubeUrl: "https://www.youtube.com/watch?v=HB6Eb67gz1I",
+    thumb: "https://img.youtube.com/vi/HB6Eb67gz1I/hqdefault.jpg"
+  },
+  {
+    key: "yt7",
+    title: "Đậu hũ nhồi sâm Bố Chính",
+    cat: "am-thuc",
+    catName: "Ẩm Thực Chay Việt Tinh Hoa",
+    badge: "Chay Việt Tinh Hoa",
+    type: "youtube",
+    url: "https://www.youtube.com/embed/Pyv__M0hrco",
+    youtubeUrl: "https://www.youtube.com/watch?v=Pyv__M0hrco",
+    thumb: "https://img.youtube.com/vi/Pyv__M0hrco/hqdefault.jpg"
+  },
+  {
+    key: "yt8",
+    title: "Súp sâm tiến Vua",
+    cat: "am-thuc",
+    catName: "Ẩm Thực Chay Việt Tinh Hoa",
+    badge: "Món Tiến Vua",
+    type: "youtube",
+    url: "https://www.youtube.com/embed/30WM2x-omZ0",
+    youtubeUrl: "https://www.youtube.com/watch?v=30WM2x-omZ0",
+    thumb: "https://img.youtube.com/vi/30WM2x-omZ0/hqdefault.jpg"
+  },
+  {
+    key: "yt9",
+    title: "Sâm sốt giấy bạc",
+    cat: "am-thuc",
+    catName: "Ẩm Thực Chay Việt Tinh Hoa",
+    badge: "Chay Việt Tinh Hoa",
+    type: "youtube",
+    url: "https://www.youtube.com/embed/0bQ9ugJJ2rI",
+    youtubeUrl: "https://www.youtube.com/watch?v=0bQ9ugJJ2rI",
+    thumb: "https://img.youtube.com/vi/0bQ9ugJJ2rI/hqdefault.jpg"
+  },
+  {
+    key: "yt10",
+    title: "Trailer Sâm sốt giấy bạc",
+    cat: "am-thuc",
+    catName: "Ẩm Thực Chay Việt Tinh Hoa",
+    badge: "Trailer",
+    type: "youtube",
+    url: "https://www.youtube.com/embed/TFXPcn9pA9g",
+    youtubeUrl: "https://www.youtube.com/watch?v=TFXPcn9pA9g",
+    thumb: "https://img.youtube.com/vi/TFXPcn9pA9g/hqdefault.jpg"
+  },
+  {
+    key: "yt11",
+    title: "Chay Việt tinh hoa - Tập 5: Lẩu tiến Vua",
+    cat: "am-thuc",
+    catName: "Ẩm Thực Chay Việt Tinh Hoa",
+    badge: "Tập 5",
+    type: "youtube",
+    url: "https://www.youtube.com/embed/Np1ZAqhOmUw",
+    youtubeUrl: "https://www.youtube.com/watch?v=Np1ZAqhOmUw",
+    thumb: "https://img.youtube.com/vi/Np1ZAqhOmUw/hqdefault.jpg"
+  },
+  {
+    key: "yt12",
+    title: "Trailer Sâm xiên que",
+    cat: "am-thuc",
+    catName: "Ẩm Thực Chay Việt Tinh Hoa",
+    badge: "Trailer",
+    type: "youtube",
+    url: "https://www.youtube.com/embed/4nfNfRplQYE",
+    youtubeUrl: "https://www.youtube.com/watch?v=4nfNfRplQYE",
+    thumb: "https://img.youtube.com/vi/4nfNfRplQYE/hqdefault.jpg"
+  },
+  {
+    key: "yt13",
+    title: "Lá kim cuộn sâm",
+    cat: "am-thuc",
+    catName: "Ẩm Thực Chay Việt Tinh Hoa",
+    badge: "Chay Việt Tinh Hoa",
+    type: "youtube",
+    url: "https://www.youtube.com/embed/wauNYzVY9Zs",
+    youtubeUrl: "https://www.youtube.com/watch?v=wauNYzVY9Zs",
+    thumb: "https://img.youtube.com/vi/wauNYzVY9Zs/hqdefault.jpg"
+  },
+  {
+    key: "yt14",
+    title: "Cải thảo bọc sâm ngũ sắc",
+    cat: "am-thuc",
+    catName: "Ẩm Thực Chay Việt Tinh Hoa",
+    badge: "Chay Việt Tinh Hoa",
+    type: "youtube",
+    url: "https://www.youtube.com/embed/l36sI61emB4",
+    youtubeUrl: "https://www.youtube.com/watch?v=l36sI61emB4",
+    thumb: "https://img.youtube.com/vi/l36sI61emB4/hqdefault.jpg"
+  },
+  {
+    key: "yt15",
+    title: "Chay Việt tinh hoa - Tập 10: Gỏi tiến Vua",
+    cat: "am-thuc",
+    catName: "Ẩm Thực Chay Việt Tinh Hoa",
+    badge: "Tập 10",
+    type: "youtube",
+    url: "https://www.youtube.com/embed/BA0d2Jp1Gv8",
+    youtubeUrl: "https://www.youtube.com/watch?v=BA0d2Jp1Gv8",
+    thumb: "https://img.youtube.com/vi/BA0d2Jp1Gv8/hqdefault.jpg"
+  }
+];
 
 /**
  * ------------------------------------------------------------
