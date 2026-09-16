@@ -3460,6 +3460,28 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
       activeTab.className = 'policy-tab-btn w-full text-left flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs font-bold bg-green700 text-white shadow-soft transition cursor-pointer';
     }
     if (activeContent) {
+      try {
+        var raw = localStorage.getItem('BDF_POLICIES_DATA');
+        if (raw) {
+          var policies = JSON.parse(raw);
+          if (policies && policies[tabKey]) {
+            var item = policies[tabKey];
+            var html = '<h4 class="text-base font-bold text-green900 border-b border-borderc pb-2 mb-3 flex items-center gap-2">';
+            html += '  <span>' + (item.icon || '📜') + '</span> <span>' + item.title + '</span>';
+            html += '</h4>';
+            if (item.summary) html += '<p>' + item.summary + '</p>';
+            if (item.bullet1 || item.bullet2 || item.bullet3) {
+              html += '<ul class="list-disc pl-5 space-y-1.5 mt-3 text-textsoft">';
+              if (item.bullet1) html += '  <li>' + item.bullet1 + '</li>';
+              if (item.bullet2) html += '  <li>' + item.bullet2 + '</li>';
+              if (item.bullet3) html += '  <li>' + item.bullet3 + '</li>';
+              html += '</ul>';
+            }
+            activeContent.innerHTML = html;
+          }
+        }
+      } catch(e){}
+
       activeContent.classList.remove('hidden');
     }
   }

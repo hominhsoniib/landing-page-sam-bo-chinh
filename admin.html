@@ -144,6 +144,9 @@
         <button tab-target="tabFarmLogs" class="tab-btn px-4 py-2 rounded-xl text-sm font-semibold transition bg-gray-100 text-gray-700 hover:bg-gray-200">
           🪴 Nhật Ký Vùng Trồng
         </button>
+        <button tab-target="tabPolicies" class="tab-btn px-4 py-2 rounded-xl text-sm font-semibold transition bg-gray-100 text-gray-700 hover:bg-gray-200">
+          📜 Điều Khoản Sử Dụng
+        </button>
         <button tab-target="tabUpload" class="tab-btn px-4 py-2 rounded-xl text-sm font-semibold transition bg-gray-100 text-gray-700 hover:bg-gray-200">
           📁 Tải Ảnh Up Server
         </button>
@@ -252,7 +255,23 @@
         </div>
       </div>
 
-    </div>
+      <!-- TAB 7: ĐIỀU KHOẢN SỬ DỤNG & CHÍNH SÁCH (POLICIES CMS) -->
+      <div id="tabPolicies" class="tab-content hidden space-y-6">
+        <div class="bg-gradient-to-r from-green900 via-green700 to-green900 text-white p-6 rounded-2xl shadow-sm flex flex-wrap justify-between items-center gap-4 border border-gold600/30">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-gold100">📜 CMS ĐĂNG BÀI & CẬP NHẬT NỘI DUNG</span>
+            <h3 class="text-xl font-bold font-display mt-1 text-gold400">Quản Lý 7 Điều Khoản Sử Dụng & Chính Sách Bà Đen Farm</h3>
+            <p class="text-xs text-white/80 mt-1">Chỉnh sửa tiêu đề, nội dung chi tiết bài viết chính sách. Dữ liệu sẽ tự động lưu & hiển thị trên toàn bộ Website.</p>
+          </div>
+          <button onclick="createNewPolicyArticlePrompt()" class="px-4 py-2 bg-gold600 hover:bg-gold500 text-green950 text-xs font-bold rounded-xl shadow transition cursor-pointer">
+            + Đăng Bài Viết Điều Khoản Mới
+          </button>
+        </div>
+
+        <div id="policiesList" class="space-y-4">
+          <!-- Rendered dynamically via JS -->
+        </div>
+      </div>
 
   </main>
 
@@ -429,6 +448,219 @@
       renderCoursesGrid();
       renderOrdersTable();
       renderFarmLogs();
+      renderPoliciesManager();
+    }
+
+    // Default 7 Policies Initial Data
+    var DEFAULT_POLICIES_DATA = {
+      'bao-hanh': {
+        key: 'bao-hanh',
+        icon: '🛡️',
+        title: 'Chính Sách Bảo Hành Chất Lượng',
+        summary: 'Cam kết 100% sản phẩm Sâm Bố Chính (Sâm Tiến Vua), Bột Sâm, Cao Sâm và Trà Hoa Sâm được nuôi trồng tại vùng trồng Tây Ninh theo quy trình VietGAP & đạt chứng nhận OCOP 3 Star.',
+        bullet1: 'Bảo hành nguồn gốc: Mã QR truy xuất nguồn gốc gắn trên từng bao bì sản phẩm, thông tin minh bạch 100%.',
+        bullet2: 'Bảo hành chất lượng củ sâm: Cam kết củ sâm đạt đúng độ tuổi thu hoạch, hàm lượng Saponin cao (15.2mg/g) và dồi dào chất nhầy Mucin.',
+        bullet3: 'Bảo hành niêm phong: Tất cả sản phẩm chính hãng đều có tem niêm phong chống hàng giả của Bà Đen Farm.',
+        updatedAt: '2026-09-16'
+      },
+      'doi-tra': {
+        key: 'doi-tra',
+        icon: '🔄',
+        title: 'Chính Sách Đổi Trả & Hoàn Tiền',
+        summary: 'Nhằm bảo vệ tối đa quyền lợi khách hàng, Bà Đen Farm áp dụng chính sách 1 đổi 1 nhanh chóng trong 7 ngày.',
+        bullet1: 'Thời hạn đổi trả: Trong vòng 7 ngày kể từ khi quý khách nhận được hàng.',
+        bullet2: 'Điều kiện đổi trả: Sản phẩm hư hỏng do vận chuyển, tem niêm phong bị rách/mở trước khi nhận, hoặc giao sai chủng loại đặt mua.',
+        bullet3: 'Chi phí vận chuyển: Bà Đen Farm chịu 100% chi phí ship 2 chiều nếu phát sinh lỗi từ nhà sản xuất hoặc đơn vị vận chuyển.',
+        updatedAt: '2026-09-16'
+      },
+      'thanh-toan': {
+        key: 'thanh-toan',
+        icon: '💳',
+        title: 'Chính Sách Thanh Toán',
+        summary: 'Bà Đen Farm hỗ trợ đa dạng phương thức thanh toán an toàn và tiện lợi toàn quốc.',
+        bullet1: 'Thanh toán khi nhận hàng (COD): Nhận hàng, kiểm tra sản phẩm và thanh toán trực tiếp cho nhân viên giao hàng.',
+        bullet2: 'Chuyển khoản Ngân hàng (Mã QR Napas247): Quét mã QR chuyển khoản tự động chính xác nội dung đơn hàng.',
+        bullet3: 'Thanh toán tại chỗ: Tại Showroom và Nhà hàng Ẩm thực Sâm Bà Đen (Chân núi Bà Đen, Tây Ninh).',
+        updatedAt: '2026-09-16'
+      },
+      'ban-hang': {
+        key: 'ban-hang',
+        icon: '🛒',
+        title: 'Chính Sách Bán Hàng & Ưu Đãi',
+        summary: 'Quy định minh bạch về giá niêm yết công khai và chính sách hỗ trợ Đại lý / Khách sỉ.',
+        bullet1: 'Giá niêm yết công khai: Toàn bộ giá sản phẩm được niêm yết rõ ràng trên hệ thống website & bảng giá chuẩn.',
+        bullet2: 'Chính sách Đại lý & Phân phối: Chiết khấu hấp dẫn cho Đại lý, Nhà phân phối và Doanh nghiệp mua làm quà tặng.',
+        bullet3: 'Tư vấn 24/7: Đội ngũ chuyên viên hỗ trợ tư vấn sử dụng củ sâm và chế biến món ăn miễn phí.',
+        updatedAt: '2026-09-16'
+      },
+      'kiem-tra': {
+        key: 'kiem-tra',
+        icon: '🔍',
+        title: 'Chính Sách Kiểm Tra Hàng (Đồng Kiểm)',
+        summary: 'Khách hàng hoàn toàn có quyền đồng kiểm bưu phẩm trực tiếp trước khi thanh toán tiền.',
+        bullet1: 'Quyền bóc mở đồng kiểm: Quý khách được mở bưu phẩm kiểm tra tem niêm phong, quét mã QR truy xuất trên vỏ hộp trước khi trả tiền.',
+        bullet2: 'Trường hợp từ chối nhận hàng: Nếu bưu phẩm có dấu hiệu móp vỡ hoặc sai sản phẩm, quý khách hoàn toàn có quyền từ chối nhận mà không mất phí.',
+        bullet3: 'Xử lý sự cố: Gọi hotline 0919.257.757 để được xử lý ngay tại thời điểm nhận hàng.',
+        updatedAt: '2026-09-16'
+      },
+      'bao-mat': {
+        key: 'bao-mat',
+        icon: '🔒',
+        title: 'Chính Sách Bảo Mật Thông Tin',
+        summary: 'Bà Đen Farm tôn trọng và cam kết bảo vệ dữ liệu cá nhân của khách hàng tuyệt đối.',
+        bullet1: 'Mục đích thu thập: Chỉ sử dụng họ tên, số điện thoại, địa chỉ phục vụ công tác giao hàng và bảo hành sản phẩm.',
+        bullet2: 'Bảo mật tuyệt đối: Không chia sẻ, trao đổi hay bán thông tin cá nhân khách hàng cho bất kỳ bên thứ ba nào.',
+        bullet3: 'An toàn dữ liệu: Áp dụng mã hóa SSL chuẩn bảo mật cao nhất.',
+        updatedAt: '2026-09-16'
+      },
+      'van-chuyen': {
+        key: 'van-chuyen',
+        icon: '🚚',
+        title: 'Chính Sách Vận Chuyển & Giao Nhận',
+        summary: 'Mạng lưới giao vận nhanh chóng toàn quốc liên kết Viettel Post / GHTK.',
+        bullet1: 'Khu vực Tây Ninh & TP.HCM: Giao siêu tốc trong 2h - 24h.',
+        bullet2: 'Các tỉnh thành toàn quốc: Giao hàng từ 2 - 4 ngày làm việc thông qua đối tác Viettel Post / GHTK.',
+        bullet3: 'Miễn phí vận chuyển: Áp dụng miễn phí ship cho các đơn hàng đạt giá trị tối thiểu theo chương trình khuyến mãi.',
+        updatedAt: '2026-09-16'
+      }
+    };
+
+    function getPoliciesData() {
+      try {
+        var raw = localStorage.getItem('BDF_POLICIES_DATA');
+        if (raw) return JSON.parse(raw);
+      } catch(e){}
+      return DEFAULT_POLICIES_DATA;
+    }
+
+    async function renderPoliciesManager() {
+      var wrap = document.getElementById('policiesList');
+      if (!wrap) return;
+      var policies = getPoliciesData();
+
+      if (supabaseClient) {
+        var res = await supabaseClient.from('site_content').select('*').eq('category', 'dieu-khoan');
+        if (res.data && res.data.length > 0) {
+          res.data.forEach(function(row){
+            try {
+              var parsed = JSON.parse(row.content);
+              if (parsed && parsed.key) policies[parsed.key] = parsed;
+            } catch(e){}
+          });
+        }
+      }
+
+      var html = '';
+      Object.keys(policies).forEach(function(key){
+        var p = policies[key];
+        html += `
+          <div class="bg-surface rounded-2xl p-5 border border-gray-200 shadow-xs space-y-3">
+            <div class="flex flex-wrap justify-between items-center gap-2 border-b border-gray-100 pb-3">
+              <div class="flex items-center gap-2">
+                <span class="text-xl">${p.icon || '📜'}</span>
+                <h4 class="font-display font-bold text-gray-900 text-sm sm:text-base">${p.title}</h4>
+                <span class="text-[10px] bg-green-100 text-green700 font-bold px-2 py-0.5 rounded">Mã bài: ${key}</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-gray-400">Cập nhật: ${p.updatedAt || 'Hôm nay'}</span>
+                <button onclick="savePolicyArticle('${key}')" class="px-3.5 py-1.5 bg-green900 hover:bg-green700 text-white font-bold text-xs rounded-lg transition shadow-xs cursor-pointer">
+                  💾 Lưu & Đăng Bài
+                </button>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+              <div class="col-span-full">
+                <label class="block font-semibold text-gray-700 mb-1">Tiêu đề bài viết chính sách</label>
+                <input id="pol-title-${key}" type="text" value="${p.title || ''}" class="w-full px-3 py-2 border rounded-xl font-bold text-green900">
+              </div>
+              <div class="col-span-full">
+                <label class="block font-semibold text-gray-700 mb-1">Mô tả tóm tắt</label>
+                <textarea id="pol-sum-${key}" rows="2" class="w-full px-3 py-2 border rounded-xl text-gray-700">${p.summary || ''}</textarea>
+              </div>
+              <div>
+                <label class="block font-semibold text-gray-700 mb-1">Ý chính 1</label>
+                <input id="pol-b1-${key}" type="text" value="${p.bullet1 || ''}" class="w-full px-3 py-1.5 border rounded-lg">
+              </div>
+              <div>
+                <label class="block font-semibold text-gray-700 mb-1">Ý chính 2</label>
+                <input id="pol-b2-${key}" type="text" value="${p.bullet2 || ''}" class="w-full px-3 py-1.5 border rounded-lg">
+              </div>
+              <div class="col-span-full">
+                <label class="block font-semibold text-gray-700 mb-1">Ý chính 3 / Ghi chú bổ sung</label>
+                <input id="pol-b3-${key}" type="text" value="${p.bullet3 || ''}" class="w-full px-3 py-1.5 border rounded-lg">
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      wrap.innerHTML = html;
+    }
+
+    async function savePolicyArticle(key) {
+      var policies = getPoliciesData();
+      var title = document.getElementById('pol-title-' + key).value.trim();
+      var summary = document.getElementById('pol-sum-' + key).value.trim();
+      var b1 = document.getElementById('pol-b1-' + key).value.trim();
+      var b2 = document.getElementById('pol-b2-' + key).value.trim();
+      var b3 = document.getElementById('pol-b3-' + key).value.trim();
+
+      if (!title) {
+        showToast('Vui lòng nhập tiêu đề bài viết!', true);
+        return;
+      }
+
+      var now = new Date().toISOString().substring(0, 10);
+      var item = {
+        key: key,
+        icon: (policies[key] && policies[key].icon) || '📜',
+        title: title,
+        summary: summary,
+        bullet1: b1,
+        bullet2: b2,
+        bullet3: b3,
+        updatedAt: now
+      };
+
+      policies[key] = item;
+      localStorage.setItem('BDF_POLICIES_DATA', JSON.stringify(policies));
+
+      if (supabaseClient) {
+        await supabaseClient.from('site_content').upsert({
+          id: 'policy-' + key,
+          type: 'text',
+          content: JSON.stringify(item),
+          alt_text: title,
+          category: 'dieu-khoan'
+        });
+      }
+
+      showToast('✅ Đã lưu bài viết "' + title + '" thành công!');
+    }
+
+    function createNewPolicyArticlePrompt() {
+      var key = prompt('Nhập mã định danh bài viết điều khoản mới (Ví dụ: khuyen-mai, dai-ly-2, quy-dinh):');
+      if (!key) return;
+      key = key.trim().toLowerCase().replace(/[^a-z0-9_-]/g, '-');
+      var title = prompt('Nhập tiêu đề bài viết điều khoản / chính sách mới:');
+      if (!title) return;
+
+      var policies = getPoliciesData();
+      policies[key] = {
+        key: key,
+        icon: '📝',
+        title: title,
+        summary: 'Mô tả nội dung điều khoản mới...',
+        bullet1: 'Quy định chi tiết 1',
+        bullet2: 'Quy định chi tiết 2',
+        bullet3: 'Quy định chi tiết 3',
+        updatedAt: new Date().toISOString().substring(0, 10)
+      };
+
+      localStorage.setItem('BDF_POLICIES_DATA', JSON.stringify(policies));
+      showToast('Đã thêm bài viết mới!');
+      renderPoliciesManager();
     }
 
     // Render Courses Grid (Academy Tab)
